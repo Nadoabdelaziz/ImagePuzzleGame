@@ -17,9 +17,13 @@ public class LevelSelectionActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_level_selection);
 
+        Intent intent = getIntent();
+        String mCurrentPhotoPath = intent.getStringExtra("mCurrentPhotoPath");
+        String mCurrentPhotoUri = intent.getStringExtra("mCurrentPhotoUri");
 
             Bundle zizo = getIntent().getExtras();
             String assetname = zizo.getString("assetName");
+
 
         Toast.makeText(this, assetname, Toast.LENGTH_SHORT).show();
 
@@ -31,9 +35,22 @@ public class LevelSelectionActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), PuzzleActivity.class);
-                intent.putExtra("levelname", btn1.getText());
-                intent.putExtra("assetname", assetname);
-                startActivity(intent);
+                if(mCurrentPhotoPath!=null){
+                    intent.putExtra("levelname", btn1.getText());
+                    intent.putExtra("mCurrentPhotoPath", mCurrentPhotoPath);
+                    startActivity(intent);
+                }
+                else if(mCurrentPhotoUri !=null){
+                    intent.putExtra("levelname", btn1.getText());
+                    intent.putExtra("mCurrentPhotoUri", mCurrentPhotoUri);
+                    startActivity(intent);
+                }
+                else{
+                    intent.putExtra("levelname", btn1.getText());
+                    intent.putExtra("assetname", assetname);
+                    startActivity(intent);
+                }
+
 
             }
         });
@@ -42,9 +59,21 @@ public class LevelSelectionActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), PuzzleActivity.class);
-                intent.putExtra("levelname", btn2.getText());
-                intent.putExtra("assetname", assetname);
-                startActivity(intent);
+                if(mCurrentPhotoPath!=null){
+                    intent.putExtra("levelname", btn2.getText());
+                    intent.putExtra("mCurrentPhotoPath", mCurrentPhotoPath);
+                    startActivity(intent);
+                }
+                else if(mCurrentPhotoUri !=null){
+                    intent.putExtra("levelname", btn2.getText());
+                    intent.putExtra("mCurrentPhotoUri", mCurrentPhotoUri);
+                    startActivity(intent);
+                }
+                else{
+                    intent.putExtra("levelname", btn2.getText());
+                    intent.putExtra("assetname", assetname);
+                    startActivity(intent);
+                }
             }
         });
 
@@ -52,9 +81,21 @@ public class LevelSelectionActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), PuzzleActivity.class);
-                intent.putExtra("levelname", btn3.getText());
-                intent.putExtra("assetname", assetname);
-                startActivity(intent);
+                if(mCurrentPhotoPath!=null){
+                    intent.putExtra("levelname", btn3.getText());
+                    intent.putExtra("mCurrentPhotoPath", mCurrentPhotoPath);
+                    startActivity(intent);
+                }
+                else if(mCurrentPhotoUri !=null){
+                    intent.putExtra("levelname", btn3.getText());
+                    intent.putExtra("mCurrentPhotoUri", mCurrentPhotoUri);
+                    startActivity(intent);
+                }
+                else{
+                    intent.putExtra("levelname", btn3.getText());
+                    intent.putExtra("assetname", assetname);
+                    startActivity(intent);
+                }
             }
         });
     }

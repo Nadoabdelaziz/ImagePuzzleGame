@@ -153,14 +153,20 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
-            Intent intent = new Intent(this, PuzzleActivity.class);
+//            Intent intent = new Intent(this, PuzzleActivity.class);
+//            intent.putExtra("mCurrentPhotoPath", mCurrentPhotoPath);
+//            startActivity(intent);
+            Intent intent = new Intent(this, LevelSelectionActivity.class);
             intent.putExtra("mCurrentPhotoPath", mCurrentPhotoPath);
             startActivity(intent);
         }
         if (requestCode == REQUEST_IMAGE_GALLERY && resultCode == RESULT_OK) {
             Uri uri = data.getData();
+//            Intent intent = new Intent(this, PuzzleActivity.class);
+//            intent.putExtra("mCurrentPhotoUri", uri.toString());
+//            startActivity(intent);
 
-            Intent intent = new Intent(this, PuzzleActivity.class);
+            Intent intent = new Intent(this, LevelSelectionActivity.class);
             intent.putExtra("mCurrentPhotoUri", uri.toString());
             startActivity(intent);
         }

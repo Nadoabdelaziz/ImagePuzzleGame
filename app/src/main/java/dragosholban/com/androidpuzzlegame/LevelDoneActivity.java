@@ -50,7 +50,7 @@ public class LevelDoneActivity extends AppCompatActivity {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), LevelSelectionActivity.class);
+                Intent intent = new Intent(getApplicationContext(), GameMenuActivity.class);
                 startActivity(intent);
             }
         });

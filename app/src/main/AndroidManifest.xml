@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".losegameactivity"
+            android:exported="false" />
+        <activity
             android:name=".GameMenuActivity"
             android:exported="false" />
         <activity android:name=".StartGameActivity">

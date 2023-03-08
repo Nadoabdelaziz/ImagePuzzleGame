@@ -37,9 +37,11 @@ public class PuzzleActivity extends AppCompatActivity {
     String mCurrentPhotoPath;
     String mCurrentPhotoUri;
 
+    public boolean timeUp=false;
+
     TextView clk;
     CountDownTimer countDownTimer;
-    long timeleft = 600600;
+    long timeleft = 5000;
     boolean timerrunning;
 
 //    Intent intent = getIntent();
@@ -127,7 +129,8 @@ public class PuzzleActivity extends AppCompatActivity {
 
             @Override
             public void onFinish() {
-                Toast.makeText(PuzzleActivity.this, "Time's Up !!", Toast.LENGTH_SHORT).show();
+                timeUp = true;
+                checkGameOver();
             }
         }.start();
     }
@@ -374,21 +377,32 @@ public class PuzzleActivity extends AppCompatActivity {
             String assetName = intent.getStringExtra("assetname");
             String level = intent.getStringExtra("levelname");
 
-            intent = new Intent(getApplicationContext(), LevelDoneActivity.class);
-            intent.putExtra("assetName", assetName);
-            intent.putExtra("level",level);
-            startActivity(intent);
-//            finish();
+            if(timeUp == true){
+                intent = new Intent(getApplicationContext(), losegameactivity.class);
+                intent.putExtra("assetName", assetName);
+                intent.putExtra("level",level);
+                startActivity(intent);
+            }
+            else{
+                intent = new Intent(getApplicationContext(), LevelDoneActivity.class);
+                intent.putExtra("assetName", assetName);
+                intent.putExtra("level",level);
+                startActivity(intent);
+            }
         }
     }
 
     private boolean isGameOver() {
+
+        if(timeUp==true){
+            return true;
+        }
+
         for (PuzzlePiece piece : pieces) {
             if (piece.canMove) {
                 return false;
             }
         }
-
         return true;
     }
 
