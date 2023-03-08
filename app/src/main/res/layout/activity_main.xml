@@ -4,17 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="dragosholban.com.androidpuzzlegame.MainActivity"
-    android:background="@drawable/table_background">
+    android:background="@drawable/table_background"
+    tools:context="dragosholban.com.androidpuzzlegame.MainActivity">
 
     <GridView
         android:id="@+id/grid"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
+        android:layout_width="386dp"
+        android:layout_height="607dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
         android:horizontalSpacing="10dp"
         android:numColumns="3"
         android:paddingHorizontal="10dp"
@@ -29,9 +29,9 @@
         android:id="@+id/cameraButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
+        android:layout_marginBottom="16dp"
         android:clickable="true"
         android:onClick="onImageFromCameraClick"
         android:src="@drawable/ic_photo_camera_black_24dp"
@@ -43,14 +43,26 @@
         android:id="@+id/galleryButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
+        android:layout_marginBottom="16dp"
         android:clickable="true"
         android:onClick="onImageFromGalleryClick"
         android:src="@drawable/ic_image_black_24dp"
         android:tint="@android:color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/cameraButton" />
+
+    <TextView
+        android:id="@+id/points"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="169dp"
+        android:layout_marginLeft="169dp"
+        android:layout_marginTop="17dp"
+        android:text="TextView"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </android.support.constraint.ConstraintLayout>

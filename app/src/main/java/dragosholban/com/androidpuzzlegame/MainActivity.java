@@ -2,6 +2,7 @@ package dragosholban.com.androidpuzzlegame;
 
 import android.Manifest;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.content.res.AssetManager;
 import android.graphics.Bitmap;
@@ -28,6 +29,7 @@ import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.File;
@@ -50,6 +52,19 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        SharedPreferences sharedPref= getSharedPreferences("Points", 0);
+//        SharedPreferences.Editor editor= sharedPref.edit();
+//        editor.putString("number", "10000");
+//        editor.commit();
+
+
+//        String Pts = "125";
+//        SharedPreferences mPrefs = getSharedPreferences(Pts, 0);
+//        String mString = mPrefs.getString("tag", "default_value_if_variable_not_found");
+
+
+
+
         AssetManager am = getAssets();
         try {
             final String[] files  = am.list("img");
@@ -57,6 +72,10 @@ public class MainActivity extends AppCompatActivity {
             Bundle zizo = getIntent().getExtras();
             String level = zizo.getString("levelname");
 //            Toast.makeText(this, zizo.getString("levelname"), Toast.LENGTH_SHORT).show();
+
+            TextView points = (TextView) findViewById(R.id.points);
+            String number = sharedPref.getString("number", "");
+            points.setText(number);
 
             GridView grid = findViewById(R.id.grid);
             grid.setAdapter(new ImageAdapter(this));

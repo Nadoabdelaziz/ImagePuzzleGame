@@ -14,6 +14,8 @@ public class LevelDoneActivity extends AppCompatActivity {
         setContentView(R.layout.activity_level_done);
 
         Button button = (Button) findViewById(R.id.nextlvl);
+        Button back = (Button) findViewById(R.id.Back);
+
 
         Intent intent = getIntent();
         final String assetName = intent.getStringExtra("assetName");
@@ -37,6 +39,14 @@ public class LevelDoneActivity extends AppCompatActivity {
                 Intent intent = new Intent(getApplicationContext(), PuzzleActivity.class);
                 intent.putExtra("assetName", assetName);
                 intent.putExtra("levelname",newlevel);
+                startActivity(intent);
+            }
+        });
+
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), LevelSelectionActivity.class);
                 startActivity(intent);
             }
         });

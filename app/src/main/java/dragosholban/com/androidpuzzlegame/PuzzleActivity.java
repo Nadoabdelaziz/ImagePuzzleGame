@@ -1,6 +1,7 @@
 package dragosholban.com.androidpuzzlegame;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.AssetManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -362,6 +363,13 @@ public class PuzzleActivity extends AppCompatActivity {
 
     public void checkGameOver() {
         if (isGameOver()) {
+            SharedPreferences sharedPref= getSharedPreferences("Points", 0);
+            SharedPreferences.Editor editor= sharedPref.edit();
+            String newnumber = sharedPref.getString("number", "");
+
+            editor.putString("number", String.valueOf(Integer.parseInt(newnumber)+1000));
+            editor.commit();
+
             Intent intent = getIntent();
             final String assetName = intent.getStringExtra("assetName");
             final String level = intent.getStringExtra("levelname");
