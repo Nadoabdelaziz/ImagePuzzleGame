@@ -68,9 +68,9 @@ public class MainActivity extends AppCompatActivity {
         AssetManager am = getAssets();
         try {
             final String[] files  = am.list("img");
-
-            Bundle zizo = getIntent().getExtras();
-            String level = zizo.getString("levelname");
+//
+//            Bundle zizo = getIntent().getExtras();
+//            String level = zizo.getString("levelname");
 //            Toast.makeText(this, zizo.getString("levelname"), Toast.LENGTH_SHORT).show();
 
             TextView points = (TextView) findViewById(R.id.points);
@@ -82,9 +82,12 @@ public class MainActivity extends AppCompatActivity {
             grid.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                    Intent intent = new Intent(getApplicationContext(), PuzzleActivity.class);
+//                    Intent intent = new Intent(getApplicationContext(), PuzzleActivity.class);
+//                    intent.putExtra("assetName", files[i % files.length]);
+//                    intent.putExtra("levelname",level);
+//                    startActivity(intent);
+                    Intent intent = new Intent(getApplicationContext(), LevelSelectionActivity.class);
                     intent.putExtra("assetName", files[i % files.length]);
-                    intent.putExtra("levelname",level);
                     startActivity(intent);
                 }
 

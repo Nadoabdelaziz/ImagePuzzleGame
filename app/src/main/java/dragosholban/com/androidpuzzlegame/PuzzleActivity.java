@@ -66,8 +66,9 @@ public class PuzzleActivity extends AppCompatActivity {
 
 
         Intent intent = getIntent();
-        final String assetName = intent.getStringExtra("assetName");
-        final String level = intent.getStringExtra("levelname");
+        String assetName = intent.getStringExtra("assetname");
+        String level = intent.getStringExtra("levelname");
+
 
         mCurrentPhotoPath = intent.getStringExtra("mCurrentPhotoPath");
         mCurrentPhotoUri = intent.getStringExtra("mCurrentPhotoUri");
@@ -85,7 +86,6 @@ public class PuzzleActivity extends AppCompatActivity {
                     imageView.setImageURI(Uri.parse(mCurrentPhotoUri));
                 }
 
-                Toast.makeText(PuzzleActivity.this, level, Toast.LENGTH_SHORT).show();
                 if (level.toString().equals("Easy")){
                     pieces = splitImage(9,3,3);
 
@@ -363,20 +363,20 @@ public class PuzzleActivity extends AppCompatActivity {
 
     public void checkGameOver() {
         if (isGameOver()) {
-            SharedPreferences sharedPref= getSharedPreferences("Points", 0);
-            SharedPreferences.Editor editor= sharedPref.edit();
-            String newnumber = sharedPref.getString("number", "");
-
-            editor.putString("number", String.valueOf(Integer.parseInt(newnumber)+1000));
-            editor.commit();
-
+//            SharedPreferences sharedPref= getSharedPreferences("Points", 0);
+//            SharedPreferences.Editor editor= sharedPref.edit();
+//            String newnumber = sharedPref.getString("number", "");
+//
+//            editor.putString("number", String.valueOf(Integer.parseInt(newnumber)+1000));
+//            editor.commit();
+//
             Intent intent = getIntent();
-            final String assetName = intent.getStringExtra("assetName");
-            final String level = intent.getStringExtra("levelname");
+            String assetName = intent.getStringExtra("assetname");
+            String level = intent.getStringExtra("levelname");
 
             intent = new Intent(getApplicationContext(), LevelDoneActivity.class);
             intent.putExtra("assetName", assetName);
-            intent.putExtra("levelname",level);
+            intent.putExtra("level",level);
             startActivity(intent);
 //            finish();
         }

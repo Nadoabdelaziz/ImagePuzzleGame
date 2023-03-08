@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.GridView;
+import android.widget.Toast;
 
 public class LevelSelectionActivity extends AppCompatActivity {
 
@@ -17,6 +18,10 @@ public class LevelSelectionActivity extends AppCompatActivity {
         setContentView(R.layout.activity_level_selection);
 
 
+            Bundle zizo = getIntent().getExtras();
+            String assetname = zizo.getString("assetName");
+
+        Toast.makeText(this, assetname, Toast.LENGTH_SHORT).show();
 
         Button btn1 = (Button) findViewById(R.id.easy);
         Button btn2 = (Button) findViewById(R.id.hard);
@@ -25,17 +30,20 @@ public class LevelSelectionActivity extends AppCompatActivity {
         btn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                Intent intent = new Intent(getApplicationContext(), PuzzleActivity.class);
                 intent.putExtra("levelname", btn1.getText());
+                intent.putExtra("assetname", assetname);
                 startActivity(intent);
+
             }
         });
 
         btn2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                Intent intent = new Intent(getApplicationContext(), PuzzleActivity.class);
                 intent.putExtra("levelname", btn2.getText());
+                intent.putExtra("assetname", assetname);
                 startActivity(intent);
             }
         });
@@ -43,8 +51,9 @@ public class LevelSelectionActivity extends AppCompatActivity {
         btn3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                Intent intent = new Intent(getApplicationContext(), PuzzleActivity.class);
                 intent.putExtra("levelname", btn3.getText());
+                intent.putExtra("assetname", assetname);
                 startActivity(intent);
             }
         });

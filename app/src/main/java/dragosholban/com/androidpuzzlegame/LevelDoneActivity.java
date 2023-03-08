@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 public class LevelDoneActivity extends AppCompatActivity {
 
@@ -18,9 +19,12 @@ public class LevelDoneActivity extends AppCompatActivity {
 
 
         Intent intent = getIntent();
-        final String assetName = intent.getStringExtra("assetName");
-        final String level = intent.getStringExtra("levelname");
+        String assetName = intent.getStringExtra("assetName");
+        String level = intent.getStringExtra("level");
 
+
+        Toast.makeText(this, assetName, Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, level, Toast.LENGTH_SHORT).show();
 
         button.setOnClickListener(new View.OnClickListener() {
 
@@ -37,7 +41,7 @@ public class LevelDoneActivity extends AppCompatActivity {
                 }
 
                 Intent intent = new Intent(getApplicationContext(), PuzzleActivity.class);
-                intent.putExtra("assetName", assetName);
+                intent.putExtra("assetname", assetName);
                 intent.putExtra("levelname",newlevel);
                 startActivity(intent);
             }
