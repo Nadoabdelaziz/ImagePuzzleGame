@@ -25,7 +25,7 @@ public class LevelSelectionActivity extends AppCompatActivity {
             String assetname = zizo.getString("assetName");
 
 
-        Toast.makeText(this, assetname, Toast.LENGTH_SHORT).show();
+//        Toast.makeText(this, assetname, Toast.LENGTH_SHORT).show();
 
         Button btn1 = (Button) findViewById(R.id.easy);
         Button btn2 = (Button) findViewById(R.id.hard);

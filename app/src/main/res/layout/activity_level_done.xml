@@ -81,8 +81,11 @@
         android:id="@+id/score"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="248dp"
+        android:layout_marginLeft="248dp"
+        android:layout_marginTop="156dp"
         android:textSize="28sp"
-        tools:layout_editor_absoluteX="248dp"
-        tools:layout_editor_absoluteY="156dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         tools:text="res" />
 </android.support.constraint.ConstraintLayout>

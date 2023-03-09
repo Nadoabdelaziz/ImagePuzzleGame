@@ -4,6 +4,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
 
 import static java.lang.Math.pow;
 import static java.lang.Math.sqrt;
@@ -13,6 +14,8 @@ public class TouchListener implements View.OnTouchListener {
     private float xDelta;
     private float yDelta;
     private PuzzleActivity activity;
+
+    public int count;
 
     public TouchListener(PuzzleActivity activity) {
         this.activity = activity;
@@ -42,6 +45,8 @@ public class TouchListener implements View.OnTouchListener {
                 view.setLayoutParams(lParams);
                 break;
             case MotionEvent.ACTION_UP:
+                count++;
+//                Toast.makeText(activity, String.valueOf(count), Toast.LENGTH_SHORT).show();
                 int xDiff = abs(piece.xCoord - lParams.leftMargin);
                 int yDiff = abs(piece.yCoord - lParams.topMargin);
                 if (xDiff <= tolerance && yDiff <= tolerance) {
@@ -64,5 +69,9 @@ public class TouchListener implements View.OnTouchListener {
             parent.removeView(child);
             parent.addView(child, 0);
         }
+    }
+
+    public int getCount() {
+        return count;
     }
 }

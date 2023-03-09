@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class LevelDoneActivity extends AppCompatActivity {
@@ -16,15 +17,21 @@ public class LevelDoneActivity extends AppCompatActivity {
 
         Button button = (Button) findViewById(R.id.nextlvl);
         Button back = (Button) findViewById(R.id.Back);
+        TextView score = (TextView) findViewById(R.id.score);
 
 
         Intent intent = getIntent();
         String assetName = intent.getStringExtra("assetName");
         String level = intent.getStringExtra("level");
+        String finalscore = intent.getStringExtra("score");
 
 
-        Toast.makeText(this, assetName, Toast.LENGTH_SHORT).show();
-        Toast.makeText(this, level, Toast.LENGTH_SHORT).show();
+//        Toast.makeText(this, finalscore, Toast.LENGTH_SHORT).show();
+        score.setText("10");
+
+
+//        Toast.makeText(this, assetName, Toast.LENGTH_SHORT).show();
+//        Toast.makeText(this, level, Toast.LENGTH_SHORT).show();
 
         button.setOnClickListener(new View.OnClickListener() {
 

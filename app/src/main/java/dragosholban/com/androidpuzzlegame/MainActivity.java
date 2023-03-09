@@ -19,11 +19,13 @@ import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.constraint.ConstraintLayout;
+import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.content.FileProvider;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
@@ -40,7 +42,7 @@ import java.util.Date;
 
 import static java.lang.Math.abs;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
     String mCurrentPhotoPath;
     private static final int REQUEST_PERMISSION_WRITE_EXTERNAL_STORAGE = 2;
     private static final int REQUEST_IMAGE_CAPTURE = 1;
@@ -52,10 +54,16 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
+
+        bottomNavigationView.setOnNavigationItemSelectedListener(this);
+        bottomNavigationView.setSelectedItemId(R.id.person);
+
+
         SharedPreferences sharedPref= getSharedPreferences("Points", 0);
-//        SharedPreferences.Editor editor= sharedPref.edit();
-//        editor.putString("number", "10000");
-//        editor.commit();
+        SharedPreferences.Editor editor= sharedPref.edit();
+        editor.putString("number", "1,000");
+        editor.commit();
 
 
 //        String Pts = "125";
@@ -95,6 +103,28 @@ public class MainActivity extends AppCompatActivity {
         } catch (IOException e) {
             Toast.makeText(this, e.getLocalizedMessage(), Toast.LENGTH_SHORT);
         }
+    }
+
+    FirstFragment firstFragment = new FirstFragment();
+    SecondFragment secondFragment = new SecondFragment();
+    ThirdFragment thirdFragment = new ThirdFragment();
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+//        switch (item.getItemId()) {
+//            case R.id.person:
+//                getSupportFragmentManager().beginTransaction().replace(R.id.container, firstFragment).commit();
+//                return true;
+//
+//            case R.id.home:
+////                getSupportFragmentManager().beginTransaction().replace(R.id.container, secondFragment).commit();
+////                return true;
+//
+//            case R.id.settings:
+////                getSupportFragmentManager().beginTransaction().replace(R.id.container, thirdFragment).commit();
+////                return true;
+//        }
+        return false;
     }
 
     public void onImageFromCameraClick(View view) {
@@ -181,4 +211,6 @@ public class MainActivity extends AppCompatActivity {
             startActivityForResult(intent, REQUEST_IMAGE_GALLERY);
         }
     }
+
+
 }

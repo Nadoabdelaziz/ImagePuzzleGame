@@ -38,10 +38,11 @@ public class PuzzleActivity extends AppCompatActivity {
     String mCurrentPhotoUri;
 
     public boolean timeUp=false;
+    public long score;
 
     TextView clk;
     CountDownTimer countDownTimer;
-    long timeleft = 5000;
+    long timeleft = 60000;
     boolean timerrunning;
 
 //    Intent intent = getIntent();
@@ -97,7 +98,7 @@ public class PuzzleActivity extends AppCompatActivity {
 
                 }
                 else{
-                    pieces = splitImage(32,8,4);
+                    pieces = splitImage(24,6,4);
 
                 }
 
@@ -119,6 +120,12 @@ public class PuzzleActivity extends AppCompatActivity {
         });
     }
 
+    public long FinalScore(){
+        TouchListener touchListener= new TouchListener(this);
+        int nmoves = touchListener.getCount();
+        score = nmoves / 5;
+        return score;
+    }
     public void startimer(){
         countDownTimer = new CountDownTimer(timeleft,1000) {
             @Override
@@ -381,16 +388,21 @@ public class PuzzleActivity extends AppCompatActivity {
                 intent = new Intent(getApplicationContext(), losegameactivity.class);
                 intent.putExtra("assetName", assetName);
                 intent.putExtra("level",level);
+                long thescore = FinalScore();
+                intent.putExtra("score",String.valueOf(thescore));
                 startActivity(intent);
             }
             else{
                 intent = new Intent(getApplicationContext(), LevelDoneActivity.class);
                 intent.putExtra("assetName", assetName);
                 intent.putExtra("level",level);
+                long thescore = FinalScore();
+                intent.putExtra("score",String.valueOf(thescore));
                 startActivity(intent);
             }
         }
     }
+
 
     private boolean isGameOver() {
 

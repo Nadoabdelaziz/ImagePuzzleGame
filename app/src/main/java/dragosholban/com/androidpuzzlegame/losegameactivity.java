@@ -5,6 +5,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
+import android.widget.Toast;
 
 public class losegameactivity extends AppCompatActivity {
 
@@ -13,8 +15,14 @@ public class losegameactivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_losegameactivity);
 
-        Button back = (Button) findViewById(R.id.Back);
+        Intent intent = getIntent();
+        String finalscore = intent.getStringExtra("score");
 
+
+        Button back = (Button) findViewById(R.id.Back);
+        TextView score = (TextView) findViewById(R.id.score);
+
+        score.setText(finalscore.toString());
 
         back.setOnClickListener(new View.OnClickListener() {
             @Override
