@@ -13,8 +13,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".AdMobActivity">
-<!--            android:exported="false"-->
+            android:name=".FragmentsActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -22,12 +22,15 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".AdMobActivity"
+            android:exported="false" />
+        <activity
             android:name=".losegameactivity"
             android:exported="false" />
         <activity
             android:name=".GameMenuActivity"
             android:exported="false" />
-        <activity android:name=".StartGameActivity">
+        <activity android:name=".StartGameActivity" android:exported="true">
 <!--            <intent-filter>-->
 <!--                <action android:name="android.intent.action.MAIN" />-->
 
@@ -53,11 +56,10 @@
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_paths" />
-        </provider>
-        <!-- Sample AdMob app ID: ca-app-pub-3940256099942544~3347511713 -->
+        </provider> <!-- Sample AdMob app ID: ca-app-pub-3940256099942544~3347511713 -->
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-3940256099942544~3347511713"/>
+            android:value="ca-app-pub-3940256099942544~3347511713" />
     </application>
 
 </manifest>

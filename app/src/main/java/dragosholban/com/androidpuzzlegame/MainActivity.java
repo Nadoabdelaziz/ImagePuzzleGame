@@ -1,6 +1,7 @@
 package dragosholban.com.androidpuzzlegame;
 
 import android.Manifest;
+import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
@@ -25,10 +26,12 @@ import android.provider.MediaStore;
 //import android.support.v4.content.FileProvider;
 //import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -48,6 +51,14 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.core.content.FileProvider;
 
+import com.google.android.gms.ads.AdError;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.LoadAdError;
+import com.google.android.gms.ads.rewarded.RewardItem;
+import com.google.android.gms.ads.rewarded.RewardedAd;
+import com.google.android.gms.ads.rewarded.RewardedAdCallback;
+import com.google.android.gms.ads.rewarded.RewardedAdLoadCallback;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
@@ -57,10 +68,44 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
     static final int REQUEST_PERMISSION_READ_EXTERNAL_STORAGE = 3;
     static final int REQUEST_IMAGE_GALLERY = 4;
 
+    //adbom ads
+    private AdView madView;
+    public static final String REWARD_AD_UNIT_ID = "ca-app-pub-3940256099942544/5224354917";
+    private RewardedAd mRewardedAd;
+
+    private ImageButton mButton;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+        mRewardedAd = new RewardedAd(this,
+                "ca-app-pub-3940256099942544/5224354917");
+
+        RewardedAdLoadCallback adLoadCallback = new RewardedAdLoadCallback() {
+            @Override
+            public void onRewardedAdLoaded() {
+                // Ad successfully loaded.
+            }
+
+            @Override
+            public void onRewardedAdFailedToLoad(LoadAdError adError) {
+                // Ad failed to load.
+            }
+        };
+        mRewardedAd.loadAd(new AdRequest.Builder().build(), adLoadCallback);
+
+        mButton = findViewById(R.id.adwatch);
+
+        mButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                loadRewardedAd();
+            }
+        });
+
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
 
@@ -69,9 +114,9 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
 
 
         SharedPreferences sharedPref= getSharedPreferences("Points", 0);
-        SharedPreferences.Editor editor= sharedPref.edit();
-        editor.putString("number", "1,000");
-        editor.commit();
+//        SharedPreferences.Editor editor= sharedPref.edit();
+//        editor.putLong("rewards", 1000);
+//        editor.commit();
 
 
 //        String Pts = "125";
@@ -90,8 +135,8 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
 //            Toast.makeText(this, zizo.getString("levelname"), Toast.LENGTH_SHORT).show();
 
             TextView points = (TextView) findViewById(R.id.points);
-            String number = sharedPref.getString("number", "");
-            points.setText(number);
+            Long number = sharedPref.getLong("rewards", 0);
+            points.setText(String.valueOf(number));
 
             GridView grid = findViewById(R.id.grid);
             grid.setAdapter(new ImageAdapter(this));
@@ -112,6 +157,47 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
             Toast.makeText(this, e.getLocalizedMessage(), Toast.LENGTH_SHORT);
         }
     }
+
+    private void loadRewardedAd(){
+        if (mRewardedAd.isLoaded()) {
+            Activity activityContext = MainActivity.this;
+            RewardedAdCallback adCallback = new RewardedAdCallback() {
+                @Override
+                public void onRewardedAdOpened() {
+                    // Ad opened.
+                }
+
+                @Override
+                public void onRewardedAdClosed() {
+                    // Ad closed.
+                }
+
+                @Override
+                public void onUserEarnedReward(@NonNull RewardItem rewardItem) {
+                    Toast.makeText(MainActivity.this, "You Earned Reward", Toast.LENGTH_SHORT).show();
+                    SharedPreferences sharedPreferences = getSharedPreferences("Points",0);
+                    Long s1 = sharedPreferences.getLong("rewards",0) + 1000;
+
+                    SharedPreferences.Editor myEdit = sharedPreferences.edit();
+                    myEdit.putLong("rewards", s1);
+                    myEdit.commit();
+                    startActivity(getIntent());
+                }
+
+                @Override
+                public void onRewardedAdFailedToShow(AdError adError) {
+                    // Ad failed to display.
+                }
+            };
+            mRewardedAd.show(activityContext, adCallback);
+        } else {
+            Log.d("TAG", "The rewarded ad wasn't loaded yet.");
+        }
+
+
+
+    }
+
 
     FirstFragment firstFragment = new FirstFragment();
     SecondFragment secondFragment = new SecondFragment();

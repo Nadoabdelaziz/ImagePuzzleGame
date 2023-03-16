@@ -1,13 +1,15 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 28
+    compileSdkVersion 33
     defaultConfig {
         applicationId "dragosholban.com.androidpuzzlegame"
-        minSdkVersion 19
-        targetSdkVersion 28
+        minSdkVersion 21
+        targetSdkVersion 33
         versionCode 1
         versionName "1.0"
+        multiDexEnabled true
+
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -22,6 +24,9 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'com.android.support:appcompat-v7:26.1.0'
     implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'com.google.android.material:material:1.4.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
 //    implementation 'com.google.android.gms:play-services-ads-lite:21.5.0'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
@@ -29,6 +34,9 @@ dependencies {
     implementation 'com.android.support:design:26.1.0'
 //    implementation 'com.google.android.gms:play-services-ads:17.1.1'
     implementation 'com.google.android.gms:play-services-ads:19.3.0'
+    implementation 'com.android.support:multidex:1.0.3'
+    implementation 'me.riddhimanadib.bottom-nav-bar:bottom-nav-bar:1.0.1'
+
 
 
 

@@ -2,6 +2,7 @@ package dragosholban.com.androidpuzzlegame;
 
 import android.content.Intent;
 //import android.support.v7.app.AppCompatActivity;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -16,6 +17,18 @@ public class LevelDoneActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_level_done);
+
+
+        SharedPreferences sharedPreferences = getSharedPreferences("Points",0);
+        Long s1 = sharedPreferences.getLong("rewards",0) + 1000;
+//        //get points
+//        Toast.makeText(this, s1, Toast.LENGTH_SHORT).show();
+
+        // edit points number
+        SharedPreferences.Editor myEdit = sharedPreferences.edit();
+        myEdit.putLong("rewards", s1);
+        myEdit.commit();
+
 
         Button button = (Button) findViewById(R.id.nextlvl);
         Button back = (Button) findViewById(R.id.Back);
