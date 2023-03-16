@@ -9,16 +9,27 @@
     # main_activity.xml
     ...
 
-<!--    <com.google.android.gms.ads.AdView-->
-<!--        android:id="@+id/adView"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginEnd="60dp"-->
-<!--        app:adSize="BANNER"-->
-<!--        app:adUnitId="ca-app-pub-3940256099942544/6300978111"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        app:layout_constraintBottom_toTopOf="parent"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"></com.google.android.gms.ads.AdView>-->
-<!--    ...-->
+    <!--    <com.google.android.gms.ads.AdView-->
+    <!--        android:id="@+id/adView"-->
+    <!--        android:layout_width="317dp"-->
+    <!--        android:layout_height="655dp"-->
+    <!--        android:layout_marginEnd="60dp"-->
+    <!--        app:adSize="BANNER"-->
+    <!--        app:adUnitId="ca-app-pub-3940256099942544/6300978111"-->
+    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--        app:layout_constraintBottom_toTopOf="parent"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintTop_toTopOf="parent"></com.google.android.gms.ads.AdView>-->
+    <!--    ...-->
 
+    <Button
+        android:id="@+id/adstart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="120dp"
+        android:layout_marginTop="336dp"
+        android:text="Watch Ads"
+        android:textSize="25sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
