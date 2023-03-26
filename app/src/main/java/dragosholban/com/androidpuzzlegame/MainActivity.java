@@ -1,7 +1,10 @@
 package dragosholban.com.androidpuzzlegame;
 
+import static androidx.core.content.ContentProviderCompat.requireContext;
+
 import android.Manifest;
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
@@ -16,6 +19,8 @@ import android.graphics.PorterDuffXfermode;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
+import android.nfc.Tag;
+import android.os.Build;
 import android.os.Environment;
 import android.provider.MediaStore;
 //import android.support.annotation.NonNull;
@@ -42,14 +47,20 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 import static java.lang.Math.abs;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.core.content.FileProvider;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.gms.ads.AdError;
 import com.google.android.gms.ads.AdRequest;
@@ -61,7 +72,12 @@ import com.google.android.gms.ads.rewarded.RewardedAdCallback;
 import com.google.android.gms.ads.rewarded.RewardedAdLoadCallback;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+
 public class MainActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
+    CustomUnlockedImageAdapter unlocked_img_adapter;
+    ImageAdapter imgAdpt;
+    Context context;
+    RecyclerView recyclerView;
     String mCurrentPhotoPath;
     private static final int REQUEST_PERMISSION_WRITE_EXTERNAL_STORAGE = 2;
     private static final int REQUEST_IMAGE_CAPTURE = 1;
@@ -75,12 +91,13 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
 
     private ImageButton mButton;
 
+    @RequiresApi(api = Build.VERSION_CODES.TIRAMISU)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
+        //Toast.makeText(this, "Some fields not entered", Toast.LENGTH_SHORT).show();
         mRewardedAd = new RewardedAd(this,
                 "ca-app-pub-3940256099942544/5224354917");
 
@@ -113,7 +130,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         bottomNavigationView.setSelectedItemId(R.id.person);
 
 
-        SharedPreferences sharedPref= getSharedPreferences("Points", 0);
+
 //        SharedPreferences.Editor editor= sharedPref.edit();
 //        editor.putLong("rewards", 1000);
 //        editor.commit();
@@ -124,22 +141,57 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
 //        String mString = mPrefs.getString("tag", "default_value_if_variable_not_found");
 
 
-
-
+        // add 3 images to be unlocked by defualt
         AssetManager am = getAssets();
+        final String[] files; // get all images
         try {
-            final String[] files  = am.list("img");
-//
-//            Bundle zizo = getIntent().getExtras();
-//            String level = zizo.getString("levelname");
-//            Toast.makeText(this, zizo.getString("levelname"), Toast.LENGTH_SHORT).show();
+            files = am.list("img");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        Set<String> def_unclocked = new HashSet<String>();
+        def_unclocked.add(files[0]);
+        def_unclocked.add(files[1]);
+        def_unclocked.add(files[2]);
+        //    Toast.makeText(MainActivity.this, Integer.toString(st.size()), Toast.LENGTH_SHORT).show();
 
+        SharedPreferences preff = getSharedPreferences("Unlocked",Context.MODE_PRIVATE);
+        Set<String> new_st = preff.getStringSet("unlocked_images",null);
+        if( new_st != null){ //there are saved data
+            String[] saved_images =new_st.toArray(new String[new_st.size()]) ;
+            unlocked_img_adapter = new CustomUnlockedImageAdapter(this,saved_images);
+             imgAdpt = new ImageAdapter(this,saved_images);
+        }
+        else { //save 3 defualt images
+            SharedPreferences.Editor  editorr= preff.edit();
+            editorr.putStringSet("unlocked_images",def_unclocked);
+            editorr.commit();
+            String [] def_images = def_unclocked.toArray(new String[def_unclocked.size()]) ;
+            unlocked_img_adapter = new CustomUnlockedImageAdapter(this,def_images);
+             imgAdpt = new ImageAdapter(this,def_images);
+        }
+
+
+
+
+        // Toast.makeText(this, list.get(0).getName(), Toast.LENGTH_SHORT).show();
+        recyclerView = findViewById(R.id.recycler_main);
+        recyclerView.setHasFixedSize(true);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
+        recyclerView.setLayoutManager(layoutManager);
+        recyclerView.setAdapter(unlocked_img_adapter);
+
+
+            SharedPreferences sharedPref= getSharedPreferences("Points", 0);
             TextView points = (TextView) findViewById(R.id.points);
             Long number = sharedPref.getLong("rewards", 0);
             points.setText(String.valueOf(number));
 
             GridView grid = findViewById(R.id.grid);
-            grid.setAdapter(new ImageAdapter(this));
+//            ImageAdapter imgAdpt = new ImageAdapter(this);
+//            grid.setAdapter(imgAdpt);
+
+            grid.setAdapter(imgAdpt);
             grid.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
@@ -147,15 +199,15 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
 //                    intent.putExtra("assetName", files[i % files.length]);
 //                    intent.putExtra("levelname",level);
 //                    startActivity(intent);
-                    Intent intent = new Intent(getApplicationContext(), LevelSelectionActivity.class);
-                    intent.putExtra("assetName", files[i % files.length]);
-                    startActivity(intent);
+
+                    //Toast.makeText(MainActivity.this, view.get, Toast.LENGTH_SHORT).show();
+//                    Intent intent = new Intent(getApplicationContext(), LevelSelectionActivity.class);
+//                    intent.putExtra("assetName", files[i % files.length]);
+//                    startActivity(intent);
                 }
 
             });
-        } catch (IOException e) {
-            Toast.makeText(this, e.getLocalizedMessage(), Toast.LENGTH_SHORT);
-        }
+
     }
 
     private void loadRewardedAd(){
@@ -174,7 +226,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
 
                 @Override
                 public void onUserEarnedReward(@NonNull RewardItem rewardItem) {
-                    Toast.makeText(MainActivity.this, "You Earned Reward", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "YOU HAVE EARNED 1000 REWARD POINTS", Toast.LENGTH_SHORT).show();
                     SharedPreferences sharedPreferences = getSharedPreferences("Points",0);
                     Long s1 = sharedPreferences.getLong("rewards",0) + 1000;
 
@@ -222,6 +274,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
     }
 
     public void onImageFromCameraClick(View view) {
+//        Toast.makeText(this, "clicked", Toast.LENGTH_SHORT).show();
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         if (intent.resolveActivity(getPackageManager()) != null) {
             File photoFile = null;
@@ -305,6 +358,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
             startActivityForResult(intent, REQUEST_IMAGE_GALLERY);
         }
     }
+
 
 
 }

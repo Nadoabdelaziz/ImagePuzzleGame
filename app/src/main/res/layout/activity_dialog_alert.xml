@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="#ffffffff"
+    android:orientation="vertical"
+    android:radius="50dp">
+
+
+    <!--        android:textcolor="#DA5F6A" />-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/levelpoints"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="50dp"-->
+<!--        android:gravity="center"-->
+<!--        android:text="Fantastic!"-->
+<!--        android:textAppearance="@style/TextAppearance.AppCompat.Large"-->
+<!--        android:textSize="20sp" />-->
+
+<!--    <ImageView-->
+
+<!--        android:id="@+id/imageView4"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="80dp"-->
+<!--        android:layout_marginTop="7dp"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        app:srcCompat="@android:drawable/btn_star_big_on" />-->
+
+    <Button
+        android:id="@+id/exitbtn"
+        android:layout_width="40dp"
+        android:layout_height="50dp"
+        android:text="X"
+        android:textColor="@color/black"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_marginStart="-40dp"
+        android:layout_marginTop="14dp"
+        android:layout_toEndOf="@+id/exitbtn"
+        android:gravity="center"
+        android:text="Fantastic!"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textSize="35sp" />
+
+    <ImageView
+        android:id="@+id/a"
+        android:layout_width="wrap_content"
+        android:layout_height="250dp"
+        android:layout_below="@+id/textView4"
+        android:layout_marginTop="6dp"
+        android:background="#ffff"
+        android:gravity="center"
+        android:scaleType="fitCenter"
+        android:src="@drawable/coins" />
+
+
+
+
+    <Button
+        android:id="@+id/claim_3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/a"
+        android:layout_marginTop="43dp"
+        android:background="#9C27B0"
+        android:gravity="center"
+        android:text="CLAIM X3"
+        android:textColor="@color/white"
+        android:textSize="20sp"/>
+<!--        app:drawableTint="#FFFFFF"-->
+<!--        app:drawableRightCompat="@drawable/ic_photo_camera_black_24dp" />-->
+
+
+
+    <Button
+        android:id="@+id/claim"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/claim_3"
+        android:layout_marginTop="35dp"
+        android:background="#9C27B0"
+        android:radius="50dp"
+        android:text="CLAIM"
+        android:textColor="@color/white"
+        android:textSize="20sp" />
+
+
+</RelativeLayout>

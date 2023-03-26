@@ -1,5 +1,6 @@
 package dragosholban.com.androidpuzzlegame;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.AssetManager;
@@ -41,13 +42,15 @@ public class PuzzleActivity extends AppCompatActivity {
     ArrayList<PuzzlePiece> pieces;
     String mCurrentPhotoPath;
     String mCurrentPhotoUri;
-
+    private Context context = this;
     public boolean timeUp=false;
     public long score;
-
+    public int [] dimension = {3,4,5,6,7,8};
+    int xy,total_pieces;
     TextView clk;
     CountDownTimer countDownTimer;
-    long timeleft = 60000;
+    long  timeleft = 60000;
+    long [] timeleftarr ={60000,70000,90000,125000,245000,350000};
     boolean timerrunning;
 
 //    Intent intent = getIntent();
@@ -59,8 +62,18 @@ public class PuzzleActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_puzzle);
 
-        clk = (TextView) findViewById(R.id.clk);
 
+        Intent intent = getIntent();
+        String assetName = intent.getStringExtra("assetname");
+        String level = intent.getStringExtra("levelname");
+
+
+        mCurrentPhotoPath = intent.getStringExtra("mCurrentPhotoPath");
+        mCurrentPhotoUri = intent.getStringExtra("mCurrentPhotoUri");
+
+        int lvl = Integer.parseInt(level) ;
+        timeleft = timeleftarr[lvl-1];
+        clk = (TextView) findViewById(R.id.clk);
         if(timerrunning){
             stoptimer();
         }
@@ -71,15 +84,13 @@ public class PuzzleActivity extends AppCompatActivity {
 
         final RelativeLayout layout = findViewById(R.id.layout);
         final ImageView imageView = findViewById(R.id.imageView);
+        final ImageView pzl_contianer = findViewById(R.id.img_pzl_contanier);
 
-
-        Intent intent = getIntent();
-        String assetName = intent.getStringExtra("assetname");
-        String level = intent.getStringExtra("levelname");
-
-
-        mCurrentPhotoPath = intent.getStringExtra("mCurrentPhotoPath");
-        mCurrentPhotoUri = intent.getStringExtra("mCurrentPhotoUri");
+         xy = dimension[lvl-1] ;
+         total_pieces = xy * xy;
+        if (lvl >4)
+            total_pieces = total_pieces - (2*lvl) ;
+        Toast.makeText(this, Integer.toString(total_pieces), Toast.LENGTH_SHORT).show();
 
         // run image related code after the view was laid out
         // to have all dimensions calculated
@@ -94,31 +105,13 @@ public class PuzzleActivity extends AppCompatActivity {
                     imageView.setImageURI(Uri.parse(mCurrentPhotoUri));
                 }
 
-                if (level.toString().equals("Easy")){
-                    pieces = splitImage(9,3,3);
-
-                }
-                else if(level.equals("Hard")){
-                    pieces = splitImage(12,4,3);
-
-                }
-                else{
-                    pieces = splitImage(24,6,4);
-
-                }
-
-                TouchListener touchListener = new TouchListener(PuzzleActivity.this);
+                pieces = splitImage(total_pieces,xy,xy);
                 // shuffle pieces order
                 Collections.shuffle(pieces);
-                for (PuzzlePiece piece : pieces) {
-                    piece.setOnTouchListener(touchListener);
-                    layout.addView(piece);
-                    // randomize position, on the bottom of the screen
-                    RelativeLayout.LayoutParams lParams = (RelativeLayout.LayoutParams) piece.getLayoutParams();
-                    lParams.leftMargin = new Random().nextInt(layout.getWidth() - piece.pieceWidth);
-                    lParams.topMargin = layout.getHeight() - piece.pieceHeight;
-                    piece.setLayoutParams(lParams);
-                }
+
+                TouchListener touchListener = new TouchListener(PuzzleActivity.this);
+                for (PuzzlePiece piece : pieces)
+                    generate_piece(piece,touchListener,layout);
 
 
             }
@@ -392,7 +385,7 @@ public class PuzzleActivity extends AppCompatActivity {
             if(timeUp == true){
                 intent = new Intent(getApplicationContext(), losegameactivity.class);
                 intent.putExtra("assetName", assetName);
-                intent.putExtra("level",level);
+                intent.putExtra("levelname",level);
                 long thescore = FinalScore();
                 intent.putExtra("score",String.valueOf(thescore));
                 startActivity(intent);
@@ -400,7 +393,7 @@ public class PuzzleActivity extends AppCompatActivity {
             else{
                 intent = new Intent(getApplicationContext(), LevelDoneActivity.class);
                 intent.putExtra("assetName", assetName);
-                intent.putExtra("level",level);
+                intent.putExtra("levelname",level);
                 long thescore = FinalScore();
                 intent.putExtra("score",String.valueOf(thescore));
                 startActivity(intent);
@@ -473,5 +466,16 @@ public class PuzzleActivity extends AppCompatActivity {
         matrix.postRotate(angle);
         return Bitmap.createBitmap(source, 0, 0, source.getWidth(), source.getHeight(),
                 matrix, true);
+    }
+
+    public void generate_piece(PuzzlePiece piece,TouchListener touchListener,RelativeLayout layout){
+        piece.setOnTouchListener(touchListener);
+        layout.addView(piece);
+        // randomize position, on the bottom of the screen
+        RelativeLayout.LayoutParams lParams = (RelativeLayout.LayoutParams) piece.getLayoutParams();
+        lParams.leftMargin = new Random().nextInt(layout.getWidth() - piece.pieceWidth);
+        lParams.topMargin = layout.getHeight() - piece.pieceHeight;
+//                    lParams.bottomMargin = layout.getHeight()-pzl_contianer.getHeight();
+        piece.setLayoutParams(lParams);
     }
 }

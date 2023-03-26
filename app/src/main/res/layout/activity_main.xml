@@ -7,14 +7,86 @@
     android:background="@android:color/background_light"
     tools:context="dragosholban.com.androidpuzzlegame.MainActivity">
 
+    <!--    <HorizontalScrollView-->
+    <!--        android:layout_width="391dp"-->
+    <!--        android:layout_height="148dp"-->
+    <!--        app:layout_constraintBottom_toTopOf="@+id/grid"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@+id/points">-->
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_main"
+        android:layout_width="388dp"
+        android:layout_height="197dp"
+        android:layout_margin="1dp"
+        app:layout_constraintBottom_toTopOf="@+id/grid"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/points">
+
+    </androidx.recyclerview.widget.RecyclerView>
+    <!--        <LinearLayout-->
+    <!--            android:layout_width="388dp"-->
+    <!--            android:layout_height="50dp"-->
+    <!--            android:orientation="horizontal"-->
+    <!--            app:layout_constraintBottom_toTopOf="@+id/grid"-->
+    <!--            app:layout_constraintTop_toBottomOf="@+id/points"-->
+    <!--            tools:layout_editor_absoluteX="9dp">-->
+
+    <!--            <ImageView-->
+    <!--                android:id="@+id/imageView3"-->
+    <!--                android:layout_width="wrap_content"-->
+    <!--                android:layout_height="wrap_content"-->
+    <!--                android:layout_marginStart="136dp"-->
+    <!--                android:layout_marginLeft="136dp"-->
+    <!--                android:layout_marginTop="16dp"-->
+    <!--                app:layout_constraintStart_toStartOf="parent"-->
+    <!--                app:layout_constraintTop_toTopOf="parent"-->
+    <!--                app:srcCompat="@android:drawable/btn_star_big_on" />-->
+
+    <!--            <ImageView-->
+    <!--                android:id="@+id/imageView4"-->
+    <!--                android:layout_width="wrap_content"-->
+    <!--                android:layout_height="wrap_content"-->
+    <!--                android:layout_marginStart="136dp"-->
+    <!--                android:layout_marginLeft="136dp"-->
+    <!--                android:layout_marginTop="16dp"-->
+    <!--                app:layout_constraintStart_toStartOf="parent"-->
+    <!--                app:layout_constraintTop_toTopOf="parent"-->
+    <!--                app:srcCompat="@android:drawable/btn_star_big_on" />-->
+
+    <!--            <ImageView-->
+    <!--                android:id="@+id/imageView5"-->
+    <!--                android:layout_width="wrap_content"-->
+    <!--                android:layout_height="wrap_content"-->
+    <!--                android:layout_marginStart="136dp"-->
+    <!--                android:layout_marginLeft="136dp"-->
+    <!--                android:layout_marginTop="16dp"-->
+    <!--                app:layout_constraintStart_toStartOf="parent"-->
+    <!--                app:layout_constraintTop_toTopOf="parent"-->
+    <!--                app:srcCompat="@android:drawable/btn_star_big_on" />-->
+
+    <!--            <ImageView-->
+    <!--                android:id="@+id/imageView6"-->
+    <!--                android:layout_width="wrap_content"-->
+    <!--                android:layout_height="wrap_content"-->
+    <!--                android:layout_marginStart="136dp"-->
+    <!--                android:layout_marginLeft="136dp"-->
+    <!--                android:layout_marginTop="16dp"-->
+    <!--                app:layout_constraintStart_toStartOf="parent"-->
+    <!--                app:layout_constraintTop_toTopOf="parent"-->
+    <!--                app:srcCompat="@android:drawable/btn_star_big_on" />-->
+    <!--        </LinearLayout>-->
+
+    <!--    </HorizontalScrollView>-->
+
     <GridView
         android:id="@+id/grid"
-        android:layout_width="364dp"
-        android:layout_height="534dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="28dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
+        android:layout_width="401dp"
+        android:layout_height="361dp"
+        android:layout_marginBottom="84dp"
         android:horizontalSpacing="10dp"
         android:numColumns="2"
         android:paddingHorizontal="10dp"
@@ -22,38 +94,42 @@
         android:verticalSpacing="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.487"
+        app:layout_constraintHorizontal_bias="0.476"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.151" />
+
+        />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/cameraButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="24dp"
-        android:layout_marginRight="24dp"
-        android:layout_marginBottom="80dp"
+        android:layout_width="57dp"
+        android:layout_height="52dp"
+        android:layout_marginStart="11dp"
+        android:layout_marginEnd="284dp"
+        android:layout_marginBottom="584dp"
         android:clickable="true"
         android:onClick="onImageFromCameraClick"
         android:src="@drawable/ic_photo_camera_black_24dp"
         android:tint="@android:color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintBottom_toBottomOf="@+id/grid"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/galleryButton"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/galleryButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginBottom="80dp"
+        android:layout_width="53dp"
+        android:layout_height="52dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginBottom="584dp"
         android:clickable="true"
         android:onClick="onImageFromGalleryClick"
         android:src="@drawable/ic_image_black_24dp"
         android:tint="@android:color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/cameraButton" />
+        app:layout_constraintBottom_toBottomOf="@+id/grid"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 
     <TextView
         android:id="@+id/points"
@@ -69,6 +145,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
+
         android:id="@+id/imageView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -94,8 +171,8 @@
         android:id="@+id/adwatch"
         android:layout_width="40dp"
         android:layout_height="40dp"
-        android:layout_marginStart="267dp"
-        android:layout_marginTop="13dp"
+        android:layout_marginStart="248dp"
+        android:layout_marginTop="16dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@android:drawable/ic_input_add" />

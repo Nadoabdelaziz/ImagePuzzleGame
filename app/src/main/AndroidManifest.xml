@@ -15,11 +15,13 @@
         <activity
             android:name=".FragmentsActivity"
             android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+
+
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
         </activity>
         <activity
             android:name=".AdMobActivity"
@@ -30,16 +32,25 @@
         <activity
             android:name=".GameMenuActivity"
             android:exported="false" />
-        <activity android:name=".StartGameActivity" android:exported="true">
+        <activity
+            android:name=".StartGameActivity"
+            android:exported="true">
+             <intent-filter>
+             <action android:name="android.intent.action.MAIN" />
+
+
+             <category android:name="android.intent.category.LAUNCHER" />
+             </intent-filter>
+        </activity>
+        <activity
+            android:name=".LevelDoneActivity"
+            android:exported="false">
 <!--            <intent-filter>-->
 <!--                <action android:name="android.intent.action.MAIN" />-->
 
 <!--                <category android:name="android.intent.category.LAUNCHER" />-->
 <!--            </intent-filter>-->
         </activity>
-        <activity
-            android:name=".LevelDoneActivity"
-            android:exported="false" />
         <activity android:name=".LevelSelectionActivity" />
         <activity
             android:name=".MainActivity"

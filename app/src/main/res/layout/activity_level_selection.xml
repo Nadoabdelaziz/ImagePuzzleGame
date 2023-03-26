@@ -6,71 +6,44 @@
     android:layout_height="match_parent"
     tools:context=".LevelSelectionActivity">
 
-    <Button
-        android:id="@+id/easy"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="140dp"
-        android:layout_marginLeft="140dp"
-        android:layout_marginTop="160dp"
-        android:background="#9C27B0"
-        android:paddingLeft="28dp"
-        android:paddingTop="20dp"
-        android:paddingRight="28dp"
-        android:paddingBottom="20dp"
-        android:text="Easy"
-        android:textColor="#FFFCFC"
-        android:textSize="28sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/hard"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="140dp"
-        android:layout_marginLeft="140dp"
-        android:layout_marginTop="280dp"
-        android:background="#9C27B0"
-        android:paddingLeft="28dp"
-        android:paddingTop="20dp"
-        android:paddingRight="28dp"
-        android:paddingBottom="20dp"
-        android:text="Hard"
-        android:textColor="#FFFCFC"
-        android:textSize="28sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <androidx.cardview.widget.CardView
+        android:id="@+id/tilte12"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_margin="8dp"
+        app:cardElevation="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/recycler_main8"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints">
 
-    <Button
-        android:id="@+id/expert"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="130dp"
-        android:layout_marginLeft="130dp"
-        android:layout_marginTop="404dp"
-        android:background="#9C27B0"
-        android:paddingLeft="28dp"
-        android:paddingTop="20dp"
-        android:paddingRight="28dp"
-        android:paddingBottom="20dp"
-        android:text="Expert"
-        android:textColor="#FFFCFC"
-        android:textSize="28sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="monospace"
+            android:gravity="center"
+            android:layout_marginTop="10dp"
+            android:text="SELECT DIFFICULTY LEVEL"
+            android:textColor="@color/black"
+            android:textSize="24sp"
+            android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="32dp"
-        android:text="Select Your Level"
-        android:textColor="#FF5722"
-        android:textSize="48sp"
-        android:textStyle="bold"
+    </androidx.cardview.widget.CardView>
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_main8"
+        android:layout_width="388dp"
+        android:layout_height="197dp"
+        android:layout_margin="1dp"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.478"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/tilte12"
+        app:layout_constraintVertical_bias="0.29" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

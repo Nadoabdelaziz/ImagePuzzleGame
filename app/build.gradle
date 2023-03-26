@@ -19,6 +19,9 @@ android {
         }
     }
 }
+task prepareKotlinBuildScriptModel {
+
+}
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
@@ -26,6 +29,7 @@ dependencies {
     implementation 'com.android.support.constraint:constraint-layout:1.0.2'
     implementation 'androidx.appcompat:appcompat:1.6.1'
     implementation 'com.google.android.material:material:1.4.0'
+    implementation 'com.squareup.picasso:picasso:2.71828'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
 //    implementation 'com.google.android.gms:play-services-ads-lite:21.5.0'
     testImplementation 'junit:junit:4.12'

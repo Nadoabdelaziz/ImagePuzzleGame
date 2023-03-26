@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main_container3"
+    android:layout_width="200dp"
+    android:layout_height="wrap_content"
+    app:cardElevation="8dp"
+    android:layout_margin="8dp"
+    >
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_margin="6dp"
+        android:weightSum="4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="0dp"
+            android:layout_weight="4"
+            android:layout_margin="1dp"
+            android:layout_height="wrap_content">
+            <!--            name-->
+            <TextView
+                android:layout_margin="1dp"
+                android:id="@+id/reward8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="18dp"
+                android:text="Reward"
+                android:gravity="center"
+                android:textStyle="italic|bold"
+                android:textColor="@color/black"
+                android:maxLines="1"
+                >
+
+            </TextView>
+
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_margin="1dp"
+                android:weightSum="2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center">
+
+                <ImageView
+                    android:layout_marginLeft="30dp"
+                    android:id="@+id/star8"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    app:srcCompat="@android:drawable/btn_star_big_on"
+                    android:scaleType="center"
+                    android:layout_height="match_parent">
+                </ImageView>
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_margin="8dp"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:text="20"
+                        android:id="@+id/score8"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="20sp"
+                        android:textStyle="bold|italic"
+                        android:textColor="@color/black"
+                        android:maxLines="1"
+
+
+                        >
+
+                    </TextView>
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="1"
+                android:layout_marginTop="1dp"
+                android:layout_marginBottom="1dp"
+                android:gravity="center"
+                >
+
+                <RelativeLayout
+                    android:layout_height="50dp"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    >
+                    <ImageView
+                        android:id="@+id/puzzle8"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        app:srcCompat="@drawable/puzzle"
+                        android:scaleType="centerInside"
+                        >
+                    </ImageView>
+
+                    <TextView
+                        android:id="@+id/pieces8"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginBottom="15dp"
+
+                        android:gravity="center"
+                        android:text="36"
+                        android:textColor="@color/White"
+                        android:textSize="12dp"
+                        android:textStyle="italic|bold">
+
+                    </TextView>
+                </RelativeLayout>
+            </LinearLayout>
+            <TextView
+                android:layout_margin="1dp"
+                android:id="@+id/text_title8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="18dp"
+                android:text="Pieces"
+                android:gravity="center"
+                android:textStyle="italic|bold"
+                android:textColor="@color/black"
+                android:maxLines="1"
+                >
+
+            </TextView>
+
+
+
+
+        </LinearLayout>
+
+        <!--        <ImageView-->
+        <!--            android:id="@+id/img_headline2"-->
+        <!--            android:layout_width="0dp"-->
+        <!--            android:layout_weight="2"-->
+        <!--            app:srcCompat="@android:drawable/btn_star_big_on"-->
+        <!--            android:scaleType="fitCenter"-->
+        <!--            android:layout_height="match_parent">-->
+        <!--        </ImageView>-->
+
+
+
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>
+
