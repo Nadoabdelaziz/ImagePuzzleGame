@@ -16,6 +16,26 @@
     <!--        app:layout_constraintTop_toBottomOf="@+id/points">-->
 
 
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="344dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/settings" />
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="296dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/win" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_main"
         android:layout_width="388dp"
@@ -171,8 +191,9 @@
         android:id="@+id/adwatch"
         android:layout_width="40dp"
         android:layout_height="40dp"
-        android:layout_marginStart="248dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="232dp"
+        android:layout_marginTop="14dp"
+        android:background="@android:color/background_light"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@android:drawable/ic_input_add" />

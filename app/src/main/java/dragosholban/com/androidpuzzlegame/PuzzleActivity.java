@@ -20,6 +20,7 @@ import android.net.Uri;
 import android.os.CountDownTimer;
 //import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -50,7 +51,7 @@ public class PuzzleActivity extends AppCompatActivity {
     TextView clk;
     CountDownTimer countDownTimer;
     long  timeleft = 60000;
-    long [] timeleftarr ={60000,70000,90000,125000,245000,350000};
+    long [] timeleftarr ={5000,70000,90000,125000,245000,350000};
     boolean timerrunning;
 
 //    Intent intent = getIntent();
@@ -116,6 +117,7 @@ public class PuzzleActivity extends AppCompatActivity {
 
             }
         });
+
     }
 
     public long FinalScore(){
@@ -130,6 +132,10 @@ public class PuzzleActivity extends AppCompatActivity {
             public void onTick(long l) {
                 timeleft = l;
                 updatetimer();
+                Log.d("Time", "onTick: "+timeleft);
+//                if(isGameOver()){
+//                    countDownTimer.cancel();
+//                }
             }
 
             @Override
@@ -382,6 +388,7 @@ public class PuzzleActivity extends AppCompatActivity {
             String assetName = intent.getStringExtra("assetname");
             String level = intent.getStringExtra("levelname");
 
+            countDownTimer.cancel();
             if(timeUp == true){
                 intent = new Intent(getApplicationContext(), losegameactivity.class);
                 intent.putExtra("assetName", assetName);

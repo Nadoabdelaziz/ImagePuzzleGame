@@ -9,6 +9,7 @@ import android.content.res.AssetManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Rect;
+import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -137,13 +138,17 @@ public class ImageAdapter extends BaseAdapter {
                         //Toast.makeText(mContext, files[position], Toast.LENGTH_SHORT).show();
                         if (Arrays.asList(unlocked_images).contains(files[position]))
                         {   img_statues.setText("Play");
+//                            img_statues.setCompoundDrawablesWithIntrinsicBounds(R.drawable.abc_ic_menu_copy_mtrl_am_alpha, 0, 0, 0);
+//                            Drawable drawable = mContext.getDrawable(R.drawable.abc_ic_menu_copy_mtrl_am_alpha);
+
                             img_statues.setTextColor(mContext.getResources().getColor(R.color.white));
                             img_statues.setBackgroundColor(mContext.getResources().getColor(R.color.purple_500));
                         }
                         else
                         {
+                            //set id instead of text and add lock icon instead of text
                             img_statues.setText("Unlock");
-                            img_statues.setTextColor(mContext.getResources().getColor(R.color.Tomato));
+                            img_statues.setTextColor(mContext.getResources().getColor(R.color.white));
                             img_statues.setBackgroundColor(mContext.getResources().getColor(R.color.black));
                         }
 //

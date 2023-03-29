@@ -4,7 +4,9 @@ import static androidx.core.content.ContentProviderCompat.requireContext;
 
 import android.Manifest;
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
@@ -32,6 +34,7 @@ import android.provider.MediaStore;
 //import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
@@ -86,7 +89,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
 
     //adbom ads
     private AdView madView;
-    public static final String REWARD_AD_UNIT_ID = "ca-app-pub-3940256099942544/5224354917";
+    public static final String REWARD_AD_UNIT_ID = "ca-app-pub-2145987647160470/2803949040";
     private RewardedAd mRewardedAd;
 
     private ImageButton mButton;
@@ -99,7 +102,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
 
         //Toast.makeText(this, "Some fields not entered", Toast.LENGTH_SHORT).show();
         mRewardedAd = new RewardedAd(this,
-                "ca-app-pub-3940256099942544/5224354917");
+                "ca-app-pub-2145987647160470/2803949040");
 
         RewardedAdLoadCallback adLoadCallback = new RewardedAdLoadCallback() {
             @Override
@@ -274,22 +277,49 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
     }
 
     public void onImageFromCameraClick(View view) {
-//        Toast.makeText(this, "clicked", Toast.LENGTH_SHORT).show();
-        Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        if (intent.resolveActivity(getPackageManager()) != null) {
-            File photoFile = null;
-            try {
-                photoFile = createImageFile();
-            } catch (IOException e) {
-                Toast.makeText(this, e.getMessage(), Toast.LENGTH_LONG);
-            }
 
-            if (photoFile != null) {
-                Uri photoUri = FileProvider.getUriForFile(this, getApplicationContext().getPackageName() + ".fileprovider", photoFile);
-                intent.putExtra(MediaStore.EXTRA_OUTPUT, photoUri);
-                startActivityForResult(intent, REQUEST_IMAGE_CAPTURE);
-            }
-        }
+        AlertDialog alertDialog = new AlertDialog.Builder(this).create();
+        alertDialog.setTitle("Are you sure you want to unlock this puzzle with  1000  ? \n");
+
+        alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "Yes",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+
+                        SharedPreferences sharedPrefPoints= MainActivity.this.getSharedPreferences("Points", 0);
+                        Long number = sharedPrefPoints.getLong("rewards", 0);
+                        SharedPreferences.Editor  editor1= sharedPrefPoints.edit();
+                        editor1.putLong("rewards",number-1000);
+                        editor1.commit();
+                        dialog.dismiss();
+
+
+                        Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                        if (intent.resolveActivity(getPackageManager()) != null) {
+                            File photoFile = null;
+                            try {
+                                photoFile = createImageFile();
+                            } catch (IOException e) {
+                                Toast.makeText(MainActivity.this, e.getMessage(), Toast.LENGTH_LONG);
+                            }
+
+                            if (photoFile != null) {
+                                Uri photoUri = FileProvider.getUriForFile(MainActivity.this, getApplicationContext().getPackageName() + ".fileprovider", photoFile);
+                                intent.putExtra(MediaStore.EXTRA_OUTPUT, photoUri);
+                                startActivityForResult(intent, REQUEST_IMAGE_CAPTURE);
+                            }
+                        }
+
+                    }
+                });
+        alertDialog.setButton(AlertDialog.BUTTON_NEGATIVE, "No",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        Toast.makeText(MainActivity.this, "No is pressed", Toast.LENGTH_SHORT).show();
+                        dialog.dismiss();
+                    }
+                });
+        alertDialog.show();
+
     }
 
     private File createImageFile() throws IOException {
@@ -350,13 +380,40 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
     }
 
     public void onImageFromGalleryClick(View view) {
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(this, new String[] {Manifest.permission.READ_EXTERNAL_STORAGE}, REQUEST_PERMISSION_READ_EXTERNAL_STORAGE);
-        } else {
-            Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
-            intent.setType("image/*");
-            startActivityForResult(intent, REQUEST_IMAGE_GALLERY);
-        }
+
+        AlertDialog alertDialog = new AlertDialog.Builder(this).create();
+        alertDialog.setTitle("Are you sure you want to unlock this puzzle with  1000  ? \n");
+
+        alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "Yes",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+
+                        SharedPreferences sharedPrefPoints= MainActivity.this.getSharedPreferences("Points", 0);
+                        Long number = sharedPrefPoints.getLong("rewards", 0);
+                        SharedPreferences.Editor  editor1= sharedPrefPoints.edit();
+                        editor1.putLong("rewards",number-1000);
+                        editor1.commit();
+                        dialog.dismiss();
+
+                        if (ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+                            ActivityCompat.requestPermissions(MainActivity.this, new String[] {Manifest.permission.READ_EXTERNAL_STORAGE}, REQUEST_PERMISSION_READ_EXTERNAL_STORAGE);
+                        } else {
+                            Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
+                            intent.setType("image/*");
+                            startActivityForResult(intent, REQUEST_IMAGE_GALLERY);
+                        }
+                    }
+                });
+        alertDialog.setButton(AlertDialog.BUTTON_NEGATIVE, "No",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        Toast.makeText(MainActivity.this, "No is pressed", Toast.LENGTH_SHORT).show();
+                        dialog.dismiss();
+                    }
+                });
+        alertDialog.show();
+
+
     }
 
 

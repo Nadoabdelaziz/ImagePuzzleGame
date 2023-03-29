@@ -40,10 +40,6 @@ public class LevelDoneActivity extends AppCompatActivity {
 
 
 
-
-
-
-
         final Dialog dialog = new Dialog(LevelDoneActivity.this);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.setCancelable(false);
@@ -51,12 +47,6 @@ public class LevelDoneActivity extends AppCompatActivity {
 
         Button btn = dialog.findViewById(R.id.exitbtn);
 
-
-//
-//        SharedPreferences sharedPref= getSharedPreferences("Points", 0);
-//        TextView points = dialog.findViewById(R.id.pointstext);
-//        Long number = sharedPref.getLong("rewards", 0);
-//        points.setText(String.valueOf(number));
 
         dialog.show();
 
@@ -89,28 +79,7 @@ public class LevelDoneActivity extends AppCompatActivity {
                 loadRewardedAd(dialog);
             }
         });
-//        AlertDialog.Builder builder1 = new AlertDialog.Builder(this);
-//        builder1.setMessage("Write your message here.");
-//        builder1.setCancelable(true);
-//
-//        builder1.setPositiveButton(
-//                "Yes",
-//                new DialogInterface.OnClickListener() {
-//                    public void onClick(DialogInterface dialog, int id) {
-//                        dialog.cancel();
-//                    }
-//                });
-//
-//        builder1.setNegativeButton(
-//                "No",
-//                new DialogInterface.OnClickListener() {
-//                    public void onClick(DialogInterface dialog, int id) {
-//                        dialog.cancel();
-//                    }
-//                });
-//
-//        AlertDialog alert11 = builder1.create();
-//        alert11.show();
+
 
 
         mRewardedAd = new RewardedAd(this,
@@ -129,17 +98,6 @@ public class LevelDoneActivity extends AppCompatActivity {
         mRewardedAd.loadAd(new AdRequest.Builder().build(), adLoadCallback);
 
 
-//        SharedPreferences sharedPreferences = getSharedPreferences("Points",0);
-//        Long s1 = sharedPreferences.getLong("rewards",0) + 1000;
-////        //get points
-////        Toast.makeText(this, s1, Toast.LENGTH_SHORT).show();
-//
-//        // edit points number
-//        SharedPreferences.Editor myEdit = sharedPreferences.edit();
-//        myEdit.putLong("rewards", s1);
-//        myEdit.commit();
-
-
         Button button = (Button) findViewById(R.id.nextlvl);
 //        Button twice_score = (Button) findViewById(R.id.twice_score1);
 
@@ -150,25 +108,7 @@ public class LevelDoneActivity extends AppCompatActivity {
         Intent intent = getIntent();
         String assetName = intent.getStringExtra("assetName");
         String level = intent.getStringExtra("levelname");
-//        String finalscore = intent.getStringExtra("score");
 
-
-//        Toast.makeText(this, finalscore, Toast.LENGTH_SHORT).show();
-//        score.setText("1000");
-
-
-
-
-//        Toast.makeText(this, assetName, Toast.LENGTH_SHORT).show();
-//        Toast.makeText(this, level, Toast.LENGTH_SHORT).show();
-//        twice_score.setOnClickListener(new View.OnClickListener() {
-//
-//            @Override
-//            public void onClick(View view)  {
-////                Toast.makeText(LevelDoneActivity.this, "ADS", Toast.LENGTH_SHORT).show();
-//                loadRewardedAd();
-//            }
-//        });
 
         button.setOnClickListener(new View.OnClickListener() {
 
