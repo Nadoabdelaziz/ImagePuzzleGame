@@ -7,13 +7,13 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
-class CustomUnlockedImageViewHolder extends RecyclerView.ViewHolder{
+public class DailyPuzzlesViewHolder extends RecyclerView.ViewHolder{
 
     public ImageView imgView;
     public CardView cardView;
-    public CustomUnlockedImageViewHolder(@NonNull View itemView) {
+    public DailyPuzzlesViewHolder(@NonNull View itemView) {
         super(itemView);
-        this.imgView = itemView.findViewById(R.id.gridImageview2);
-        this.cardView = itemView.findViewById(R.id.main_container12);
+        this.imgView = itemView.findViewById(R.id.gridImageview3);
+        this.cardView = itemView.findViewById(R.id.main_container123);
     }
 }

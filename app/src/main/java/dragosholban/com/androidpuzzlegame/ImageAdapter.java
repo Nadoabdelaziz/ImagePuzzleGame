@@ -31,10 +31,23 @@ public class ImageAdapter extends BaseAdapter {
     private AssetManager am;
     private String[] files;
     private String [] unlocked_images;
+    private String[] DailyPuzzles;
 
     public ImageAdapter(Context c,String [] unlocked_images) {
         mContext = c;
         this.unlocked_images = unlocked_images;
+        am = mContext.getAssets();
+        try {
+            files  = am.list("img");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public ImageAdapter(Context c,String [] unlocked_images,String [] DailyPuzzles) {
+        mContext = c;
+        this.unlocked_images = unlocked_images;
+        this.DailyPuzzles=DailyPuzzles;
         am = mContext.getAssets();
         try {
             files  = am.list("img");

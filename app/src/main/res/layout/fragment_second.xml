@@ -1,15 +1,78 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SecondFragment">
+    android:background="@android:color/background_light">
 
-    <!-- TODO: Update blank fragment layout -->
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_main3"
+        android:layout_width="388dp"
+        android:layout_height="197dp"
+        android:layout_margin="1dp"
+        app:layout_constraintBottom_toTopOf="@+id/grid3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/points3">
+
+    </androidx.recyclerview.widget.RecyclerView>
+
+
+    <GridView
+        android:id="@+id/grid3"
+        android:layout_width="401dp"
+        android:layout_height="361dp"
+        android:layout_marginBottom="84dp"
+        android:horizontalSpacing="10dp"
+        android:numColumns="2"
+        android:paddingHorizontal="10dp"
+        android:paddingVertical="10dp"
+        android:verticalSpacing="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.476"
+        app:layout_constraintStart_toStartOf="parent"
+
+        />
+
+
     <TextView
+        android:id="@+id/points3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:text="Hi zizo"
-        android:textSize="30sp" />
+        android:layout_marginStart="168dp"
+        android:layout_marginLeft="168dp"
+        android:layout_marginTop="19dp"
+        android:text="TextView"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-</RelativeLayout>
+    <ImageView
+
+        android:id="@+id/imageView323"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="136dp"
+        android:layout_marginLeft="136dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@android:drawable/btn_star_big_on" />
+
+
+    <ImageButton
+        android:id="@+id/adwatch3"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="232dp"
+        android:layout_marginTop="14dp"
+        android:background="@android:color/background_light"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@android:drawable/ic_input_add" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
