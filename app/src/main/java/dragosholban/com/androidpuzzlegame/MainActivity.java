@@ -64,6 +64,7 @@ import androidx.core.content.FileProvider;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.viewpager.widget.ViewPager;
 
 import com.google.android.gms.ads.AdError;
 import com.google.android.gms.ads.AdRequest;
@@ -76,7 +77,18 @@ import com.google.android.gms.ads.rewarded.RewardedAdLoadCallback;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 
-public class MainActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
+public class MainActivity extends AppCompatActivity {
+
+//    //zizo
+//    BottomNavigationView bottomNavigationView;
+//    //This is our viewPager
+//    private ViewPager viewPager;
+//
+//    FirstFragment firstFr;
+//    SecondFragment SecFr;
+//    ThirdFragment ThirdFr;
+//    MenuItem prevMenuItem;
+
     CustomUnlockedImageAdapter unlocked_img_adapter;
     ImageAdapter imgAdpt;
     Context context;
@@ -99,6 +111,72 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+//        //zizo
+//
+//        //Initializing viewPager
+//        viewPager = (ViewPager) findViewById(R.id.viewpager);
+//
+//        //Initializing the bottomNavigationView
+//        bottomNavigationView = (BottomNavigationView)findViewById(R.id.bottomNavigationView);
+//
+//        bottomNavigationView.setOnNavigationItemSelectedListener(
+//                new BottomNavigationView.OnNavigationItemSelectedListener() {
+//                    @Override
+//                    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+//                        switch (item.getItemId()) {
+//                            case R.id.person:
+//                                viewPager.setCurrentItem(0);
+//                                Log.d("ViewPager", "onNavigationItemSelected: "+viewPager.getCurrentItem());
+//                                break;
+//                            case R.id.home:
+//                                viewPager.setCurrentItem(1);
+//                                Log.d("ViewPager", "onNavigationItemSelected: "+viewPager.getCurrentItem());
+//
+//                                break;
+//                            case R.id.settings:
+//                                viewPager.setCurrentItem(2);
+//                                Log.d("ViewPager", "onNavigationItemSelected: "+viewPager.getCurrentItem());
+//
+//                                break;
+//                        }
+//                        return false;
+//                    }
+//                });
+//
+//        viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+//            @Override
+//            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+//
+//            }
+//
+//            @Override
+//            public void onPageSelected(int position) {
+//                if (prevMenuItem != null) {
+//                    prevMenuItem.setChecked(false);
+//                }
+//                else
+//                {
+//                    bottomNavigationView.getMenu().getItem(0).setChecked(false);
+//                }
+//                Log.d("page", "onPageSelected: "+position);
+//                bottomNavigationView.getMenu().getItem(position).setChecked(true);
+//                prevMenuItem = bottomNavigationView.getMenu().getItem(position);
+//
+//            }
+//
+//            @Override
+//            public void onPageScrollStateChanged(int state) {
+//
+//            }
+//        });
+//
+//        setupViewPager(viewPager);
+
+
+
+
+
 
         //Toast.makeText(this, "Some fields not entered", Toast.LENGTH_SHORT).show();
         mRewardedAd = new RewardedAd(this,
@@ -127,10 +205,10 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         });
 
 
-        BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
-
-        bottomNavigationView.setOnNavigationItemSelectedListener(this);
-        bottomNavigationView.setSelectedItemId(R.id.person);
+//        BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
+//
+//        bottomNavigationView.setOnNavigationItemSelectedListener(this);
+//        bottomNavigationView.setSelectedItemId(R.id.person);
 
 
 
@@ -212,6 +290,17 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
             });
 
     }
+//
+//    private void setupViewPager(ViewPager viewPager) {
+//        ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
+//        firstFr=new FirstFragment();
+//        SecFr=new SecondFragment();
+//        ThirdFr=new ThirdFragment();
+//        adapter.addFragment(firstFr);
+//        adapter.addFragment(SecFr);
+//        adapter.addFragment(ThirdFr);
+//        viewPager.setAdapter(adapter);
+//    }
 
     private void loadRewardedAd(){
         if (mRewardedAd.isLoaded()) {
@@ -254,27 +343,27 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
     }
 
 
-    FirstFragment firstFragment = new FirstFragment();
-    SecondFragment secondFragment = new SecondFragment();
-    ThirdFragment thirdFragment = new ThirdFragment();
-
-    @Override
-    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+//    FirstFragment firstFragment = new FirstFragment();
+//    SecondFragment secondFragment = new SecondFragment();
+//    ThirdFragment thirdFragment = new ThirdFragment();
+//
+//    @Override
+//    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 //        switch (item.getItemId()) {
 //            case R.id.person:
 //                getSupportFragmentManager().beginTransaction().replace(R.id.container, firstFragment).commit();
 //                return true;
 //
 //            case R.id.home:
-////                getSupportFragmentManager().beginTransaction().replace(R.id.container, secondFragment).commit();
-////                return true;
+//                getSupportFragmentManager().beginTransaction().replace(R.id.container, secondFragment).commit();
+//                return true;
 //
 //            case R.id.settings:
-////                getSupportFragmentManager().beginTransaction().replace(R.id.container, thirdFragment).commit();
-////                return true;
+//                getSupportFragmentManager().beginTransaction().replace(R.id.container, thirdFragment).commit();
+//                return true;
 //        }
-        return false;
-    }
+//        return false;
+//    }
 
     public void onImageFromCameraClick(View view) {
 

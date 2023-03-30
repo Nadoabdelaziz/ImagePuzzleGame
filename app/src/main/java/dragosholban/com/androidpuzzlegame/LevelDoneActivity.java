@@ -40,6 +40,11 @@ public class LevelDoneActivity extends AppCompatActivity {
 
 
 
+        Intent intent = getIntent();
+        String assetName = intent.getStringExtra("assetName");
+        String level = intent.getStringExtra("levelname");
+
+
         final Dialog dialog = new Dialog(LevelDoneActivity.this);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.setCancelable(false);
@@ -52,6 +57,7 @@ public class LevelDoneActivity extends AppCompatActivity {
 
         Button dialogButton = (Button) dialog.findViewById(R.id.claim);
         Button dialogButton_3 = (Button) dialog.findViewById(R.id.claim_3);
+
 
 
         btn.setOnClickListener(new View.OnClickListener() {
@@ -104,10 +110,19 @@ public class LevelDoneActivity extends AppCompatActivity {
         Button back = (Button) findViewById(R.id.Back);
 //        TextView score = (TextView) findViewById(R.id.score);
 
+        Button restartBtn = (Button) findViewById(R.id.restart);
 
-        Intent intent = getIntent();
-        String assetName = intent.getStringExtra("assetName");
-        String level = intent.getStringExtra("levelname");
+
+        restartBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent2 = new Intent(getApplicationContext(), PuzzleActivity.class);
+                intent2.putExtra("levelname", level);
+                intent2.putExtra("assetname", assetName);
+                startActivity(intent2);
+            }
+        });
+
 
 
         button.setOnClickListener(new View.OnClickListener() {
@@ -130,7 +145,7 @@ public class LevelDoneActivity extends AppCompatActivity {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), GameMenuActivity.class);
+                Intent intent = new Intent(getApplicationContext(), TheFragmnetsActivity.class);
                 startActivity(intent);
             }
         });

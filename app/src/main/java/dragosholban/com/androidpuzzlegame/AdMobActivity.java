@@ -51,8 +51,9 @@ public class AdMobActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ad_mob);
 
+        //Toast.makeText(this, "Some fields not entered", Toast.LENGTH_SHORT).show();
         mRewardedAd = new RewardedAd(this,
-                "ca-app-pub-3940256099942544/5224354917");
+                "ca-app-pub-2145987647160470/2803949040");
 
         RewardedAdLoadCallback adLoadCallback = new RewardedAdLoadCallback() {
             @Override
@@ -67,6 +68,7 @@ public class AdMobActivity extends AppCompatActivity {
         };
         mRewardedAd.loadAd(new AdRequest.Builder().build(), adLoadCallback);
 
+
         mButton = findViewById(R.id.adstart);
 
         mButton.setOnClickListener(new View.OnClickListener() {
@@ -79,7 +81,7 @@ public class AdMobActivity extends AppCompatActivity {
 
 
 
-    private void loadRewardedAd(){
+    public void loadRewardedAd(){
         if (mRewardedAd.isLoaded()) {
             Activity activityContext = AdMobActivity.this;
             RewardedAdCallback adCallback = new RewardedAdCallback() {

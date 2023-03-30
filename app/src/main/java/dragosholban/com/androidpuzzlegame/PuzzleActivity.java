@@ -51,7 +51,7 @@ public class PuzzleActivity extends AppCompatActivity {
     TextView clk;
     CountDownTimer countDownTimer;
     long  timeleft = 60000;
-    long [] timeleftarr ={5000,70000,90000,125000,245000,350000};
+    long [] timeleftarr ={60000,70000,90000,125000,245000,350000};
     boolean timerrunning;
 
 //    Intent intent = getIntent();
