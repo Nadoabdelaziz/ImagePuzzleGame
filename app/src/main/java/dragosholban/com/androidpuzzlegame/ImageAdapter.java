@@ -71,47 +71,66 @@ public class ImageAdapter extends BaseAdapter {
             public void onClick(View v) {
                 String getText = (String) img_statues.getText();
 
+                SharedPreferences sharedPrefPoints= mContext.getSharedPreferences("Points", 0);
+                Long number = sharedPrefPoints.getLong("rewards", 0);
+
                 if(getText.equals("Unlock")){
 
                     AlertDialog alertDialog = new AlertDialog.Builder(mContext).create();
-                    alertDialog.setTitle("Are you sure you want to unlock this puzzle with  1000  ? \n");
+                    if(number >= 1000) {
+                        alertDialog.setTitle("Are you sure you want to unlock this puzzle with  1000  ? \n");
 
-                    alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "Yes",
-                            new DialogInterface.OnClickListener() {
-                                public void onClick(DialogInterface dialog, int which) {
-
-                                    SharedPreferences sharedPrefPoints= mContext.getSharedPreferences("Points", 0);
-                                    Long number = sharedPrefPoints.getLong("rewards", 0);
-                                    Toast.makeText(mContext, Long.toString(number), Toast.LENGTH_SHORT).show();
-                                    SharedPreferences.Editor  editor1= sharedPrefPoints.edit();
-                                    editor1.putLong("rewards",number-1000);
-                                    editor1.commit();
-                                    SharedPreferences sharedPrefPuzzle = mContext.getSharedPreferences("Unlocked",Context.MODE_PRIVATE);
-                                    Set<String> new_st = sharedPrefPuzzle.getStringSet("unlocked_images",null);
-                                    new_st.add(files[position % files.length]);
-                                    SharedPreferences.Editor  editorr= sharedPrefPuzzle.edit();
-                                    editorr.clear();
-                                    editorr.putStringSet("unlocked_images",new_st);
-                                    editorr.commit();
-                                    //saved_images.
-                                    dialog.dismiss();
-                                    // here
-                                    Intent intent = new Intent(mContext.getApplicationContext(), LevelSelectionActivity.class);
-                                    intent.putExtra("assetName", files[position % files.length]);
+                        alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "Yes",
+                                new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        Toast.makeText(mContext, Long.toString(number), Toast.LENGTH_SHORT).show();
+                                        SharedPreferences.Editor editor1 = sharedPrefPoints.edit();
+                                        editor1.putLong("rewards", number - 1000);
+                                        editor1.commit();
+                                        SharedPreferences sharedPrefPuzzle = mContext.getSharedPreferences("Unlocked", Context.MODE_PRIVATE);
+                                        Set<String> new_st = sharedPrefPuzzle.getStringSet("unlocked_images", null);
+                                        new_st.add(files[position % files.length]);
+                                        SharedPreferences.Editor editorr = sharedPrefPuzzle.edit();
+                                        editorr.clear();
+                                        editorr.putStringSet("unlocked_images", new_st);
+                                        editorr.commit();
+                                        //saved_images.
+                                        dialog.dismiss();
+                                        // here
+                                        Intent intent = new Intent(mContext.getApplicationContext(), LevelSelectionActivity.class);
+                                        intent.putExtra("assetName", files[position % files.length]);
 //                                    context.startActivity(intent);
 //                                    Intent intent = new Intent(mContext.getApplicationContext(), MainActivity.class);
-                                    mContext.startActivity(intent);
+                                        mContext.startActivity(intent);
 
-                                }
-                            });
-                    alertDialog.setButton(AlertDialog.BUTTON_NEGATIVE, "No",
-                            new DialogInterface.OnClickListener() {
-                                public void onClick(DialogInterface dialog, int which) {
-                                    Toast.makeText(mContext, "No is pressed", Toast.LENGTH_SHORT).show();
-                                    dialog.dismiss();
-                                }
-                            });
+                                    }
+                                });
+                        alertDialog.setButton(AlertDialog.BUTTON_NEGATIVE, "No",
+                                new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        Toast.makeText(mContext, "No is pressed", Toast.LENGTH_SHORT).show();
+                                        dialog.dismiss();
+                                    }
+                                });
+                    }
+                    else{
+                        alertDialog.setTitle("You Don't Have Enough Points !");
+                        alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "Ok",
+                                new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        dialog.dismiss();
+                                    }
+                                });
+//                        alertDialog.setButton(AlertDialog.BUTTON_NEGATIVE, "Watch Ad", new DialogInterface.OnClickListener() {
+//                            @Override
+//                            public void onClick(DialogInterface dialogInterface, int i) {
+//                                TheFragmnetsActivity Fr= new TheFragmnetsActivity();
+//                                Fr.loadRewardedAd(alertDialog);
+//                            }
+//                        });
+                    }
                     alertDialog.show();
+
                 }else{
                     Intent intent = new Intent(mContext.getApplicationContext(), LevelSelectionActivity.class);
                     intent.putExtra("assetName", files[position % files.length]);

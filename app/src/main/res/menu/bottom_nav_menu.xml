@@ -2,14 +2,18 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/person"
-        android:title="Person"
-        android:icon="@drawable/ic_image_black_24dp"/>
+        android:icon="?attr/actionModeCopyDrawable"
+        android:title="Main" />
     <item
         android:id="@+id/home"
-        android:title="Home"
-        android:icon="@drawable/ic_launcher_background"/>
+        android:icon="@drawable/calender"
+        android:title="Daily Puzzles" />
     <item
         android:id="@+id/settings"
-        android:title="Settings"
-        android:icon="@drawable/ic_launcher_foreground"/>
+        android:icon="@drawable/multi"
+        android:title="Categories" />
+    <item
+        android:id="@+id/settings2"
+        android:icon="@drawable/squares"
+        android:title="My Puzzles" />
 </menu>

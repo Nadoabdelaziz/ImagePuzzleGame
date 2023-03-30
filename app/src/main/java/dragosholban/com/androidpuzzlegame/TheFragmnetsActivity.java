@@ -49,6 +49,8 @@ public class TheFragmnetsActivity extends AppCompatActivity {
     FirstFragment firstFr;
     SecondFragment SecFr;
     ThirdFragment ThirdFr;
+    FourthFragment FourFr;
+
     MenuItem prevMenuItem;
 
     String mCurrentPhotoPath;
@@ -104,15 +106,20 @@ public class TheFragmnetsActivity extends AppCompatActivity {
                                 viewPager.setCurrentItem(0);
                                 Log.d("ViewPager", "onNavigationItemSelected: "+viewPager.getCurrentItem());
                                 break;
+
                             case R.id.home:
                                 viewPager.setCurrentItem(1);
                                 Log.d("ViewPager", "onNavigationItemSelected: "+viewPager.getCurrentItem());
-
                                 break;
+
                             case R.id.settings:
                                 viewPager.setCurrentItem(2);
                                 Log.d("ViewPager", "onNavigationItemSelected: "+viewPager.getCurrentItem());
+                                break;
 
+                            case R.id.settings2:
+                                viewPager.setCurrentItem(3);
+                                Log.d("Viewpager", "onNavigationItemSelected: "+ viewPager.getCurrentItem());
                                 break;
                         }
                         return false;
@@ -136,6 +143,7 @@ public class TheFragmnetsActivity extends AppCompatActivity {
                 }
                 Log.d("page", "onPageSelected: "+position);
                 bottomNavigationView.getMenu().getItem(position).setChecked(true);
+                bottomNavigationView.getMenu().getItem(1).setTitleCondensed("true");
                 prevMenuItem = bottomNavigationView.getMenu().getItem(position);
 
             }
@@ -335,9 +343,11 @@ public class TheFragmnetsActivity extends AppCompatActivity {
         firstFr=new FirstFragment();
         SecFr=new SecondFragment();
         ThirdFr=new ThirdFragment();
+        FourFr = new FourthFragment();
         adapter.addFragment(firstFr);
         adapter.addFragment(SecFr);
         adapter.addFragment(ThirdFr);
+        adapter.addFragment(FourFr);
         viewPager.setAdapter(adapter);
     }
 
