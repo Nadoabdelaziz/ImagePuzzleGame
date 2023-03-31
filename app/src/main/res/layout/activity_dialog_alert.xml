@@ -64,8 +64,6 @@
         android:src="@drawable/coins" />
 
 
-
-
     <Button
         android:id="@+id/claim_3"
         android:layout_width="match_parent"
@@ -76,7 +74,7 @@
         android:gravity="center"
         android:text="CLAIM X3"
         android:textColor="@color/white"
-        android:textSize="20sp"/>
+        android:textSize="20sp" />
 <!--        app:drawableTint="#FFFFFF"-->
 <!--        app:drawableRightCompat="@drawable/ic_photo_camera_black_24dp" />-->
 

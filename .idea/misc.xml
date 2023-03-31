@@ -29,15 +29,22 @@
         <entry key="..\:/Users/nado2/Videos/Android_puzzle_game-main/Android_puzzle_game-main/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/Users/nado2/Videos/Android_puzzle_game-main/Android_puzzle_game-main/app/src/main/res/layout/activity_puzzle.xml" value="0.25" />
         <entry key="..\:/Users/nado2/Videos/Android_puzzle_game-main/Android_puzzle_game-main/app/src/main/res/layout/activity_the_fragmnets.xml" value="0.25" />
+        <entry key="..\:/Users/nado2/Videos/Android_puzzle_game-main/Android_puzzle_game-main/app/src/main/res/layout/categories.xml" value="0.24479166666666666" />
         <entry key="..\:/Users/nado2/Videos/Android_puzzle_game-main/Android_puzzle_game-main/app/src/main/res/layout/fragment_first.xml" value="0.25" />
+        <entry key="..\:/Users/nado2/Videos/Android_puzzle_game-main/Android_puzzle_game-main/app/src/main/res/layout/fragment_fourth.xml" value="0.24583333333333332" />
         <entry key="..\:/Users/nado2/Videos/Android_puzzle_game-main/Android_puzzle_game-main/app/src/main/res/layout/fragment_second.xml" value="0.25" />
         <entry key="..\:/Users/nado2/Videos/Android_puzzle_game-main/Android_puzzle_game-main/app/src/main/res/layout/fragment_third.xml" value="0.23072916666666668" />
         <entry key="..\:/Users/nado2/Videos/Android_puzzle_game-main/Android_puzzle_game-main/app/src/main/res/layout/grid_date_element.xml" value="0.18489583333333334" />
         <entry key="..\:/Users/nado2/Videos/Android_puzzle_game-main/Android_puzzle_game-main/app/src/main/res/layout/grid_element.xml" value="0.25" />
         <entry key="..\:/Users/nado2/Videos/Android_puzzle_game-main/Android_puzzle_game-main/app/src/main/res/layout/grid_element2.xml" value="0.152" />
+        <entry key="..\:/Users/nado2/Videos/Android_puzzle_game-main/Android_puzzle_game-main/app/src/main/res/layout/my_collections.xml" value="0.24479166666666666" />
+        <entry key="..\:/Users/nado2/Videos/Android_puzzle_game-main/Android_puzzle_game-main/app/src/main/res/layout/my_progress.xml" value="0.24479166666666666" />
+        <entry key="..\:/Users/nado2/Videos/Android_puzzle_game-main/Android_puzzle_game-main/app/src/main/res/layout/my_puzzles.xml" value="0.24583333333333332" />
+        <entry key="..\:/Users/nado2/Videos/Android_puzzle_game-main/Android_puzzle_game-main/app/src/main/res/layout/mylist.xml" value="0.22666666666666666" />
         <entry key="..\:/Users/nado2/Videos/Android_puzzle_game-main/Android_puzzle_game-main/app/src/main/res/layout/mylost.xml" value="0.25" />
         <entry key="..\:/Users/nado2/Videos/Android_puzzle_game-main/Android_puzzle_game-main/app/src/main/res/layout/puzzle_item.xml" value="0.25" />
         <entry key="..\:/Users/nado2/Videos/Android_puzzle_game-main/Android_puzzle_game-main/app/src/main/res/layout/select_level_item.xml" value="0.25" />
+        <entry key="..\:/Users/nado2/Videos/Android_puzzle_game-main/Android_puzzle_game-main/app/src/main/res/layout/tabs_pager.xml" value="0.24583333333333332" />
         <entry key="..\:/Users/nado2/Videos/Android_puzzle_game-main/Android_puzzle_game-main/app/src/main/res/menu/bottom_nav_menu.xml" value="0.25" />
       </map>
     </option>
