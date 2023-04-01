@@ -37,6 +37,8 @@ public class ImageAdapter extends BaseAdapter {
     private boolean progress;
     private String [] levels;
 
+    private String category_name;
+    private String [] newfiles;
 
 
     public ImageAdapter(Context c, String [] unlocked_images, Boolean progress, String[] levels) {
@@ -50,6 +52,47 @@ public class ImageAdapter extends BaseAdapter {
 //            e.printStackTrace();
 //        }
     }
+
+    public ImageAdapter(Context c,String [] unlocked_images, String category_name) {
+        mContext = c;
+        this.unlocked_images = unlocked_images;
+        am = mContext.getAssets();
+        this.category_name = category_name;
+        try {
+            files  = am.list("img");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        if(!category_name.equals("All Puzzles")) {
+            Log.d("TAG", "CAT nAME ImageAdapter: "+category_name);
+            for (int i = 0; i < files.length; i++) {
+                if (!files[i].contains(category_name.toLowerCase())) {
+//                newfiles[i]=files[i];
+                    Log.d("TAG", "Index ImageAdapter: " + files[i]);
+                    files[i] = null;
+                }
+//            files = null;
+//            files = newfiles;
+            }
+            files = removeNull(files);
+        }
+        Log.d("TAG", "ImageAdapter: " + Arrays.asList(files));
+
+    }
+
+    public String[] removeNull(String[] a) {
+        String[] tmp = new String[a.length];
+        int counter = 0;
+        for (String s : a) {
+            if (s != null) {
+                tmp[counter++] = s;
+            }
+        }
+        String[] ret = new String[counter];
+        System.arraycopy(tmp, 0, ret, 0, counter);
+        return ret;
+    }
+
     public ImageAdapter(Context c,String [] unlocked_images) {
         mContext = c;
         this.unlocked_images = unlocked_images;

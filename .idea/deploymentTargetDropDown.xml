@@ -6,12 +6,12 @@
         <type value="RUNNING_DEVICE_TARGET" />
         <deviceKey>
           <Key>
-            <type value="SERIAL_NUMBER" />
-            <value value="adb-RF8NB0XSS7H-7Q1DYy._adb-tls-connect._tcp" />
+            <type value="VIRTUAL_DEVICE_PATH" />
+            <value value="C:\Users\nado2\.android\avd\Pixel_5_API_26.avd" />
           </Key>
         </deviceKey>
       </Target>
     </runningDeviceTargetSelectedWithDropDown>
-    <timeTargetWasSelectedWithDropDown value="2023-04-01T14:48:17.340508500Z" />
+    <timeTargetWasSelectedWithDropDown value="2023-04-01T15:16:13.584957400Z" />
   </component>
 </project>

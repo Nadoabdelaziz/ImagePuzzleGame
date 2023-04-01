@@ -36,23 +36,11 @@ public class CategoriesActivity extends AppCompatActivity {
 
 
         txt.setText(title.toString());
-        // add 3 images to be unlocked by defualt
-        AssetManager am = getAssets();
-        final String[] files; // get all images
-        try {
-            files = am.list("img");
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-        Set<String> def_unclocked = new HashSet<String>();
-        def_unclocked.add(files[0]);
-        def_unclocked.add(files[1]);
-        def_unclocked.add(files[2]);
-
 
         SharedPreferences preff = getSharedPreferences("Unlocked", Context.MODE_PRIVATE);
         Set<String> new_st = preff.getStringSet("unlocked_images",null);
 
+        Log.d("TAG", "onCreate: "+new_st);
 //        Set<String> newCatSet = new HashSet<>();
 //        for (String element :new_st) {
 //            // Implementing for loop
@@ -63,19 +51,8 @@ public class CategoriesActivity extends AppCompatActivity {
 //            }
 //        }
 //        Log.d("Deb", "onCreate: "+newCatSet);
-        if( new_st != null){ //there are saved data
-            String[] saved_images =new_st.toArray(new String[new_st.size()]) ;
-            unlocked_img_adapter = new CustomUnlockedImageAdapter(this,saved_images);
-            imgAdpt = new ImageAdapter(this,saved_images);
-        }
-        else { //save 3 defualt images
-            SharedPreferences.Editor  editorr= preff.edit();
-            editorr.putStringSet("unlocked_images",def_unclocked);
-            editorr.commit();
-            String [] def_images = def_unclocked.toArray(new String[def_unclocked.size()]) ;
-            unlocked_img_adapter = new CustomUnlockedImageAdapter(this,def_images);
-            imgAdpt = new ImageAdapter(this,def_images);
-        }
+        String[] saved_images =new_st.toArray(new String[new_st.size()]) ;
+        imgAdpt = new ImageAdapter(this,saved_images,title);
 
         GridView grid = findViewById(R.id.cats_grid);
         grid.setAdapter(imgAdpt);
