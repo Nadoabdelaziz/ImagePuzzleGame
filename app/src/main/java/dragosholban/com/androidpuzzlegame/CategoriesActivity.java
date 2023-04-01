@@ -9,10 +9,13 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 
 import java.io.IOException;
 import java.util.HashSet;
@@ -23,6 +26,7 @@ public class CategoriesActivity extends AppCompatActivity {
     ImageAdapter imgAdpt;
     CustomUnlockedImageAdapter unlocked_img_adapter;
     TextView txt;
+    ImageView imgback;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +34,16 @@ public class CategoriesActivity extends AppCompatActivity {
         setContentView(R.layout.activity_categories);
 
         txt = (TextView) findViewById(R.id.typeCat);
+        imgback = (ImageView) findViewById(R.id.imageBtnback);
+
+        imgback.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(CategoriesActivity.this,ThirdFragment.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                finish();
+            }
+        });
 
         Intent intent = getIntent();
         String title = intent.getStringExtra("title");
