@@ -68,6 +68,7 @@ public class PuzzleActivity extends AppCompatActivity {
         String assetName = intent.getStringExtra("assetname");
         String level = intent.getStringExtra("levelname");
 
+        Log.d("TAG", "onCreate Asset Puzzle Name: "+assetName);
 
         mCurrentPhotoPath = intent.getStringExtra("mCurrentPhotoPath");
         mCurrentPhotoUri = intent.getStringExtra("mCurrentPhotoUri");
