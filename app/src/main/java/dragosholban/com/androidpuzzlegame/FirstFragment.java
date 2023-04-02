@@ -194,9 +194,9 @@ public class FirstFragment extends Fragment {
 
                 @Override
                 public void onUserEarnedReward(@NonNull RewardItem rewardItem) {
-                    Toast.makeText(getContext(), "YOU HAVE EARNED 1000 REWARD POINTS", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), "YOU HAVE EARNED 50 REWARD POINTS", Toast.LENGTH_SHORT).show();
                     SharedPreferences sharedPreferences = getContext().getSharedPreferences("Points",0);
-                    Long s1 = sharedPreferences.getLong("rewards",0) + 1000;
+                    Long s1 = sharedPreferences.getLong("rewards",0) + 50;
 
                     SharedPreferences.Editor myEdit = sharedPreferences.edit();
                     myEdit.putLong("rewards", s1);

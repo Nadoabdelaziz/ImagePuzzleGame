@@ -17,6 +17,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -30,6 +32,8 @@ public class SecondFragment extends Fragment {
     Context context;
     ImageAdapter imgAdpt;
     DailyPuzzlesAdapter dailyPuzzlesAdapter;
+    TextView month;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -37,6 +41,10 @@ public class SecondFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_second, container, false);
         this.mView = view;
+
+        month = (TextView)  view.findViewById(R.id.monthtxt);
+        Calendar cal = Calendar.getInstance();
+        month.setText(new SimpleDateFormat("MMM").format(cal.getTime()) + " 2023");
 
         // add 3 images to be unlocked by defualt
         AssetManager am = getContext().getAssets();

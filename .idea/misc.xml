@@ -7,6 +7,7 @@
         <entry key="..\:/Users/nado2/Downloads/AndroidPuzzleGame-master/AndroidPuzzleGame-master/app/src/main/res/layout/activity_game_menu.xml" value="0.25" />
         <entry key="..\:/Users/nado2/Downloads/AndroidPuzzleGame-master/AndroidPuzzleGame-master/app/src/main/res/layout/activity_level_done.xml" value="0.2359375" />
         <entry key="..\:/Users/nado2/Downloads/AndroidPuzzleGame-master/AndroidPuzzleGame-master/app/src/main/res/layout/activity_level_selection.xml" value="0.25" />
+        <entry key="..\:/Users/nado2/Downloads/AndroidPuzzleGame-master/AndroidPuzzleGame-master/app/src/main/res/layout/activity_lose_dialog_alert.xml" value="0.21574074074074073" />
         <entry key="..\:/Users/nado2/Downloads/AndroidPuzzleGame-master/AndroidPuzzleGame-master/app/src/main/res/layout/activity_losegameactivity.xml" value="0.2359375" />
         <entry key="..\:/Users/nado2/Downloads/AndroidPuzzleGame-master/AndroidPuzzleGame-master/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/Users/nado2/Downloads/AndroidPuzzleGame-master/AndroidPuzzleGame-master/app/src/main/res/layout/activity_puzzle.xml" value="0.25" />
@@ -14,8 +15,12 @@
         <entry key="..\:/Users/nado2/Downloads/AndroidPuzzleGame-master/AndroidPuzzleGame-master/app/src/main/res/layout/fragment_first.xml" value="0.25" />
         <entry key="..\:/Users/nado2/Downloads/AndroidPuzzleGame-master/AndroidPuzzleGame-master/app/src/main/res/layout/fragment_fourth.xml" value="0.25" />
         <entry key="..\:/Users/nado2/Downloads/AndroidPuzzleGame-master/AndroidPuzzleGame-master/app/src/main/res/layout/fragment_second.xml" value="0.25" />
-        <entry key="..\:/Users/nado2/Downloads/AndroidPuzzleGame-master/AndroidPuzzleGame-master/app/src/main/res/layout/fragment_third.xml" value="0.11614583333333334" />
+        <entry key="..\:/Users/nado2/Downloads/AndroidPuzzleGame-master/AndroidPuzzleGame-master/app/src/main/res/layout/fragment_third.xml" value="0.2" />
+        <entry key="..\:/Users/nado2/Downloads/AndroidPuzzleGame-master/AndroidPuzzleGame-master/app/src/main/res/layout/grid_date_element.xml" value="0.21574074074074073" />
         <entry key="..\:/Users/nado2/Downloads/AndroidPuzzleGame-master/AndroidPuzzleGame-master/app/src/main/res/layout/grid_element.xml" value="0.25" />
+        <entry key="..\:/Users/nado2/Downloads/AndroidPuzzleGame-master/AndroidPuzzleGame-master/app/src/main/res/layout/my_collections.xml" value="0.21574074074074073" />
+        <entry key="..\:/Users/nado2/Downloads/AndroidPuzzleGame-master/AndroidPuzzleGame-master/app/src/main/res/layout/my_puzzles.xml" value="0.21574074074074073" />
+        <entry key="..\:/Users/nado2/Downloads/AndroidPuzzleGame-master/AndroidPuzzleGame-master/app/src/main/res/layout/select_level_item.xml" value="0.22916666666666666" />
         <entry key="..\:/Users/nado2/Downloads/AndroidPuzzleGame-master/AndroidPuzzleGame-master/app/src/main/res/layout/startagame_ctivity.xml" value="0.25" />
         <entry key="..\:/Users/nado2/Downloads/AndroidPuzzleGame-master/AndroidPuzzleGame-master/app/src/main/res/menu/bottom_nav_menu.xml" value="0.25" />
         <entry key="..\:/Users/nado2/Music/ImagePuzzleGame-main/ImagePuzzleGame-main/app/src/main/res/layout/activity_main.xml" value="0.25" />

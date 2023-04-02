@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -38,7 +39,8 @@ public class DailyPuzzlesAdapter extends  RecyclerView.Adapter<DailyPuzzlesViewH
     @Override
     public void onBindViewHolder(@NonNull DailyPuzzlesViewHolder holder, int position) {
 
-        String image_fullname = this.files[position];
+
+                String image_fullname = this.files[position];
         String[]  img_no_extension  = image_fullname.split("\\.");
         //Toast.makeText(context,img_no_extension[0], Toast.LENGTH_SHORT).show();
         int id = context.getResources().getIdentifier("dragosholban.com.androidpuzzlegame:drawable/"+img_no_extension[0].toLowerCase(), null,null);

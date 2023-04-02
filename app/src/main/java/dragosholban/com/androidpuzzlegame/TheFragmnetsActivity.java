@@ -163,9 +163,9 @@ public class TheFragmnetsActivity extends AppCompatActivity {
 
         AlertDialog alertDialog = new AlertDialog.Builder(context).create();
 
-        if(number >= 1000) {
+        if(number >= 40) {
 
-            alertDialog.setTitle("Are you sure you want to unlock this puzzle with  1000  ? \n");
+            alertDialog.setTitle("Are you sure you want to unlock this puzzle with  40  ? \n");
 
             alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "Yes",
                     new DialogInterface.OnClickListener() {
@@ -174,7 +174,7 @@ public class TheFragmnetsActivity extends AppCompatActivity {
                             SharedPreferences sharedPrefPoints = MyActivity.getSharedPreferences("Points", 0);
                             Long number = sharedPrefPoints.getLong("rewards", 0);
                             SharedPreferences.Editor editor1 = sharedPrefPoints.edit();
-                            editor1.putLong("rewards", number - 1000);
+                            editor1.putLong("rewards", number - 40);
                             editor1.commit();
                             dialog.dismiss();
 
@@ -287,50 +287,53 @@ public class TheFragmnetsActivity extends AppCompatActivity {
 
         AlertDialog alertDialog = new AlertDialog.Builder(context).create();
 
-        if(number >= 1000) {
-            alertDialog.setTitle("Are you sure you want to unlock this puzzle with  1000  ? \n");
-            alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "Yes",
-                    new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int which) {
 
-                            SharedPreferences.Editor editor1 = sharedPrefPoints.edit();
-                            editor1.putLong("rewards", number - 1000);
-                            editor1.commit();
-                            dialog.dismiss();
 
                             if (ContextCompat.checkSelfPermission(context, android.Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
                                 ActivityCompat.requestPermissions(MyActivity, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, REQUEST_PERMISSION_READ_EXTERNAL_STORAGE);
                             } else {
-                                Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
-                                intent.setType("image/*");
-                                startActivityForResult(intent, REQUEST_IMAGE_GALLERY);
-                            }
-                        }
-                    });
-            alertDialog.setButton(AlertDialog.BUTTON_NEGATIVE, "No",
-                    new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int which) {
-                            Toast.makeText(context, "No is pressed", Toast.LENGTH_SHORT).show();
-                            dialog.dismiss();
-                        }
-                    });
-        }
-        else {
+                                if(number >= 40) {
+                                    alertDialog.setTitle("Are you sure you want to unlock this puzzle with  40  ? \n");
+                                    alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "Yes",
+                                            new DialogInterface.OnClickListener() {
+                                                public void onClick(DialogInterface dialog, int which) {
 
-            alertDialog.setTitle("You Don't Have Enough Points !");
-            alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "Ok",
-                    new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int which) {
-                            dialog.dismiss();
-                        }
-                    });
-            alertDialog.setButton(AlertDialog.BUTTON_NEGATIVE, "Watch Ad", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialogInterface, int i) {
-                    loadRewardedAd(alertDialog);
-                }
-            });
-        }
+                                                    SharedPreferences.Editor editor1 = sharedPrefPoints.edit();
+                                                    editor1.putLong("rewards", number - 40);
+                                                    editor1.commit();
+                                                    dialog.dismiss();
+
+                                                    Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
+                                                    intent.setType("image/*");
+                                                    startActivityForResult(intent, REQUEST_IMAGE_GALLERY);
+                                                }
+                                            });
+                                    alertDialog.setButton(AlertDialog.BUTTON_NEGATIVE, "No",
+                                            new DialogInterface.OnClickListener() {
+                                                public void onClick(DialogInterface dialog, int which) {
+                                                    Toast.makeText(context, "No is pressed", Toast.LENGTH_SHORT).show();
+                                                    dialog.dismiss();
+                                                }
+                                            });
+                                }
+                                else {
+//                                    startActivity(getIntent());
+                                    alertDialog.setTitle("You Don't Have Enough Points !");
+                                    alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "Ok",
+                                            new DialogInterface.OnClickListener() {
+                                                public void onClick(DialogInterface dialog, int which) {
+                                                    dialog.dismiss();
+                                                }
+                                            });
+                                    alertDialog.setButton(AlertDialog.BUTTON_NEGATIVE, "Watch Ad", new DialogInterface.OnClickListener() {
+                                        @Override
+                                        public void onClick(DialogInterface dialogInterface, int i) {
+                                            loadRewardedAd(alertDialog);
+                                        }
+                                    });
+                                }
+                            }
+
         alertDialog.show();
 
 
@@ -370,7 +373,7 @@ public class TheFragmnetsActivity extends AppCompatActivity {
                 public void onUserEarnedReward(@NonNull RewardItem rewardItem) {
                     Toast.makeText(context, "You Earned Reward", Toast.LENGTH_SHORT).show();
                     SharedPreferences sharedPreferences = getSharedPreferences("Points",0);
-                    Long s1 = sharedPreferences.getLong("rewards",0) + 1000;
+                    Long s1 = sharedPreferences.getLong("rewards",0) + 50;
 
                     SharedPreferences.Editor myEdit = sharedPreferences.edit();
                     myEdit.putLong("rewards", s1);

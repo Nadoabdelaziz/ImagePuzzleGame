@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
@@ -39,6 +40,7 @@ public class CustomSelectLevelAdapter  extends  RecyclerView.Adapter<CustomSelec
         this.mCurrentPhotoUri = mCurrentPhotoUri;
         this.mCurrentPhotoPath = mCurrentPhotoPath;
         this.assetname = assetname;
+
     }
 
 
@@ -60,26 +62,28 @@ public class CustomSelectLevelAdapter  extends  RecyclerView.Adapter<CustomSelec
         crd.setOnClickListener(new View.OnClickListener() {
 //            @Override
             public void onClick(View view) {
+//                Log.d("TAG", "onClick: "+scores[position]);
                 Intent intent = new Intent(context, PuzzleActivity.class);
 
                 Set<String> new_st = sharedPreferences.getStringSet("current_puzzles", null);
                 String Map = sharedPreferences.getString("current_puzzles_Map", null);
 
-                if(Map != null){
+                if(mCurrentPhotoPath ==null & mCurrentPhotoUri==null) {
+                    if (Map != null) {
 //                    Log.d("TAG", "msh null: ");
 //                    new_st.add(assetname);
 //                    SharedPreferences.Editor myEdit = sharedPreferences.edit();
 //                    myEdit.clear();
 //                    myEdit.putStringSet("current_puzzles", new_st);
 //                    myEdit.commit();
-                    HashMap<String,String> outputMap = new HashMap<>();
-                    JSONObject jsonObject = null;
-                    try {
-                        jsonObject = new JSONObject(Map);
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }
-                    Iterator<String> keysItr = jsonObject.keys();
+                        HashMap<String, String> outputMap = new HashMap<>();
+                        JSONObject jsonObject = null;
+                        try {
+                            jsonObject = new JSONObject(Map);
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                        Iterator<String> keysItr = jsonObject.keys();
                         while (keysItr.hasNext()) {
                             String key = keysItr.next();
                             String value = null;
@@ -88,27 +92,25 @@ public class CustomSelectLevelAdapter  extends  RecyclerView.Adapter<CustomSelec
                             } catch (JSONException e) {
                                 e.printStackTrace();
                             }
-                            outputMap.put(key,value);
+                            outputMap.put(key, value);
                         }
-                    outputMap.put(assetname,Integer.toString(position+1));
+                        outputMap.put(assetname, Integer.toString(position + 1));
 
-                    JSONObject newjsonObject = new JSONObject(outputMap);
-                    String jsonString = newjsonObject.toString();
-                    SharedPreferences.Editor editor = sharedPreferences.edit();
-                    editor.putString("current_puzzles_Map", jsonString);
-                    editor.commit();
-                }
+                        JSONObject newjsonObject = new JSONObject(outputMap);
+                        String jsonString = newjsonObject.toString();
+                        SharedPreferences.Editor editor = sharedPreferences.edit();
+                        editor.putString("current_puzzles_Map", jsonString);
+                        editor.commit();
+                    } else {
+                        Log.d("TAG", "tl3t null: ");
+                        HashMap<String, String> progressMap = new HashMap<>();
+                        progressMap.put(assetname, Integer.toString(position + 1));
 
-                else{
-                    Log.d("TAG", "tl3t null: ");
-                    HashMap<String,String> progressMap = new HashMap<>();
-                    progressMap.put(assetname,Integer.toString(position+1));
-
-                    JSONObject jsonObject = new JSONObject(progressMap);
-                    String jsonString = jsonObject.toString();
-                    SharedPreferences.Editor editor = sharedPreferences.edit();
-                    editor.putString("current_puzzles_Map", jsonString);
-                    editor.commit();
+                        JSONObject jsonObject = new JSONObject(progressMap);
+                        String jsonString = jsonObject.toString();
+                        SharedPreferences.Editor editor = sharedPreferences.edit();
+                        editor.putString("current_puzzles_Map", jsonString);
+                        editor.commit();
 //                    SharedPreferences.Editor myEdit = sharedPreferences.edit();
 //                    for (String s : progressMap.keySet()) {
 //                        myEdit.putString(s, progressMap.get(s));
@@ -116,6 +118,7 @@ public class CustomSelectLevelAdapter  extends  RecyclerView.Adapter<CustomSelec
 //                    myEdit.clear();
 ////                    myEdit.put("current_puzzles", new_st2);
 //                    myEdit.commit();
+                    }
                 }
 
 
@@ -134,16 +137,22 @@ public class CustomSelectLevelAdapter  extends  RecyclerView.Adapter<CustomSelec
                 if(mCurrentPhotoPath!=null){
                     intent.putExtra("levelname", Integer.toString(position+1));
                     intent.putExtra("mCurrentPhotoPath", mCurrentPhotoPath);
+                    Log.d("TAG", "onClick: "+scores[position]);
+                    intent.putExtra("rewards",String.valueOf(scores[position]));
                     context.startActivity(intent);
                 }
                 else if(mCurrentPhotoUri !=null){
                     intent.putExtra("levelname", Integer.toString(position+1));
                     intent.putExtra("mCurrentPhotoUri", mCurrentPhotoUri);
+                    Log.d("TAG", "onClick: "+scores[position]);
+                    intent.putExtra("rewards",String.valueOf(scores[position]));
                     context.startActivity(intent);
                 }
                 else{
                     intent.putExtra("levelname", Integer.toString(position+1));
                     intent.putExtra("assetname", assetname);
+                    Log.d("TAG", "onClick: "+scores[position]);
+                    intent.putExtra("rewards",String.valueOf(scores[position]));
                     context.startActivity(intent);
                 }
 

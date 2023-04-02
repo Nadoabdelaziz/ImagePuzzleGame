@@ -43,6 +43,7 @@ public class LevelDoneActivity extends AppCompatActivity {
         Intent intent = getIntent();
         String assetName = intent.getStringExtra("assetName");
         String level = intent.getStringExtra("levelname");
+        String rewardpts = intent.getStringExtra("rewardpts");
 
 
         final Dialog dialog = new Dialog(LevelDoneActivity.this);
@@ -70,7 +71,7 @@ public class LevelDoneActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 SharedPreferences sharedPreferences = getSharedPreferences("Points",0);
-                Long s1 = sharedPreferences.getLong("rewards",0) + 1000;
+                Long s1 = sharedPreferences.getLong("rewards",0) + Long.parseLong(rewardpts);
                 SharedPreferences.Editor myEdit = sharedPreferences.edit();
                 myEdit.putLong("rewards", s1);
                 myEdit.commit();
@@ -145,6 +146,7 @@ public class LevelDoneActivity extends AppCompatActivity {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Toast.makeText(LevelDoneActivity.this, "Clicked", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(getApplicationContext(), TheFragmnetsActivity.class);
                 startActivity(intent);
             }
@@ -152,6 +154,9 @@ public class LevelDoneActivity extends AppCompatActivity {
     }
 
     private void loadRewardedAd(Dialog D1){
+        Intent intent = getIntent();
+        String rewardpts = intent.getStringExtra("rewardpts");
+
         if (mRewardedAd.isLoaded()) {
             Activity activityContext = LevelDoneActivity.this;
             RewardedAdCallback adCallback = new RewardedAdCallback() {
@@ -170,7 +175,7 @@ public class LevelDoneActivity extends AppCompatActivity {
                 public void onUserEarnedReward(@NonNull RewardItem rewardItem) {
                     Toast.makeText(LevelDoneActivity.this, "You Earned Reward", Toast.LENGTH_SHORT).show();
                     SharedPreferences sharedPreferences = getSharedPreferences("Points",0);
-                    Long s1 = sharedPreferences.getLong("rewards",0) + 1000;
+                    Long s1 = sharedPreferences.getLong("rewards",0) + 3*(Long.parseLong(rewardpts));
 
                     SharedPreferences.Editor myEdit = sharedPreferences.edit();
                     myEdit.putLong("rewards", s1);

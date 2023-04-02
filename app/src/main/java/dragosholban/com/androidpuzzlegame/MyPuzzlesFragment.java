@@ -79,7 +79,8 @@ public class MyPuzzlesFragment extends Fragment {
 //            grid.setAdapter(imgAdpt);
             grid.setAdapter(imgAdpt);
         }
-//
+        //
+
 //        String puzzle = sh.getString("puzzle", "");
 //        String lvl = sh.getString("level","");
 

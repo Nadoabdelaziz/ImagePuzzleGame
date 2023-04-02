@@ -42,11 +42,11 @@ public class ThirdFragment extends Fragment {
 //    };
 
     Integer[] imgid={
-            R.drawable.calender,R.drawable.multi,
-            R.drawable.lock,R.drawable.timesup,
-            R.drawable.squares, R.drawable.calender,R.drawable.multi,
-            R.drawable.lock,R.drawable.timesup,
-            R.drawable.squares,R.drawable.timesup,
+            R.drawable.all_puzzles,R.drawable.natures_icon,
+            R.drawable.landmark_icon,R.drawable.color_icon,
+            R.drawable.foods_icon, R.drawable.object_icon,R.drawable.animal_icon,
+            R.drawable.arts_icon,R.drawable.bird_icon,
+            R.drawable.flower_icon,R.drawable.pet_icon,
     };
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {

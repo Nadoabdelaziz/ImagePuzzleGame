@@ -60,6 +60,11 @@ public class losegameactivity extends AppCompatActivity {
         Button contBTN = dialog2.findViewById(R.id.continues);
         Button Restart = dialog2.findViewById(R.id.restart);
 
+        Button back = dialog2.findViewById(R.id.backmenu);
+        TextView score = (TextView) findViewById(R.id.score);
+
+        Button btnBack = (Button) findViewById(R.id.Back);
+        Button btrnrestart = (Button) findViewById(R.id.restartBtn);
 
 
         dialog2.show();
@@ -96,16 +101,33 @@ public class losegameactivity extends AppCompatActivity {
             }
         });
 
+        btrnrestart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String assetname = intent.getStringExtra("assetName");
+                String level = intent.getStringExtra("levelname");
+                Intent intent2 = new Intent(getApplicationContext(), PuzzleActivity.class);
+                intent2.putExtra("levelname", level);
+                intent2.putExtra("assetname", assetname);
+                startActivity(intent2);
+            }
+        });
 
 
 
 
-        Button back = dialog2.findViewById(R.id.backmenu);
-        TextView score = (TextView) findViewById(R.id.score);
 
 //        score.setText(finalscore.toString());
 
         back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), TheFragmnetsActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), TheFragmnetsActivity.class);

@@ -1,6 +1,8 @@
 package dragosholban.com.androidpuzzlegame;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.AssetManager;
@@ -33,6 +35,7 @@ import java.util.Collections;
 import java.util.Random;
 
 import static java.lang.Math.abs;
+import static java.lang.Math.log;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatImageView;
@@ -67,8 +70,11 @@ public class PuzzleActivity extends AppCompatActivity {
         Intent intent = getIntent();
         String assetName = intent.getStringExtra("assetname");
         String level = intent.getStringExtra("levelname");
+        String rewardpts = intent.getStringExtra("rewards");
 
-        Log.d("TAG", "onCreate Asset Puzzle Name: "+assetName);
+        Log.d("TAG", "awl points : "+rewardpts);
+
+//        Log.d("TAG", "onCreate Asset Puzzle Name: "+assetName);
 
         mCurrentPhotoPath = intent.getStringExtra("mCurrentPhotoPath");
         mCurrentPhotoUri = intent.getStringExtra("mCurrentPhotoUri");
@@ -121,6 +127,32 @@ public class PuzzleActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    public void onBackPressed() {
+        // your stuff here
+        stoptimer();
+        Log.d("Time", "onBackPressed:");
+        AlertDialog alertDialog = new AlertDialog.Builder(context).create();
+        alertDialog.setTitle("Are you sure you want to exit the puzzle  ? \n");
+
+        alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "Yes",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        countDownTimer.cancel();
+                        dialog.dismiss();
+                        finish();
+                    }
+                });
+        alertDialog.setButton(AlertDialog.BUTTON_NEGATIVE, "No",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        startimer();
+                        dialog.dismiss();
+                    }
+                });
+        alertDialog.show();
+
+    }
     public long FinalScore(){
         TouchListener touchListener= new TouchListener(this);
         int nmoves = touchListener.getCount();
@@ -388,6 +420,8 @@ public class PuzzleActivity extends AppCompatActivity {
             Intent intent = getIntent();
             String assetName = intent.getStringExtra("assetname");
             String level = intent.getStringExtra("levelname");
+            String rewards = intent.getStringExtra("rewards");
+            Log.d("TAG", "LevelDone "+rewards);
 
             countDownTimer.cancel();
             if(timeUp == true){
@@ -402,6 +436,8 @@ public class PuzzleActivity extends AppCompatActivity {
                 intent = new Intent(getApplicationContext(), LevelDoneActivity.class);
                 intent.putExtra("assetName", assetName);
                 intent.putExtra("levelname",level);
+                Log.d("TAG", "checkGameOver: "+rewards);
+                intent.putExtra("rewardpts",rewards);
                 long thescore = FinalScore();
                 intent.putExtra("score",String.valueOf(thescore));
                 startActivity(intent);

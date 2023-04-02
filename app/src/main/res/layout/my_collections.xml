@@ -21,11 +21,11 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="26dp"
-        android:tint="@color/black"
         android:layout_centerInParent="true"
+        android:layout_marginTop="26dp"
         android:text="There are no collections yet"
-        android:textAppearance="?android:attr/textAppearanceLarge"/>
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:tint="@color/black" />
 
 <!--    <Button-->
 <!--        android:id="@+id/button"-->
@@ -42,8 +42,8 @@
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/textView"
-        android:layout_marginTop="29dp"
         android:layout_centerInParent="true"
+        android:layout_marginTop="29dp"
         android:background="@color/purple_500"
         android:fontFamily="monospace"
         android:gravity="center"
