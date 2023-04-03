@@ -2,11 +2,17 @@ package dragosholban.com.androidpuzzlegame;
 
 import android.content.Intent;
 //import android.support.v7.app.AppCompatActivity;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import java.util.Arrays;
+
 
 public class StartGameActivity extends AppCompatActivity {
 
@@ -17,10 +23,23 @@ public class StartGameActivity extends AppCompatActivity {
 
         Button btn = (Button) findViewById(R.id.start);
 
+//        GetPhotos gt = new GetPhotos(getApplicationContext());
+//        gt.getphotos();
+
+//        SharedPreferences prefs = getApplicationContext().getSharedPreferences("px_photos", 0);
+//        int size = prefs.getInt("newphotos" + "_size", 0);
+//        String array[] = new String[size];
+//        for(int i=0;i<size;i++)
+//            array[i] = prefs.getString("newphotos" + "_" + i, null);
+//
+//
+//            Log.d("GET", "onCreate: "+ Arrays.toString(array));
+
+
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), GameMenuActivity.class);
+                Intent intent = new Intent(getApplicationContext(), TheFragmnetsActivity.class);
                 startActivity(intent);
             }
         });

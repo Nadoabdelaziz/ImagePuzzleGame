@@ -31,6 +31,7 @@ dependencies {
     implementation 'com.google.android.material:material:1.4.0'
     implementation 'com.squareup.picasso:picasso:2.71828'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation 'com.google.firebase:firebase-crashlytics-buildtools:2.9.4'
 //    implementation 'com.google.android.gms:play-services-ads-lite:21.5.0'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
@@ -40,6 +41,10 @@ dependencies {
     implementation 'com.google.android.gms:play-services-ads:19.3.0'
     implementation 'com.android.support:multidex:1.0.3'
     implementation 'me.riddhimanadib.bottom-nav-bar:bottom-nav-bar:1.0.1'
+    implementation 'com.squareup.retrofit2:retrofit:2.4.0'
+    implementation 'com.squareup.retrofit2:retrofit:2.1.0'
+    implementation 'com.google.code.gson:gson:2.6.2'
+    implementation 'com.squareup.retrofit2:converter-gson:2.1.0'
 
 
 

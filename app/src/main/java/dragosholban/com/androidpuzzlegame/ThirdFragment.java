@@ -27,7 +27,7 @@ public class ThirdFragment extends Fragment {
 
     String[] maintitle ={
             "All Puzzles","Nature",
-            "Landmarks","Colors",
+            "Landscapes","Colors",
             "Food","Objects","Animals"
             ,"Art","Birds","Flowers",
             "Pets"

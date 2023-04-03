@@ -17,16 +17,6 @@
         app:srcCompat="@drawable/settings" />
 
     <ImageView
-        android:id="@+id/imageView6"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="296dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/win" />
-
-    <ImageView
         android:id="@+id/imageBtnback"
         android:layout_width="59dp"
         android:layout_height="45dp"
