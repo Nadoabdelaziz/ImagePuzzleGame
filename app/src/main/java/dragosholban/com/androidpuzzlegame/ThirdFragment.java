@@ -30,7 +30,8 @@ public class ThirdFragment extends Fragment {
             "Landscapes","Colors",
             "Food","Objects","Animals"
             ,"Art","Birds","Flowers",
-            "Pets"
+            "Pets","Sports","Travel",
+            "Kids"
     };
 
 //    String[] subtitle ={
@@ -47,6 +48,8 @@ public class ThirdFragment extends Fragment {
             R.drawable.foods_icon, R.drawable.object_icon,R.drawable.animal_icon,
             R.drawable.arts_icon,R.drawable.bird_icon,
             R.drawable.flower_icon,R.drawable.pet_icon,
+            R.drawable.sporticon,R.drawable.travel_icon,
+            R.drawable.kids_icon
     };
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
