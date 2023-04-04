@@ -34,7 +34,6 @@ public class LevelSelectionActivity extends AppCompatActivity {
         Bundle zizo = getIntent().getExtras();
             String assetname = zizo.getString("assetName");
 
-
 //
         recyclerView = findViewById(R.id.recycler_main8);
         recyclerView.setHasFixedSize(true);
@@ -117,5 +116,12 @@ public class LevelSelectionActivity extends AppCompatActivity {
 //                }
 //            }
 //        });
+    }
+
+    @Override
+    public void onBackPressed() {
+//        Toast.makeText(this, "Cannot rETURN bAKC", Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(LevelSelectionActivity.this,TheFragmnetsActivity.class);
+        startActivity(intent);
     }
 }

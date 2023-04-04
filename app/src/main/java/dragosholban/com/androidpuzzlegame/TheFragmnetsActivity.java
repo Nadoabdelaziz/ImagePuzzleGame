@@ -71,6 +71,8 @@ public class TheFragmnetsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_the_fragmnets);
 
 
+
+
         //Toast.makeText(this, "Some fields not entered", Toast.LENGTH_SHORT).show();
         mRewardedAd = new RewardedAd(context,
                 "ca-app-pub-3940256099942544/5224354917");
@@ -169,6 +171,11 @@ public class TheFragmnetsActivity extends AppCompatActivity {
         });
 
         setupViewPager(viewPager);
+    }
+
+    @Override
+    public void onBackPressed() {
+        startActivity(getIntent());
     }
 
     public void onImageFromCameraClick2(View view) {

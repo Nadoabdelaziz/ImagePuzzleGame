@@ -99,7 +99,7 @@ public class PuzzleActivity extends AppCompatActivity {
          total_pieces = xy * xy;
         if (lvl >4)
             total_pieces = total_pieces - (2*lvl) ;
-        Toast.makeText(this, Integer.toString(total_pieces), Toast.LENGTH_SHORT).show();
+//        Toast.makeText(this, Integer.toString(total_pieces), Toast.LENGTH_SHORT).show();
 
         // run image related code after the view was laid out
         // to have all dimensions calculated

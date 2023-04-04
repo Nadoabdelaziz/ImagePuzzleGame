@@ -35,7 +35,6 @@ public class CustomSelectLevelAdapter  extends  RecyclerView.Adapter<CustomSelec
 
 
 
-
     public CustomSelectLevelAdapter(Context context,String mCurrentPhotoUri,String mCurrentPhotoPath,String assetname) {
         this.context = context;
         this.mCurrentPhotoUri = mCurrentPhotoUri;
