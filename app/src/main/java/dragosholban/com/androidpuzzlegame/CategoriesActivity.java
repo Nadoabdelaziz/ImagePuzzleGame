@@ -27,11 +27,24 @@ public class CategoriesActivity extends AppCompatActivity {
     CustomUnlockedImageAdapter unlocked_img_adapter;
     TextView txt;
     ImageView imgback;
+    ImageView Settings;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_categories);
+
+
+        Settings = (ImageView) findViewById(R.id.settingsbtn);
+
+        Settings.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent =new Intent(CategoriesActivity.this,SettingsActivity.class);
+                startActivity(intent);
+            }
+        });
+
 
         txt = (TextView) findViewById(R.id.typeCat);
         imgback = (ImageView) findViewById(R.id.imageBtnback);

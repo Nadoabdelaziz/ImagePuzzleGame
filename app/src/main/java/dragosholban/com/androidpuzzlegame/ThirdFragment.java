@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -24,6 +25,7 @@ public class ThirdFragment extends Fragment {
     Context context;
 
     ListView list;
+    ImageView Settings;
 
     String[] maintitle ={
             "All Puzzles","Nature",
@@ -56,7 +58,19 @@ public class ThirdFragment extends Fragment {
 
             View view = inflater.inflate(R.layout.fragment_third, container, false);
             this.mView = view;
-            MyListAdapter adapter=new MyListAdapter(getActivity(), maintitle,imgid);
+
+        Settings = (ImageView) view.findViewById(R.id.settingsbtn3);
+
+        Settings.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent =new Intent(getContext(),SettingsActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
+        MyListAdapter adapter=new MyListAdapter(getActivity(), maintitle,imgid);
             list=(ListView)view.findViewById(R.id.list);
             list.setAdapter(adapter);
 

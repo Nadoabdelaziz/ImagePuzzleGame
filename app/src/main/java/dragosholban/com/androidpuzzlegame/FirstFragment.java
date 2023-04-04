@@ -22,6 +22,7 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.GridView;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -70,6 +71,7 @@ public class FirstFragment extends Fragment {
     private RewardedAd mRewardedAd;
 
     private ImageButton mButton;
+    private ImageView Settings;
     protected View mView;
 
 
@@ -78,6 +80,16 @@ public class FirstFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_first, container, false);
         this.mView = view;
+
+        Settings = (ImageView) view.findViewById(R.id.settingsimg);
+
+        Settings.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent =new Intent(getContext(),SettingsActivity.class);
+                startActivity(intent);
+            }
+        });
 
         mRewardedAd = new RewardedAd(getContext(),
                 "ca-app-pub-3940256099942544/5224354917");

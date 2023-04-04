@@ -22,7 +22,7 @@
 
     <ImageView
 
-        android:id="@+id/imageView4"
+        android:id="@+id/settingsbtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="136dp"
@@ -33,7 +33,7 @@
         app:srcCompat="@android:drawable/btn_star_big_on" />
 
     <ImageView
-        android:id="@+id/imageView5"
+        android:id="@+id/settingsbtn3"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_marginStart="344dp"

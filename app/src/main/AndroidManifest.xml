@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="dragosholban.com.androidpuzzlegame" >
+    package="dragosholban.com.androidpuzzlegame">
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET" />
@@ -11,11 +11,13 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme" >
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".SettingsActivity"
+            android:exported="false" />
         <activity
             android:name=".TheFragmnetsActivity"
-            android:exported="false" />
-        <!-- <activity -->
+            android:exported="false" /> <!-- <activity -->
         <!-- android:name=".FragmentsActivity" -->
         <!-- android:exported="true"> -->
         <!-- &lt;!&ndash; <intent-filter> &ndash;&gt; -->
@@ -34,7 +36,7 @@
             android:exported="false" />
         <activity
             android:name=".StartGameActivity"
-            android:exported="true" >
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -43,7 +45,7 @@
         </activity>
         <activity
             android:name=".LevelDoneActivity"
-            android:exported="false" >
+            android:exported="false">
 
             <!-- <intent-filter> -->
             <!-- <action android:name="android.intent.action.MAIN" /> -->
@@ -53,11 +55,9 @@
             <!-- </intent-filter> -->
         </activity>
         <activity android:name=".LevelSelectionActivity" />
-        <activity android:name=".CategoriesActivity" />
-
-        <!--        <activity-->
-<!--            android:name=".MainActivity"-->
-<!--            android:screenOrientation="portrait" />-->
+        <activity android:name=".CategoriesActivity" /> <!-- <activity -->
+        <!-- android:name=".MainActivity" -->
+        <!-- android:screenOrientation="portrait" /> -->
         <activity
             android:name=".PuzzleActivity"
             android:screenOrientation="portrait" />
@@ -66,7 +66,7 @@
             android:name="androidx.core.content.FileProvider"
             android:authorities="${applicationId}.fileprovider"
             android:exported="false"
-            android:grantUriPermissions="true" >
+            android:grantUriPermissions="true">
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_paths" />

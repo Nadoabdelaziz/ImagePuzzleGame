@@ -1,6 +1,7 @@
 package dragosholban.com.androidpuzzlegame;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.AssetManager;
 import android.os.Bundle;
@@ -10,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.GridView;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
@@ -33,7 +35,7 @@ public class SecondFragment extends Fragment {
     ImageAdapter imgAdpt;
     DailyPuzzlesAdapter dailyPuzzlesAdapter;
     TextView month;
-
+    ImageView Settings;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -41,6 +43,18 @@ public class SecondFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_second, container, false);
         this.mView = view;
+
+
+        Settings = (ImageView) view.findViewById(R.id.settingsbtn2);
+
+        Settings.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent =new Intent(getContext(),SettingsActivity.class);
+                startActivity(intent);
+            }
+        });
+
 
         month = (TextView)  view.findViewById(R.id.monthtxt);
         Calendar cal = Calendar.getInstance();
