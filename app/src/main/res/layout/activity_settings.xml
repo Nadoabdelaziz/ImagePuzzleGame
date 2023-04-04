@@ -5,6 +5,13 @@
     android:layout_height="wrap_content"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <ImageView
+        android:id="@+id/baackbtn3"
+        android:layout_width="45dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="10dp"
+        card_view:srcCompat="?attr/homeAsUpIndicator" />
+
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="50dp"

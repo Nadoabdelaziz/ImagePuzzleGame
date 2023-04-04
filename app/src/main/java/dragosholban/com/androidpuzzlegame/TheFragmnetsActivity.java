@@ -70,7 +70,6 @@ public class TheFragmnetsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_the_fragmnets);
 
-        final MediaPlayer mpbtn = MediaPlayer.create(context, R.raw.coinsound);
 
         //Toast.makeText(this, "Some fields not entered", Toast.LENGTH_SHORT).show();
         mRewardedAd = new RewardedAd(context,
@@ -99,11 +98,21 @@ public class TheFragmnetsActivity extends AppCompatActivity {
         //Initializing the bottomNavigationView
         bottomNavigationView = (BottomNavigationView)findViewById(R.id.bottomNavigationView);
 
+
+
         bottomNavigationView.setOnNavigationItemSelectedListener(
+
                 new BottomNavigationView.OnNavigationItemSelectedListener() {
                     @Override
                     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                        mpbtn.start();
+                        SharedPreferences sh = context.getSharedPreferences("SOUND", Context.MODE_PRIVATE);
+                        SharedPreferences.Editor myEdit = sh.edit();
+                        final MediaPlayer mp = MediaPlayer.create(context, R.raw.coinsound);
+                        Boolean sound = sh.getBoolean("Sounds",true);
+
+                        if(sound) {
+                            mp.start();
+                        }
                         switch (item.getItemId()) {
                             case R.id.person:
                                 viewPager.setCurrentItem(0);
@@ -135,9 +144,11 @@ public class TheFragmnetsActivity extends AppCompatActivity {
 
             }
 
+
             @Override
             public void onPageSelected(int position) {
                 if (prevMenuItem != null) {
+
                     prevMenuItem.setChecked(false);
                 }
                 else
@@ -161,11 +172,20 @@ public class TheFragmnetsActivity extends AppCompatActivity {
     }
 
     public void onImageFromCameraClick2(View view) {
-        final MediaPlayer mpbtn = MediaPlayer.create(context, R.raw.coinsound);
-
-        mpbtn.start();
         SharedPreferences sharedPrefPoints= MyActivity.getSharedPreferences("Points", 0);
         Long number = sharedPrefPoints.getLong("rewards", 0);
+
+
+
+        SharedPreferences sh = MyActivity.getSharedPreferences("SOUND", Context.MODE_PRIVATE);
+        SharedPreferences.Editor myEdit = sh.edit();
+        final MediaPlayer mpalert = MediaPlayer.create(MyActivity, R.raw.error);
+        Boolean sound = sh.getBoolean("Sounds",true);
+
+        if(sound) {
+            mpalert.start();
+        }
+
 
         AlertDialog alertDialog = new AlertDialog.Builder(context).create();
 
@@ -288,11 +308,19 @@ public class TheFragmnetsActivity extends AppCompatActivity {
     }
 
     public void onImageFromGalleryClick2(View view) {
-        final MediaPlayer mpbtn = MediaPlayer.create(context, R.raw.coinsound);
-
-        mpbtn.start();
         SharedPreferences sharedPrefPoints= MyActivity.getSharedPreferences("Points", 0);
         Long number = sharedPrefPoints.getLong("rewards", 0);
+
+
+        SharedPreferences sh = MyActivity.getSharedPreferences("SOUND", Context.MODE_PRIVATE);
+        SharedPreferences.Editor myEdit = sh.edit();
+        final MediaPlayer mpalert = MediaPlayer.create(MyActivity, R.raw.error);
+        Boolean sound = sh.getBoolean("Sounds",true);
+
+        if(sound) {
+            mpalert.start();
+        }
+
 
         AlertDialog alertDialog = new AlertDialog.Builder(context).create();
 

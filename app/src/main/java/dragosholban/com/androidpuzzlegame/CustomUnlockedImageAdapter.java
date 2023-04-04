@@ -2,6 +2,7 @@ package dragosholban.com.androidpuzzlegame;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.AssetManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -73,14 +74,19 @@ public class CustomUnlockedImageAdapter extends  RecyclerView.Adapter<CustomUnlo
         //Toast.makeText(context,Integer.toString(id), Toast.LENGTH_SHORT).show();
         Picasso.get().load(id).fit() // the image will only be resized if it's bigger than 2048x 1600 pixels.
                 .into(holder.imgView);
-        final MediaPlayer mpbtn = MediaPlayer.create(context, R.raw.coinsound);
-
 
 
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mpbtn.start();
+
+                SharedPreferences sh = context.getSharedPreferences("SOUND", Context.MODE_PRIVATE);
+                SharedPreferences.Editor myEdit = sh.edit();
+                final MediaPlayer mp = MediaPlayer.create(context, R.raw.coinsound);
+                Boolean sound = sh.getBoolean("Sounds",true);
+                if(sound) {
+                    mp.start();
+                }
                 Intent intent = new Intent(context, LevelSelectionActivity.class);
                 intent.putExtra("assetName", files[position % files.length]);
                 context.startActivity(intent);

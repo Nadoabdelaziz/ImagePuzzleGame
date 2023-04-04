@@ -2,11 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/AndroidPuzzleGame-master.iml" filepath="$PROJECT_DIR$/.idea/modules/AndroidPuzzleGame-master.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/AndroidPuzzleGame-master.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/AndroidPuzzleGame-master.app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/AndroidPuzzleGame-master.app.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/AndroidPuzzleGame-master.app.androidTest.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/AndroidPuzzleGame-master.app.main.iml" filepath="$PROJECT_DIR$/.idea/modules/app/AndroidPuzzleGame-master.app.main.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/AndroidPuzzleGame-master.app.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/AndroidPuzzleGame-master.app.unitTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ImagePuzzleGame-1ed1ec8ae8ff8e57ab47f6b9dcc8055691bcb0d1.iml" filepath="$PROJECT_DIR$/.idea/modules/ImagePuzzleGame-1ed1ec8ae8ff8e57ab47f6b9dcc8055691bcb0d1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/ImagePuzzleGame-1ed1ec8ae8ff8e57ab47f6b9dcc8055691bcb0d1.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/ImagePuzzleGame-1ed1ec8ae8ff8e57ab47f6b9dcc8055691bcb0d1.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/ImagePuzzleGame-1ed1ec8ae8ff8e57ab47f6b9dcc8055691bcb0d1.app.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/ImagePuzzleGame-1ed1ec8ae8ff8e57ab47f6b9dcc8055691bcb0d1.app.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/ImagePuzzleGame-1ed1ec8ae8ff8e57ab47f6b9dcc8055691bcb0d1.app.main.iml" filepath="$PROJECT_DIR$/.idea/modules/app/ImagePuzzleGame-1ed1ec8ae8ff8e57ab47f6b9dcc8055691bcb0d1.app.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/ImagePuzzleGame-1ed1ec8ae8ff8e57ab47f6b9dcc8055691bcb0d1.app.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/ImagePuzzleGame-1ed1ec8ae8ff8e57ab47f6b9dcc8055691bcb0d1.app.unitTest.iml" />
     </modules>
   </component>
 </project>

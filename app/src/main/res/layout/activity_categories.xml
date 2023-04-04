@@ -12,6 +12,7 @@
         android:layout_height="40dp"
         android:layout_marginStart="344dp"
         android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/cats_grid"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/settings" />
@@ -21,6 +22,7 @@
         android:layout_width="59dp"
         android:layout_height="45dp"
         android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/cats_grid"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="?attr/actionModeCloseDrawable" />
@@ -29,13 +31,15 @@
         android:id="@+id/typeCat"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="148dp"
-        android:layout_marginTop="19dp"
+        android:layout_marginStart="156dp"
+        android:layout_marginTop="16dp"
         android:text="TextView"
         android:textSize="22sp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/cats_grid"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
     <GridView
         android:id="@+id/cats_grid"

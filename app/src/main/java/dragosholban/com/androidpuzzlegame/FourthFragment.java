@@ -1,5 +1,7 @@
 package dragosholban.com.androidpuzzlegame;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 
@@ -48,7 +50,6 @@ public class FourthFragment extends Fragment{
 
         //Initializing viewPager
         viewPager = (ViewPager) view.findViewById(R.id.Tabsviewpager);
-        final MediaPlayer mpbtn = MediaPlayer.create(getContext(), R.raw.coinsound);
 
 
         Toolbar toolbar = (Toolbar)view.findViewById(R.id.tool_bar);
@@ -65,7 +66,14 @@ public class FourthFragment extends Fragment{
         tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
-                mpbtn.start();
+                SharedPreferences sh = view.getContext().getSharedPreferences("SOUND", Context.MODE_PRIVATE);
+                SharedPreferences.Editor myEdit = sh.edit();
+                final MediaPlayer mpalert = MediaPlayer.create(view.getContext(), R.raw.coinsound);
+                Boolean sound = sh.getBoolean("Sounds",true);
+
+                if(sound) {
+                    mpalert.start();
+                }
                 viewPager.setCurrentItem(tab.getPosition());
             }
             @Override

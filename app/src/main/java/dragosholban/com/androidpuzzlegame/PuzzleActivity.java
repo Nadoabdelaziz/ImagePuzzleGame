@@ -130,20 +130,15 @@ public class PuzzleActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        final MediaPlayer mpbtnalert = MediaPlayer.create(context, R.raw.error);
-        final MediaPlayer mpbtn = MediaPlayer.create(context, R.raw.coinsound);
-
         // your stuff here
         stoptimer();
         Log.d("Time", "onBackPressed:");
         AlertDialog alertDialog = new AlertDialog.Builder(context).create();
         alertDialog.setTitle("Are you sure you want to exit the puzzle  ? \n");
-        mpbtnalert.start();
 
         alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "Yes",
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
-                        mpbtn.start();
                         countDownTimer.cancel();
                         dialog.dismiss();
                         finish();
@@ -152,7 +147,6 @@ public class PuzzleActivity extends AppCompatActivity {
         alertDialog.setButton(AlertDialog.BUTTON_NEGATIVE, "No",
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
-                        mpbtn.start();
                         startimer();
                         dialog.dismiss();
                     }
@@ -416,10 +410,6 @@ public class PuzzleActivity extends AppCompatActivity {
     }
 
     public void checkGameOver() {
-        final MediaPlayer lose = MediaPlayer.create(this, R.raw.lose);
-        final MediaPlayer win = MediaPlayer.create(this, R.raw.win);
-
-
         if (isGameOver()) {
 //            SharedPreferences sharedPref= getSharedPreferences("Points", 0);
 //            SharedPreferences.Editor editor= sharedPref.edit();
@@ -436,7 +426,13 @@ public class PuzzleActivity extends AppCompatActivity {
 
             countDownTimer.cancel();
             if(timeUp == true){
-                lose.start();
+                SharedPreferences sh = this.getSharedPreferences("SOUND", Context.MODE_PRIVATE);
+                SharedPreferences.Editor myEdit = sh.edit();
+                final MediaPlayer mp = MediaPlayer.create(this, R.raw.lose);
+                Boolean sound = sh.getBoolean("Sounds",true);
+                if(sound) {
+                    mp.start();
+                }
                 intent = new Intent(getApplicationContext(), losegameactivity.class);
                 intent.putExtra("assetName", assetName);
                 intent.putExtra("levelname",level);
@@ -445,7 +441,13 @@ public class PuzzleActivity extends AppCompatActivity {
                 startActivity(intent);
             }
             else{
-                win.start();
+                SharedPreferences sh = this.getSharedPreferences("SOUND", Context.MODE_PRIVATE);
+                SharedPreferences.Editor myEdit = sh.edit();
+                final MediaPlayer mp = MediaPlayer.create(this, R.raw.win);
+                Boolean sound = sh.getBoolean("Sounds",true);
+                if(sound) {
+                    mp.start();
+                }
                 intent = new Intent(getApplicationContext(), LevelDoneActivity.class);
                 intent.putExtra("assetName", assetName);
                 intent.putExtra("levelname",level);

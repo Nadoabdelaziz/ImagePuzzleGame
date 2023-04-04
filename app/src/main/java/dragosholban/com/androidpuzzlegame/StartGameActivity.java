@@ -1,5 +1,6 @@
 package dragosholban.com.androidpuzzlegame;
 
+import android.content.Context;
 import android.content.Intent;
 //import android.support.v7.app.AppCompatActivity;
 import android.content.SharedPreferences;
@@ -36,19 +37,23 @@ public class StartGameActivity extends AppCompatActivity {
 //
 //            Log.d("GET", "onCreate: "+ Arrays.toString(array));
 
+        SharedPreferences sh = this.getSharedPreferences("SOUND", Context.MODE_PRIVATE);
+        SharedPreferences.Editor myEdit = sh.edit();
+//        myEdit.putBoolean("Sounds",true);
 
-        final MediaPlayer mpstart = MediaPlayer.create(this, R.raw.coinsound);
 
-        final MediaPlayer mp = MediaPlayer.create(this, R.raw.gamemusic);
+        final MediaPlayer mp = MediaPlayer.create(this, R.raw.coinsound);
+
 
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mpstart.start();
-                mp.setLooping(true);
                 Intent intent = new Intent(getApplicationContext(), TheFragmnetsActivity.class);
                 startActivity(intent);
-                mp.start();
+                Boolean sound = sh.getBoolean("Sounds",true);
+                if(sound) {
+                    mp.start();
+                }
 
             }
         });

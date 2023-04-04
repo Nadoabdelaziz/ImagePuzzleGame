@@ -35,14 +35,20 @@ public class CategoriesActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_categories);
 
-        final MediaPlayer mpbtn = MediaPlayer.create(this, R.raw.coinsound);
 
         Settings = (ImageView) findViewById(R.id.settingsbtn);
 
         Settings.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mpbtn.start();
+                SharedPreferences sh = view.getContext().getSharedPreferences("SOUND", Context.MODE_PRIVATE);
+                SharedPreferences.Editor myEdit = sh.edit();
+                final MediaPlayer mp = MediaPlayer.create(view.getContext(), R.raw.coinsound);
+                Boolean sound = sh.getBoolean("Sounds",true);
+                if(sound) {
+                    mp.start();
+                }
+
                 Intent intent =new Intent(CategoriesActivity.this,SettingsActivity.class);
                 startActivity(intent);
             }
@@ -55,7 +61,13 @@ public class CategoriesActivity extends AppCompatActivity {
         imgback.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mpbtn.start();
+                SharedPreferences sh = view.getContext().getSharedPreferences("SOUND", Context.MODE_PRIVATE);
+                SharedPreferences.Editor myEdit = sh.edit();
+                final MediaPlayer mp = MediaPlayer.create(view.getContext(), R.raw.coinsound);
+                Boolean sound = sh.getBoolean("Sounds",true);
+                if(sound) {
+                    mp.start();
+                }
                 Intent intent = new Intent(CategoriesActivity.this,ThirdFragment.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 finish();

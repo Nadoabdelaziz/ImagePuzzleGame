@@ -45,16 +45,19 @@ public class SecondFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_second, container, false);
         this.mView = view;
 
-        final MediaPlayer mpbtn = MediaPlayer.create(getContext(), R.raw.coinsound);
-
-
 
         Settings = (ImageView) view.findViewById(R.id.settingsbtn2);
 
         Settings.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mpbtn.start();
+                SharedPreferences sh = view.getContext().getSharedPreferences("SOUND", Context.MODE_PRIVATE);
+                SharedPreferences.Editor myEdit = sh.edit();
+                final MediaPlayer mp = MediaPlayer.create(view.getContext(), R.raw.coinsound);
+                Boolean sound = sh.getBoolean("Sounds",true);
+                if(sound) {
+                    mp.start();
+                }
                 Intent intent =new Intent(getContext(),SettingsActivity.class);
                 startActivity(intent);
             }

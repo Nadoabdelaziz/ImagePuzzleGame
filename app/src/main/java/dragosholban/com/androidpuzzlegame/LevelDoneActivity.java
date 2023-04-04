@@ -54,8 +54,6 @@ public class LevelDoneActivity extends AppCompatActivity {
 
         Button btn = dialog.findViewById(R.id.exitbtn);
 
-        final MediaPlayer mpbtn = MediaPlayer.create(this, R.raw.coinsound);
-
 
         dialog.show();
 
@@ -67,14 +65,25 @@ public class LevelDoneActivity extends AppCompatActivity {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mpbtn.start();
+                SharedPreferences sh = view.getContext().getSharedPreferences("SOUND", Context.MODE_PRIVATE);
+                SharedPreferences.Editor myEdit = sh.edit();
+                final MediaPlayer mp = MediaPlayer.create(view.getContext(), R.raw.coinsound);
+                Boolean sound = sh.getBoolean("Sounds",true);
+                if(sound) {
+                    mp.start();
+                }
                 dialog.dismiss();
             }
         });
         dialogButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mpbtn.start();
+                SharedPreferences sh = view.getContext().getSharedPreferences("SOUND", Context.MODE_PRIVATE);
+                final MediaPlayer mp = MediaPlayer.create(view.getContext(), R.raw.coinsound);
+                Boolean sound = sh.getBoolean("Sounds",true);
+                if(sound) {
+                    mp.start();
+                }
                 SharedPreferences sharedPreferences = getSharedPreferences("Points",0);
                 Long s1 = sharedPreferences.getLong("rewards",0) + Long.parseLong(rewardpts);
                 SharedPreferences.Editor myEdit = sharedPreferences.edit();
@@ -87,7 +96,13 @@ public class LevelDoneActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View view)  {
-                mpbtn.start();
+                SharedPreferences sh = view.getContext().getSharedPreferences("SOUND", Context.MODE_PRIVATE);
+                SharedPreferences.Editor myEdit = sh.edit();
+                final MediaPlayer mp = MediaPlayer.create(view.getContext(), R.raw.coinsound);
+                Boolean sound = sh.getBoolean("Sounds",true);
+                if(sound) {
+                    mp.start();
+                }
 //                Toast.makeText(LevelDoneActivity.this, "ADS", Toast.LENGTH_SHORT).show();
                 loadRewardedAd(dialog);
             }
@@ -123,7 +138,13 @@ public class LevelDoneActivity extends AppCompatActivity {
         restartBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mpbtn.start();
+                SharedPreferences sh = view.getContext().getSharedPreferences("SOUND", Context.MODE_PRIVATE);
+                SharedPreferences.Editor myEdit = sh.edit();
+                final MediaPlayer mp = MediaPlayer.create(view.getContext(), R.raw.coinsound);
+                Boolean sound = sh.getBoolean("Sounds",true);
+                if(sound) {
+                    mp.start();
+                }
                 Intent intent2 = new Intent(getApplicationContext(), PuzzleActivity.class);
                 intent2.putExtra("levelname", level);
                 intent2.putExtra("assetname", assetName);
@@ -137,7 +158,13 @@ public class LevelDoneActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View view)  {
-                mpbtn.start();
+                SharedPreferences sh = view.getContext().getSharedPreferences("SOUND", Context.MODE_PRIVATE);
+                SharedPreferences.Editor myEdit = sh.edit();
+                final MediaPlayer mp = MediaPlayer.create(view.getContext(), R.raw.coinsound);
+                Boolean sound = sh.getBoolean("Sounds",true);
+                if(sound) {
+                    mp.start();
+                }
                 int lvl = Integer.parseInt(level);
                 lvl = lvl +1;
 //                Toast.makeText(LevelDoneActivity.this, level, Toast.LENGTH_SHORT).show();
@@ -154,8 +181,14 @@ public class LevelDoneActivity extends AppCompatActivity {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mpbtn.start();
-//                Toast.makeText(LevelDoneActivity.this, "Clicked", Toast.LENGTH_SHORT).show();
+                SharedPreferences sh = view.getContext().getSharedPreferences("SOUND", Context.MODE_PRIVATE);
+                SharedPreferences.Editor myEdit = sh.edit();
+                final MediaPlayer mp = MediaPlayer.create(view.getContext(), R.raw.coinsound);
+                Boolean sound = sh.getBoolean("Sounds",true);
+                if(sound) {
+                    mp.start();
+                }
+                Toast.makeText(LevelDoneActivity.this, "Clicked", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(getApplicationContext(), TheFragmnetsActivity.class);
                 startActivity(intent);
             }
@@ -163,9 +196,6 @@ public class LevelDoneActivity extends AppCompatActivity {
     }
 
     private void loadRewardedAd(Dialog D1){
-        final MediaPlayer mpbtn = MediaPlayer.create(this, R.raw.coinsound);
-        final MediaPlayer mpbtncoin = MediaPlayer.create(this, R.raw.coin);
-
         Intent intent = getIntent();
         String rewardpts = intent.getStringExtra("rewardpts");
 
@@ -179,14 +209,25 @@ public class LevelDoneActivity extends AppCompatActivity {
 
                 @Override
                 public void onRewardedAdClosed() {
-                    mpbtn.start();
+                    SharedPreferences sh  = activityContext.getSharedPreferences("SOUND", Context.MODE_PRIVATE);
+                    SharedPreferences.Editor myEdit = sh.edit();
+                    final MediaPlayer mp = MediaPlayer.create(activityContext, R.raw.coinsound);
+                    Boolean sound = sh.getBoolean("Sounds",true);
+                    if(sound) {
+                        mp.start();
+                    }
                     D1.dismiss();
                     // Ad closed.
                 }
 
                 @Override
                 public void onUserEarnedReward(@NonNull RewardItem rewardItem) {
-                    mpbtncoin.start();
+                    SharedPreferences sh = activityContext.getSharedPreferences("SOUND", Context.MODE_PRIVATE);
+                    final MediaPlayer mp = MediaPlayer.create(activityContext, R.raw.coin);
+                    Boolean sound = sh.getBoolean("Sounds",true);
+                    if(sound) {
+                        mp.start();
+                    }
                     Toast.makeText(LevelDoneActivity.this, "You Earned Reward", Toast.LENGTH_SHORT).show();
                     SharedPreferences sharedPreferences = getSharedPreferences("Points",0);
                     Long s1 = sharedPreferences.getLong("rewards",0) + 3*(Long.parseLong(rewardpts));

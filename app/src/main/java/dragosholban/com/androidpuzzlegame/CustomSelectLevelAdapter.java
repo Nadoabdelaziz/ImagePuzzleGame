@@ -55,7 +55,6 @@ public class CustomSelectLevelAdapter  extends  RecyclerView.Adapter<CustomSelec
     public void onBindViewHolder(@NonNull CustomSelectLevelViewHolder holder, int position) {
 
         SharedPreferences sharedPreferences = context.getSharedPreferences("Progress", Context.MODE_PRIVATE);
-        final MediaPlayer mpbtn = MediaPlayer.create(context, R.raw.coinsound);
 
 
         holder.puzzle_no.setText(Integer.toString(pieces[position]));
@@ -64,7 +63,13 @@ public class CustomSelectLevelAdapter  extends  RecyclerView.Adapter<CustomSelec
         crd.setOnClickListener(new View.OnClickListener() {
 //            @Override
             public void onClick(View view) {
-                mpbtn.start();
+                SharedPreferences sh = view.getContext().getSharedPreferences("SOUND", Context.MODE_PRIVATE);
+                SharedPreferences.Editor myEdit = sh.edit();
+                final MediaPlayer mp = MediaPlayer.create(view.getContext(), R.raw.coinsound);
+                Boolean sound = sh.getBoolean("Sounds",true);
+                if(sound) {
+                    mp.start();
+                }
 //                Log.d("TAG", "onClick: "+scores[position]);
                 Intent intent = new Intent(context, PuzzleActivity.class);
 

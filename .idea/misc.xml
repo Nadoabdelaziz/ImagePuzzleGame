@@ -3,11 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/nado2/Downloads/AndroidPuzzleGame-master/AndroidPuzzleGame-master/app/src/main/res/layout/activity_about_us.xml" value="0.21979166666666666" />
         <entry key="..\:/Users/nado2/Downloads/AndroidPuzzleGame-master/AndroidPuzzleGame-master/app/src/main/res/layout/activity_ad_mob.xml" value="0.2" />
         <entry key="..\:/Users/nado2/Downloads/AndroidPuzzleGame-master/AndroidPuzzleGame-master/app/src/main/res/layout/activity_categories.xml" value="0.2296875" />
         <entry key="..\:/Users/nado2/Downloads/AndroidPuzzleGame-master/AndroidPuzzleGame-master/app/src/main/res/layout/activity_game_menu.xml" value="0.25" />
-        <entry key="..\:/Users/nado2/Downloads/AndroidPuzzleGame-master/AndroidPuzzleGame-master/app/src/main/res/layout/activity_help.xml" value="0.21979166666666666" />
         <entry key="..\:/Users/nado2/Downloads/AndroidPuzzleGame-master/AndroidPuzzleGame-master/app/src/main/res/layout/activity_level_done.xml" value="0.2359375" />
         <entry key="..\:/Users/nado2/Downloads/AndroidPuzzleGame-master/AndroidPuzzleGame-master/app/src/main/res/layout/activity_level_selection.xml" value="0.25" />
         <entry key="..\:/Users/nado2/Downloads/AndroidPuzzleGame-master/AndroidPuzzleGame-master/app/src/main/res/layout/activity_lose_dialog_alert.xml" value="0.21574074074074073" />
@@ -30,6 +28,12 @@
         <entry key="..\:/Users/nado2/Downloads/AndroidPuzzleGame-master/AndroidPuzzleGame-master/app/src/main/res/layout/startagame_ctivity.xml" value="0.25" />
         <entry key="..\:/Users/nado2/Downloads/AndroidPuzzleGame-master/AndroidPuzzleGame-master/app/src/main/res/menu/bottom_nav_menu.xml" value="0.25" />
         <entry key="..\:/Users/nado2/Music/ImagePuzzleGame-main/ImagePuzzleGame-main/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/Users/nado2/OneDrive/Pictures/ImagePuzzleGame-1ed1ec8ae8ff8e57ab47f6b9dcc8055691bcb0d1/ImagePuzzleGame-1ed1ec8ae8ff8e57ab47f6b9dcc8055691bcb0d1/app/src/main/res/layout/activity_categories.xml" value="0.25" />
+        <entry key="..\:/Users/nado2/OneDrive/Pictures/ImagePuzzleGame-1ed1ec8ae8ff8e57ab47f6b9dcc8055691bcb0d1/ImagePuzzleGame-1ed1ec8ae8ff8e57ab47f6b9dcc8055691bcb0d1/app/src/main/res/layout/activity_help.xml" value="0.25" />
+        <entry key="..\:/Users/nado2/OneDrive/Pictures/ImagePuzzleGame-1ed1ec8ae8ff8e57ab47f6b9dcc8055691bcb0d1/ImagePuzzleGame-1ed1ec8ae8ff8e57ab47f6b9dcc8055691bcb0d1/app/src/main/res/layout/activity_settings.xml" value="0.25" />
+        <entry key="..\:/Users/nado2/OneDrive/Pictures/ImagePuzzleGame-1ed1ec8ae8ff8e57ab47f6b9dcc8055691bcb0d1/ImagePuzzleGame-1ed1ec8ae8ff8e57ab47f6b9dcc8055691bcb0d1/app/src/main/res/layout/fragment_first.xml" value="0.25" />
+        <entry key="..\:/Users/nado2/OneDrive/Pictures/ImagePuzzleGame-1ed1ec8ae8ff8e57ab47f6b9dcc8055691bcb0d1/ImagePuzzleGame-1ed1ec8ae8ff8e57ab47f6b9dcc8055691bcb0d1/app/src/main/res/layout/fragment_second.xml" value="0.25" />
+        <entry key="..\:/Users/nado2/OneDrive/Pictures/ImagePuzzleGame-1ed1ec8ae8ff8e57ab47f6b9dcc8055691bcb0d1/ImagePuzzleGame-1ed1ec8ae8ff8e57ab47f6b9dcc8055691bcb0d1/app/src/main/res/layout/fragment_third.xml" value="0.25" />
         <entry key="..\:/Users/nado2/Videos/Android_puzzle_game-main/Android_puzzle_game-main/app/src/main/res/layout/activity_ad_mob.xml" value="0.25" />
         <entry key="..\:/Users/nado2/Videos/Android_puzzle_game-main/Android_puzzle_game-main/app/src/main/res/layout/activity_categories.xml" value="0.2388888888888889" />
         <entry key="..\:/Users/nado2/Videos/Android_puzzle_game-main/Android_puzzle_game-main/app/src/main/res/layout/activity_dialog_alert.xml" value="0.25" />

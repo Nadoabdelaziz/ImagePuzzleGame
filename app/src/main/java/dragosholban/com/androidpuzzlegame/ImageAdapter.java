@@ -133,29 +133,36 @@ public class ImageAdapter extends BaseAdapter {
 
     // create a new ImageView for each item referenced by the Adapter
     public View getView(final int position, View convertView, ViewGroup parent) {
-
         if (convertView == null) {
             final LayoutInflater layoutInflater = LayoutInflater.from(mContext);
             convertView = layoutInflater.inflate(R.layout.grid_element, null);
         }
-
-        final MediaPlayer mpbtn = MediaPlayer.create(mContext, R.raw.coinsound);
 
         final ImageView imageView = convertView.findViewById(R.id.gridImageview);
         TextView img_statues = convertView.findViewById(R.id.btnedit);
         imageView.setImageBitmap(null);
         convertView.setOnClickListener(new View.OnClickListener() {
 
-
             @Override
             public void onClick(View v) {
-                mpbtn.start();
+
+                SharedPreferences sh = mContext.getSharedPreferences("SOUND", Context.MODE_PRIVATE);
+                SharedPreferences.Editor myEdit = sh.edit();
+                final MediaPlayer mp = MediaPlayer.create(mContext, R.raw.coinsound);
+                final MediaPlayer mpalert = MediaPlayer.create(mContext, R.raw.error);
+
+                Boolean sound = sh.getBoolean("Sounds",true);
+
+
                 String getText = (String) img_statues.getText();
 
                 SharedPreferences sharedPrefPoints= mContext.getSharedPreferences("Points", 0);
                 Long number = sharedPrefPoints.getLong("rewards", 0);
 
                 if(progress){
+                    if(sound) {
+                        mp.start();
+                    }
                     Log.d("TAG", "All Images onClick: "+ unlocked_images);
                     Log.d("TAG", "onClick: "+unlocked_images[position]);
                     Log.d("TAG", "onClick: "+levels[position]);
@@ -167,6 +174,9 @@ public class ImageAdapter extends BaseAdapter {
                 else {
                     if (getText.equals("Unlock")) {
 
+                        if(sound) {
+                            mpalert.start();
+                        }
                         AlertDialog alertDialog = new AlertDialog.Builder(mContext).create();
                         if (number >= 40) {
                             alertDialog.setTitle("Are you sure you want to unlock this puzzle with  40  ? \n");
@@ -222,6 +232,9 @@ public class ImageAdapter extends BaseAdapter {
                         alertDialog.show();
 
                     } else {
+                        if(sound) {
+                            mp.start();
+                        }
                         Intent intent = new Intent(mContext.getApplicationContext(), LevelSelectionActivity.class);
                         intent.putExtra("assetName", files[position % files.length]);
                         mContext.startActivity(intent);

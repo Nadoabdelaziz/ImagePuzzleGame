@@ -2,10 +2,12 @@ package dragosholban.com.androidpuzzlegame;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.AssetManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Rect;
+import android.media.MediaPlayer;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -51,6 +53,17 @@ public class DailyPuzzlesAdapter extends  RecyclerView.Adapter<DailyPuzzlesViewH
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+
+                SharedPreferences sh = view.getContext().getSharedPreferences("SOUND", Context.MODE_PRIVATE);
+                SharedPreferences.Editor myEdit = sh.edit();
+                final MediaPlayer mp = MediaPlayer.create(view.getContext(), R.raw.coinsound);
+                Boolean sound = sh.getBoolean("Sounds",true);
+
+                if(sound) {
+                    mp.start();
+                }
+
                 Intent intent = new Intent(context, LevelSelectionActivity.class);
                 intent.putExtra("assetName", files[position % files.length]);
                 context.startActivity(intent);
