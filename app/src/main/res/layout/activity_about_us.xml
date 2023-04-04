@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AboutUsActivity">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="15dp"
+            android:layout_marginTop="10dp"
+            android:text="About US"
+            android:textColor="#000"
+            android:gravity="center"
+            android:textSize="25dp" />
+
+        <ImageView
+            android:id="@+id/baackbtn2"
+            android:layout_width="45dp"
+            android:layout_marginTop="10dp"
+            android:layout_height="35dp"
+            app:srcCompat="?attr/homeAsUpIndicator" />
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginTop="55dp"
+            android:paddingHorizontal="15dp"
+            android:textColor="#000"
+            android:text="Jigsaw Puzzle - Picture Puzzle Game is a fun and engaging Android game that allows players to solve puzzles using their own personal photographs. \n\n This software is ideal for anybody wishing to test their minds or simply rest and unwind.  \n\n Game allows players to construct personalised puzzles by selecting from a large library of pre-loaded photos or by uploading their own favourite images.\n\n The programme offers a variety of difficulty levels to appeal to puzzle aficionados of all skill levels, from beginners to expert users.\n\n  Once you've chosen an image and selected the difficulty level, the app generates a unique puzzle for you to solve. Using your cognitive skills and strategy, you can put the puzzle pieces together to recreate the original image.\n\n The app also features a timer, allowing users to track their progress and compete with themselves or others for the fastest completion time.\n\n  Jigsaw Puzzle - Image Puzzle Game provides a variety of handy tools and features to enhance the puzzle-solving experience, in addition to a broad range of difficulty levels and the opportunity to submit their own photographs.\n\n  Users may also save their progress and come back to a problem later if they need to take a break.\n\n With its straightforward and simple layout, even novices may rapidly learn how to solve puzzles with this software. \n\n Jigsaw Puzzle - Image Puzzle Game is a great way to keep your mind sharp, relax and unwind, or simply have fun with friends and family.\n\n With its user-friendly interface and high-quality graphics, this app provides a great puzzle-solving experience for users of all ages. "
+            android:textSize="17dp" />
+    </androidx.cardview.widget.CardView>
+</androidx.constraintlayout.widget.ConstraintLayout>

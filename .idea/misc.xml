@@ -3,9 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/nado2/Downloads/AndroidPuzzleGame-master/AndroidPuzzleGame-master/app/src/main/res/layout/activity_about_us.xml" value="0.21979166666666666" />
         <entry key="..\:/Users/nado2/Downloads/AndroidPuzzleGame-master/AndroidPuzzleGame-master/app/src/main/res/layout/activity_ad_mob.xml" value="0.2" />
         <entry key="..\:/Users/nado2/Downloads/AndroidPuzzleGame-master/AndroidPuzzleGame-master/app/src/main/res/layout/activity_categories.xml" value="0.2296875" />
         <entry key="..\:/Users/nado2/Downloads/AndroidPuzzleGame-master/AndroidPuzzleGame-master/app/src/main/res/layout/activity_game_menu.xml" value="0.25" />
+        <entry key="..\:/Users/nado2/Downloads/AndroidPuzzleGame-master/AndroidPuzzleGame-master/app/src/main/res/layout/activity_help.xml" value="0.21979166666666666" />
         <entry key="..\:/Users/nado2/Downloads/AndroidPuzzleGame-master/AndroidPuzzleGame-master/app/src/main/res/layout/activity_level_done.xml" value="0.2359375" />
         <entry key="..\:/Users/nado2/Downloads/AndroidPuzzleGame-master/AndroidPuzzleGame-master/app/src/main/res/layout/activity_level_selection.xml" value="0.25" />
         <entry key="..\:/Users/nado2/Downloads/AndroidPuzzleGame-master/AndroidPuzzleGame-master/app/src/main/res/layout/activity_lose_dialog_alert.xml" value="0.21574074074074073" />

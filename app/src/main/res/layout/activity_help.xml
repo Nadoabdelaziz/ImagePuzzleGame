@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AboutUsActivity">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/baackbtn"
+            android:layout_width="45dp"
+            android:layout_height="35dp"
+            android:layout_marginTop="10dp"
+            app:srcCompat="?attr/homeAsUpIndicator" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="15dp"
+            android:text="Help"
+            android:textColor="#000"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:textSize="25dp" />
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginTop="55dp"
+            android:paddingHorizontal="15dp"
+            android:textColor="#000"
+            android:text="After downloading and installing the app, start it from your device's home screen. \n\n You will be faced with a primary menu from which you may choose to begin a new puzzle, continue a previously started puzzle, or browse your completed puzzles. \n\n Choose the image you wish to use to begin a new puzzle. You have the option of selecting from the pre-loaded photographs or uploading your own. \n\n When you've chosen your image, you may pick the difficulty level you wish to play on. Simple puzzles have fewer parts, and difficult puzzles have more.\n\n Solving  Puzzles : \nThe programme will produce a puzzle for you to complete once you've chosen your image and difficulty level. \n\n The pieces will be strewn over the board, and you may tap on any of them to pick them up and move them about. \n\n Begin creating the image's border by using the puzzle's edges and corners as a reference. Work your way towards the centre of the puzzle from there. \n\n Tips and Tricks: \n Begin by categorising the pieces into edge, corner, and centre parts to make it easy to determine the proper spot for each piece. \n\n Instead of attempting to complete the puzzle all at once, work on one area at a time. \n\n Take breaks as needed. Stepping away from the challenge and returning later might sometimes help you solve it faster. \n\n To make it simpler to pick up and move the puzzle pieces, try using a stylus or a pen. \n\n Friendly User Interface: Image Jigsaw Puzzle Puzzle Game offers an easy-to-use design that allows people to navigate and locate what they need. The software is developed with simplicity in mind, so even people unfamiliar with puzzle games can understand and begin playing right away. \n\n Save Progress: If you need to take a break from the problem, you may save your work and return to it later. This implies that if you need to close the programme or move to another task, you won't lose your progress. \n\n Engaging Gameplay:  Game provides an enjoyable puzzle-solving experience that keeps people returning for more. The app's easy design and adjustable choices make it a fun and challenging way to spend your free time. \n\n Improves Attention and Problem-Solving Skills: Puzzles are excellent for boosting focus, concentration, and problem-solving abilities. Jigsaw Puzzle - Picture Puzzle Game is no exception, as it requires players to think critically and solve complicated puzzles."
+            android:textSize="17dp" />
+    </androidx.cardview.widget.CardView>
+</androidx.constraintlayout.widget.ConstraintLayout>

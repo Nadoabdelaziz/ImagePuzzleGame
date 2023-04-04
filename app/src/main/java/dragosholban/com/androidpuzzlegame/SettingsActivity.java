@@ -33,6 +33,25 @@ public class SettingsActivity extends AppCompatActivity {
         manager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
         VolIsMute = false;
 
+        Button help = (Button) findViewById(R.id.help);
+        Button about = (Button) findViewById(R.id.about);
+
+
+        help.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(SettingsActivity.this,HelpActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        about.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(SettingsActivity.this,AboutUsActivity.class);
+                startActivity(intent);
+            }
+        });
         ImageView mNotification_on_btn=(ImageView)findViewById(R.id.on_btn);
         ImageView mNotification_off_btn=(ImageView)findViewById(R.id.off_btn);
 
