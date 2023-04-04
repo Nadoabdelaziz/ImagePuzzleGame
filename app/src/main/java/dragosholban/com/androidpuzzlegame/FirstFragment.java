@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.content.res.AssetManager;
+import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
 //import android.support.v4.app.Fragment;
@@ -73,6 +74,7 @@ public class FirstFragment extends Fragment {
     private ImageButton mButton;
     private ImageView Settings;
     protected View mView;
+//    final MediaPlayer mpcoin = MediaPlayer.create(getContext(), R.raw.coin);
 
 
     @Override
@@ -80,12 +82,15 @@ public class FirstFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_first, container, false);
         this.mView = view;
+        final MediaPlayer mpbtn = MediaPlayer.create(getContext(), R.raw.coinsound);
+
 
         Settings = (ImageView) view.findViewById(R.id.settingsimg);
 
         Settings.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                mpbtn.start();
                 Intent intent =new Intent(getContext(),SettingsActivity.class);
                 startActivity(intent);
             }
@@ -112,6 +117,7 @@ public class FirstFragment extends Fragment {
         mButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                mpbtn.start();
 //                Toast.makeText(getContext(), "Clicked", Toast.LENGTH_SHORT).show();
                 loadRewardedAd();
             }
@@ -191,6 +197,8 @@ public class FirstFragment extends Fragment {
     }
 
     private void loadRewardedAd(){
+        final MediaPlayer mpcoin = MediaPlayer.create(getContext(), R.raw.coin);
+
         if (mRewardedAd.isLoaded()) {
             Activity activityContext = getActivity();
             RewardedAdCallback adCallback = new RewardedAdCallback() {
@@ -206,6 +214,7 @@ public class FirstFragment extends Fragment {
 
                 @Override
                 public void onUserEarnedReward(@NonNull RewardItem rewardItem) {
+                    mpcoin.start();
                     Toast.makeText(getContext(), "YOU HAVE EARNED 50 REWARD POINTS", Toast.LENGTH_SHORT).show();
                     SharedPreferences sharedPreferences = getContext().getSharedPreferences("Points",0);
                     Long s1 = sharedPreferences.getLong("rewards",0) + 50;

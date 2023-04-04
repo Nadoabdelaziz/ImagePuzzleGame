@@ -16,6 +16,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
@@ -69,6 +70,7 @@ public class TheFragmnetsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_the_fragmnets);
 
+        final MediaPlayer mpbtn = MediaPlayer.create(context, R.raw.coinsound);
 
         //Toast.makeText(this, "Some fields not entered", Toast.LENGTH_SHORT).show();
         mRewardedAd = new RewardedAd(context,
@@ -101,6 +103,7 @@ public class TheFragmnetsActivity extends AppCompatActivity {
                 new BottomNavigationView.OnNavigationItemSelectedListener() {
                     @Override
                     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                        mpbtn.start();
                         switch (item.getItemId()) {
                             case R.id.person:
                                 viewPager.setCurrentItem(0);
@@ -158,6 +161,9 @@ public class TheFragmnetsActivity extends AppCompatActivity {
     }
 
     public void onImageFromCameraClick2(View view) {
+        final MediaPlayer mpbtn = MediaPlayer.create(context, R.raw.coinsound);
+
+        mpbtn.start();
         SharedPreferences sharedPrefPoints= MyActivity.getSharedPreferences("Points", 0);
         Long number = sharedPrefPoints.getLong("rewards", 0);
 
@@ -282,6 +288,9 @@ public class TheFragmnetsActivity extends AppCompatActivity {
     }
 
     public void onImageFromGalleryClick2(View view) {
+        final MediaPlayer mpbtn = MediaPlayer.create(context, R.raw.coinsound);
+
+        mpbtn.start();
         SharedPreferences sharedPrefPoints= MyActivity.getSharedPreferences("Points", 0);
         Long number = sharedPrefPoints.getLong("rewards", 0);
 

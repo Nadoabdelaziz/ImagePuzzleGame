@@ -5,6 +5,7 @@ import android.app.Dialog;
 import android.content.Intent;
 //import android.support.v7.app.AppCompatActivity;
 import android.content.SharedPreferences;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -32,6 +33,9 @@ public class losegameactivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_losegameactivity);
+
+        final MediaPlayer mpbtn = MediaPlayer.create(this, R.raw.coinsound);
+
 
 
         mRewardedAd = new RewardedAd(this,
@@ -78,6 +82,7 @@ public class losegameactivity extends AppCompatActivity {
 
             @Override
             public void onClick(View view) {
+                mpbtn.start();
                 loadRewardedAd(dialog2);
             }
         });
@@ -85,6 +90,7 @@ public class losegameactivity extends AppCompatActivity {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                mpbtn.start();
                 dialog2.dismiss();
             }
         });
@@ -92,6 +98,7 @@ public class losegameactivity extends AppCompatActivity {
         Restart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                mpbtn.start();
                 String assetname = intent.getStringExtra("assetName");
                 String level = intent.getStringExtra("levelname");
                 Intent intent2 = new Intent(getApplicationContext(), PuzzleActivity.class);
@@ -104,6 +111,7 @@ public class losegameactivity extends AppCompatActivity {
         btrnrestart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                mpbtn.start();
                 String assetname = intent.getStringExtra("assetName");
                 String level = intent.getStringExtra("levelname");
                 Intent intent2 = new Intent(getApplicationContext(), PuzzleActivity.class);
@@ -122,6 +130,7 @@ public class losegameactivity extends AppCompatActivity {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                mpbtn.start();
                 Intent intent = new Intent(getApplicationContext(), TheFragmnetsActivity.class);
                 startActivity(intent);
             }
@@ -130,6 +139,7 @@ public class losegameactivity extends AppCompatActivity {
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                mpbtn.start();
                 Intent intent = new Intent(getApplicationContext(), TheFragmnetsActivity.class);
                 startActivity(intent);
             }
@@ -137,6 +147,9 @@ public class losegameactivity extends AppCompatActivity {
     }
 
     private void loadRewardedAd(Dialog D1){
+        final MediaPlayer mpbtn = MediaPlayer.create(this, R.raw.coinsound);
+        final MediaPlayer coin = MediaPlayer.create(this, R.raw.coin);
+
         if (mRewardedAd.isLoaded()) {
             Activity activityContext = losegameactivity.this;
             RewardedAdCallback adCallback = new RewardedAdCallback() {
@@ -147,6 +160,7 @@ public class losegameactivity extends AppCompatActivity {
 
                 @Override
                 public void onRewardedAdClosed() {
+                    mpbtn.start();
                     D1.dismiss();
                     Intent intent = getIntent();
                     String assetname = intent.getStringExtra("assetName");
@@ -160,6 +174,7 @@ public class losegameactivity extends AppCompatActivity {
 
                 @Override
                 public void onUserEarnedReward(@NonNull RewardItem rewardItem) {
+                    coin.start();
                     Toast.makeText(losegameactivity.this, "You Earned Reward", Toast.LENGTH_SHORT).show();
                     D1.dismiss();
 

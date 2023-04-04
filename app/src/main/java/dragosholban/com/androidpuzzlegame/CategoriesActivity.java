@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.AssetManager;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -34,12 +35,14 @@ public class CategoriesActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_categories);
 
+        final MediaPlayer mpbtn = MediaPlayer.create(this, R.raw.coinsound);
 
         Settings = (ImageView) findViewById(R.id.settingsbtn);
 
         Settings.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                mpbtn.start();
                 Intent intent =new Intent(CategoriesActivity.this,SettingsActivity.class);
                 startActivity(intent);
             }
@@ -52,6 +55,7 @@ public class CategoriesActivity extends AppCompatActivity {
         imgback.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                mpbtn.start();
                 Intent intent = new Intent(CategoriesActivity.this,ThirdFragment.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 finish();

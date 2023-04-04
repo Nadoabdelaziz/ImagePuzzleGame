@@ -3,6 +3,7 @@ package dragosholban.com.androidpuzzlegame;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.media.MediaPlayer;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -54,6 +55,7 @@ public class CustomSelectLevelAdapter  extends  RecyclerView.Adapter<CustomSelec
     public void onBindViewHolder(@NonNull CustomSelectLevelViewHolder holder, int position) {
 
         SharedPreferences sharedPreferences = context.getSharedPreferences("Progress", Context.MODE_PRIVATE);
+        final MediaPlayer mpbtn = MediaPlayer.create(context, R.raw.coinsound);
 
 
         holder.puzzle_no.setText(Integer.toString(pieces[position]));
@@ -62,6 +64,7 @@ public class CustomSelectLevelAdapter  extends  RecyclerView.Adapter<CustomSelec
         crd.setOnClickListener(new View.OnClickListener() {
 //            @Override
             public void onClick(View view) {
+                mpbtn.start();
 //                Log.d("TAG", "onClick: "+scores[position]);
                 Intent intent = new Intent(context, PuzzleActivity.class);
 

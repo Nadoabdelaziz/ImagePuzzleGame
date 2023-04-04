@@ -1,5 +1,6 @@
 package dragosholban.com.androidpuzzlegame;
 
+import android.media.MediaPlayer;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -47,6 +48,7 @@ public class FourthFragment extends Fragment{
 
         //Initializing viewPager
         viewPager = (ViewPager) view.findViewById(R.id.Tabsviewpager);
+        final MediaPlayer mpbtn = MediaPlayer.create(getContext(), R.raw.coinsound);
 
 
         Toolbar toolbar = (Toolbar)view.findViewById(R.id.tool_bar);
@@ -63,6 +65,7 @@ public class FourthFragment extends Fragment{
         tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
+                mpbtn.start();
                 viewPager.setCurrentItem(tab.getPosition());
             }
             @Override

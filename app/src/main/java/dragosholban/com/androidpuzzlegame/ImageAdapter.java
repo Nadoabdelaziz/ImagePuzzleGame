@@ -10,6 +10,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
+import android.media.MediaPlayer;
 import android.os.AsyncTask;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -132,18 +133,23 @@ public class ImageAdapter extends BaseAdapter {
 
     // create a new ImageView for each item referenced by the Adapter
     public View getView(final int position, View convertView, ViewGroup parent) {
+
         if (convertView == null) {
             final LayoutInflater layoutInflater = LayoutInflater.from(mContext);
             convertView = layoutInflater.inflate(R.layout.grid_element, null);
         }
+
+        final MediaPlayer mpbtn = MediaPlayer.create(mContext, R.raw.coinsound);
 
         final ImageView imageView = convertView.findViewById(R.id.gridImageview);
         TextView img_statues = convertView.findViewById(R.id.btnedit);
         imageView.setImageBitmap(null);
         convertView.setOnClickListener(new View.OnClickListener() {
 
+
             @Override
             public void onClick(View v) {
+                mpbtn.start();
                 String getText = (String) img_statues.getText();
 
                 SharedPreferences sharedPrefPoints= mContext.getSharedPreferences("Points", 0);

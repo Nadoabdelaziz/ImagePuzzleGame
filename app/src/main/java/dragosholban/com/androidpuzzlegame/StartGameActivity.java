@@ -3,6 +3,7 @@ package dragosholban.com.androidpuzzlegame;
 import android.content.Intent;
 //import android.support.v7.app.AppCompatActivity;
 import android.content.SharedPreferences;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -36,11 +37,19 @@ public class StartGameActivity extends AppCompatActivity {
 //            Log.d("GET", "onCreate: "+ Arrays.toString(array));
 
 
+        final MediaPlayer mpstart = MediaPlayer.create(this, R.raw.coinsound);
+
+        final MediaPlayer mp = MediaPlayer.create(this, R.raw.gamemusic);
+
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                mpstart.start();
+                mp.setLooping(true);
                 Intent intent = new Intent(getApplicationContext(), TheFragmnetsActivity.class);
                 startActivity(intent);
+                mp.start();
+
             }
         });
     }

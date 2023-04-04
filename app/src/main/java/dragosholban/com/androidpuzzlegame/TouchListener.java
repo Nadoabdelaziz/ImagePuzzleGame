@@ -1,5 +1,6 @@
 package dragosholban.com.androidpuzzlegame;
 
+import android.media.MediaPlayer;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,9 +29,10 @@ public class TouchListener implements View.OnTouchListener {
         this.activity = activity;
     }
 
+
     @Override
     public boolean onTouch(View view, MotionEvent motionEvent) {
-
+        final MediaPlayer mpbtn = MediaPlayer.create(this.activity, R.raw.coin);
 
         float x = motionEvent.getRawX();
         float y = motionEvent.getRawY();
@@ -63,6 +65,7 @@ public class TouchListener implements View.OnTouchListener {
                     lParams.topMargin = piece.yCoord;
                     piece.setLayoutParams(lParams);
                     piece.canMove = false;
+                    mpbtn.start();
                     Animation animation = new AlphaAnimation(1, 0); //to change visibility from visible to invisible
                     animation.setDuration(150); //1 second duration for each animation cycle
                     animation.setInterpolator(new LinearInterpolator());

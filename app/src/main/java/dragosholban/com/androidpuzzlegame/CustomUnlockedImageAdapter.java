@@ -7,6 +7,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
+import android.media.MediaPlayer;
 import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -72,11 +73,14 @@ public class CustomUnlockedImageAdapter extends  RecyclerView.Adapter<CustomUnlo
         //Toast.makeText(context,Integer.toString(id), Toast.LENGTH_SHORT).show();
         Picasso.get().load(id).fit() // the image will only be resized if it's bigger than 2048x 1600 pixels.
                 .into(holder.imgView);
+        final MediaPlayer mpbtn = MediaPlayer.create(context, R.raw.coinsound);
+
 
 
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                mpbtn.start();
                 Intent intent = new Intent(context, LevelSelectionActivity.class);
                 intent.putExtra("assetName", files[position % files.length]);
                 context.startActivity(intent);

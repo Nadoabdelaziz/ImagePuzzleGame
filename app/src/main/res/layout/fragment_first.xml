@@ -12,6 +12,7 @@
         android:layout_height="40dp"
         android:layout_marginStart="344dp"
         android:layout_marginTop="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/recycler_main2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/settings" />
@@ -23,8 +24,7 @@
         android:layout_margin="1dp"
         app:layout_constraintBottom_toTopOf="@+id/grid2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/points2">
+        app:layout_constraintStart_toStartOf="parent">
 
     </androidx.recyclerview.widget.RecyclerView>
 
@@ -52,42 +52,38 @@
         android:layout_height="52dp"
         android:layout_marginStart="11dp"
         android:layout_marginEnd="284dp"
-        android:layout_marginBottom="584dp"
         android:clickable="true"
         android:onClick="onImageFromCameraClick2"
         android:src="@drawable/ic_photo_camera_black_24dp"
         android:tint="@android:color/white"
-        app:layout_constraintBottom_toBottomOf="@+id/grid2"
+        app:layout_constraintBottom_toTopOf="@+id/recycler_main2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/galleryButton2"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/galleryButton2"
         android:layout_width="53dp"
         android:layout_height="52dp"
         android:layout_marginStart="12dp"
-        android:layout_marginBottom="584dp"
         android:clickable="true"
         android:onClick="onImageFromGalleryClick2"
         android:src="@drawable/ic_image_black_24dp"
         android:tint="@android:color/white"
-        app:layout_constraintBottom_toBottomOf="@+id/grid2"
+        app:layout_constraintBottom_toTopOf="@+id/recycler_main2"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/points2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="168dp"
-        android:layout_marginLeft="168dp"
         android:layout_marginTop="19dp"
         android:text="TextView"
         android:textSize="22sp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/recycler_main2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -97,8 +93,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="136dp"
-        android:layout_marginLeft="136dp"
         android:layout_marginTop="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/recycler_main2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@android:drawable/btn_star_big_on" />
@@ -111,6 +107,7 @@
         android:layout_marginStart="232dp"
         android:layout_marginTop="14dp"
         android:background="@android:color/background_light"
+        app:layout_constraintBottom_toTopOf="@+id/recycler_main2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@android:drawable/ic_input_add" />

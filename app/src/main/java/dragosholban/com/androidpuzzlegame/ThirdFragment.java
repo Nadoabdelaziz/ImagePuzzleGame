@@ -3,6 +3,7 @@ package dragosholban.com.androidpuzzlegame;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 //import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -59,11 +60,14 @@ public class ThirdFragment extends Fragment {
             View view = inflater.inflate(R.layout.fragment_third, container, false);
             this.mView = view;
 
+            final MediaPlayer mpbtn = MediaPlayer.create(getContext(), R.raw.coinsound);
+
         Settings = (ImageView) view.findViewById(R.id.settingsbtn3);
 
         Settings.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                mpbtn.start();
                 Intent intent =new Intent(getContext(),SettingsActivity.class);
                 startActivity(intent);
             }
@@ -87,6 +91,7 @@ public class ThirdFragment extends Fragment {
                 public void onItemClick(AdapterView<?> parent, View view,int position, long id) {
                     // TODO Auto-generated method stub
                         //code specific to first list item
+                        mpbtn.start();
                         Intent intent = new Intent(getContext(), CategoriesActivity.class);
                         intent.putExtra("title",maintitle[position]);
                         startActivity(intent);
