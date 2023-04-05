@@ -8,8 +8,6 @@ import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
 import android.view.View;
-import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -22,7 +20,7 @@ public class HelpActivity extends AppCompatActivity {
         setContentView(R.layout.activity_help);
 
 
-        btn = (ImageView) findViewById(R.id.baackbtn);
+        btn = (ImageView) findViewById(R.id.baackbtn5);
 
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -39,7 +37,7 @@ public class HelpActivity extends AppCompatActivity {
             }
         });
 
-        tv = (TextView) findViewById(R.id.textView5);
+        tv = (TextView) findViewById(R.id.textView16);
         tv .setMovementMethod(new ScrollingMovementMethod());
     }
 }

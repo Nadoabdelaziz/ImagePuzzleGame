@@ -54,38 +54,51 @@
 
 
     <androidx.cardview.widget.CardView
-        card_view:cardBackgroundColor="#FFF9F9"
         android:layout_width="match_parent"
-        android:layout_height="150dp"
+        android:layout_height="220dp"
+        android:layout_marginLeft="40dp"
         android:layout_marginTop="126dp"
-        android:layout_marginLeft="40dp">
+        card_view:cardBackgroundColor="#FFF9F9">
 
+
+        <Button
+            android:id="@+id/privacy"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="150dp"
+            android:layout_marginRight="40dp"
+            android:background="@color/purple_500"
+            android:gravity="left|center_vertical"
+            android:paddingLeft="25dp"
+            android:text="Privacy Policy"
+            android:textColor="#ffff"
+            android:textSize="20dp" />
 
         <Button
             android:id="@+id/help"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="left|center_vertical"
-            android:background="@color/purple_500"
-            android:paddingLeft="25dp"
-            android:textSize="20dp"
-            android:textColor="#ffff"
             android:layout_marginTop="10dp"
             android:layout_marginRight="40dp"
-        android:text="Help" />
+            android:background="@color/purple_500"
+            android:gravity="left|center_vertical"
+            android:paddingLeft="25dp"
+            android:text="Help"
+            android:textColor="#ffff"
+            android:textSize="20dp" />
 
         <Button
             android:id="@+id/about"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="80dp"
-            android:gravity="left|center_vertical"
-            android:background="@color/purple_500"
-            android:textSize="20dp"
             android:layout_marginRight="40dp"
+            android:background="@color/purple_500"
+            android:gravity="left|center_vertical"
             android:paddingLeft="25dp"
+            android:text="About Game"
             android:textColor="#ffff"
-            android:text="About Game" />
+            android:textSize="20dp" />
 
     </androidx.cardview.widget.CardView>
 

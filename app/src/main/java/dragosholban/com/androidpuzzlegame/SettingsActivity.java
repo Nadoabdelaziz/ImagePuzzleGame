@@ -27,7 +27,7 @@ public class SettingsActivity extends AppCompatActivity {
 
         Button help = (Button) findViewById(R.id.help);
         Button about = (Button) findViewById(R.id.about);
-
+        Button privacy = (Button) findViewById(R.id.privacy);
 
         btn = (ImageView) findViewById(R.id.baackbtn3);
 
@@ -43,6 +43,24 @@ public class SettingsActivity extends AppCompatActivity {
                     mpalert.start();
                 }
                 onBackPressed();
+            }
+        });
+
+        privacy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                SharedPreferences sh = view.getContext().getSharedPreferences("SOUND", Context.MODE_PRIVATE);
+                SharedPreferences.Editor myEdit = sh.edit();
+                final MediaPlayer mpalert = MediaPlayer.create(view.getContext(), R.raw.coinsound);
+                Boolean sound = sh.getBoolean("Sounds",true);
+
+                if(sound) {
+                    mpalert.start();
+                }
+
+                Intent intent = new Intent(SettingsActivity.this,PrivacyPolicyActivity.class);
+                startActivity(intent);
             }
         });
 

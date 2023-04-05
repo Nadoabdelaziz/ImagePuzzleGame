@@ -13,6 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".PrivacyPolicyActivity"
+            android:exported="false" />
+        <activity
             android:name=".SettingsActivity"
             android:exported="false" />
         <activity
@@ -28,14 +31,12 @@
         <activity
             android:name=".AdMobActivity"
             android:exported="false" />
-
         <activity
             android:name=".HelpActivity"
             android:exported="false" />
         <activity
             android:name=".AboutUsActivity"
             android:exported="false" />
-
         <activity
             android:name=".losegameactivity"
             android:exported="false" />
@@ -82,6 +83,7 @@
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
             android:value="ca-app-pub-2145987647160470~4837433052" />
+
     </application>
 
 </manifest>

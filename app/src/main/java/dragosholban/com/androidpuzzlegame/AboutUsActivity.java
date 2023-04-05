@@ -38,7 +38,7 @@ public class AboutUsActivity extends AppCompatActivity {
             }
         });
 
-        tv = (TextView) findViewById(R.id.textView5);
+        tv = (TextView) findViewById(R.id.textView16);
         tv .setMovementMethod(new ScrollingMovementMethod());
     }
 }

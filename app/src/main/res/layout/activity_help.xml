@@ -11,14 +11,14 @@
         android:layout_height="match_parent">
 
         <ImageView
-            android:id="@+id/baackbtn"
+            android:id="@+id/baackbtn5"
             android:layout_width="45dp"
             android:layout_height="35dp"
             android:layout_marginTop="10dp"
             app:srcCompat="?attr/homeAsUpIndicator" />
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/textView15"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingHorizontal="15dp"
@@ -29,7 +29,7 @@
             android:textSize="25dp" />
 
         <TextView
-            android:id="@+id/textView5"
+            android:id="@+id/textView16"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_marginTop="55dp"

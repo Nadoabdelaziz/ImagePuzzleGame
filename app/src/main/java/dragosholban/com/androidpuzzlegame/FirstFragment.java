@@ -102,7 +102,7 @@ public class FirstFragment extends Fragment {
         });
 
         mRewardedAd = new RewardedAd(getContext(),
-                "ca-app-pub-3940256099942544/5224354917");
+                "ca-app-pub-2145987647160470/2803949040");
 
         RewardedAdLoadCallback adLoadCallback = new RewardedAdLoadCallback() {
             @Override
