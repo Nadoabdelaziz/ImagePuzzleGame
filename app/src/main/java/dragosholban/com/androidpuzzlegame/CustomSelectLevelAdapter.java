@@ -28,7 +28,7 @@ public class CustomSelectLevelAdapter  extends  RecyclerView.Adapter<CustomSelec
     private String mCurrentPhotoUri,mCurrentPhotoPath,assetname;
 
     private int levels = 6;
-    private int [] scores={20,40,60,150,240,450};
+    private int [] scores={20,40,60,80,100,120};
     private int [] pieces={36,64,100,144,225,400};
 
 

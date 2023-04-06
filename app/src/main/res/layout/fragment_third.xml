@@ -32,15 +32,16 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@android:drawable/btn_star_big_on" />
 
-    <ImageView
-        android:id="@+id/settingsbtn3"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="344dp"
-        android:layout_marginTop="16dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/settings" />
+<!--    <ImageView-->
+<!--        android:id="@+id/settingsbtn3"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="40dp"-->
+<!--        android:layout_marginStart="344dp"-->
+<!--        android:layout_marginTop="16dp"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        app:srcCompat="@drawable/settings" />-->
 
     <!--    <ImageButton-->
 <!--        android:id="@+id/adwatch4"-->

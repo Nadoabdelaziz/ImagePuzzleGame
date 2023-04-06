@@ -9,20 +9,21 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_main3"
-        android:layout_width="408dp"
+        android:layout_width="match_parent"
         android:layout_height="206dp"
         android:layout_margin="1dp"
-        android:layout_marginBottom="24dp"
-        app:layout_constraintBottom_toTopOf="@+id/monthtxt"
+        app:layout_constraintBottom_toTopOf="@id/guideline8"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.333"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/guideline6"
+        app:layout_constraintVertical_bias="0.0">
 
     </androidx.recyclerview.widget.RecyclerView>
 
     <GridView
         android:id="@+id/grid3"
-        android:layout_width="405dp"
+        android:layout_width="match_parent"
         android:layout_height="337dp"
         android:layout_marginBottom="64dp"
         android:horizontalSpacing="10dp"
@@ -32,21 +33,24 @@
         android:verticalSpacing="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.545"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
 
-        />
+        app:layout_constraintTop_toBottomOf="@id/guideline8"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/monthtxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="19dp"
+        android:layout_marginStart="16dp"
         android:text="March 2023"
         android:textSize="32sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/grid3"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/recycler_main3"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/points3"
@@ -77,12 +81,33 @@
         android:id="@+id/settingsbtn2"
         android:layout_width="40dp"
         android:layout_height="40dp"
-        android:layout_marginStart="344dp"
         android:layout_marginTop="16dp"
         app:layout_constraintBottom_toTopOf="@+id/recycler_main3"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/guideline9"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.875"
         app:srcCompat="@drawable/settings" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="44dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="294dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="350dp" />
 
     <!--    <ImageButton-->
 <!--        android:id="@+id/adwatch3"-->

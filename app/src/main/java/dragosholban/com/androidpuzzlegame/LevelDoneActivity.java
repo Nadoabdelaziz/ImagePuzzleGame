@@ -62,6 +62,7 @@ public class LevelDoneActivity extends AppCompatActivity {
 
 
 
+
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -85,6 +86,9 @@ public class LevelDoneActivity extends AppCompatActivity {
                     mp.start();
                 }
                 SharedPreferences sharedPreferences = getSharedPreferences("Points",0);
+                if(rewardpts == null){
+
+                }
                 Long s1 = sharedPreferences.getLong("rewards",0) + Long.parseLong(rewardpts);
                 SharedPreferences.Editor myEdit = sharedPreferences.edit();
                 myEdit.putLong("rewards", s1);
@@ -148,6 +152,7 @@ public class LevelDoneActivity extends AppCompatActivity {
                 Intent intent2 = new Intent(getApplicationContext(), PuzzleActivity.class);
                 intent2.putExtra("levelname", level);
                 intent2.putExtra("assetname", assetName);
+                intent2.putExtra("rewards",rewardpts);
                 startActivity(intent2);
             }
         });
@@ -165,15 +170,19 @@ public class LevelDoneActivity extends AppCompatActivity {
                 if(sound) {
                     mp.start();
                 }
+                Long rewards = Long.parseLong(rewardpts);
+                rewards = rewards+20;
                 int lvl = Integer.parseInt(level);
                 lvl = lvl +1;
 //                Toast.makeText(LevelDoneActivity.this, level, Toast.LENGTH_SHORT).show();
                 String newlevel= Integer.toString(lvl);
+                String newRewards = String.valueOf(rewards);
 
 //                Toast.makeText(LevelDoneActivity.this, newlevel, Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(getApplicationContext(), PuzzleActivity.class);
                 intent.putExtra("assetname", assetName);
                 intent.putExtra("levelname",newlevel);
+                intent.putExtra("rewards",newRewards);
                 startActivity(intent);
             }
         });
@@ -188,11 +197,17 @@ public class LevelDoneActivity extends AppCompatActivity {
                 if(sound) {
                     mp.start();
                 }
-                Toast.makeText(LevelDoneActivity.this, "Clicked", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(LevelDoneActivity.this, "Clicked", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(getApplicationContext(), TheFragmnetsActivity.class);
                 startActivity(intent);
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(LevelDoneActivity.this,TheFragmnetsActivity.class);
+        startActivity(intent);
     }
 
     private void loadRewardedAd(Dialog D1){

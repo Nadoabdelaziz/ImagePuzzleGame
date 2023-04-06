@@ -436,6 +436,7 @@ public class PuzzleActivity extends AppCompatActivity {
                 intent = new Intent(getApplicationContext(), losegameactivity.class);
                 intent.putExtra("assetName", assetName);
                 intent.putExtra("levelname",level);
+                intent.putExtra("rewardpts",rewards);
                 long thescore = FinalScore();
                 intent.putExtra("score",String.valueOf(thescore));
                 startActivity(intent);

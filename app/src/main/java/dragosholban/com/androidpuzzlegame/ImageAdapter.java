@@ -133,6 +133,8 @@ public class ImageAdapter extends BaseAdapter {
 
     // create a new ImageView for each item referenced by the Adapter
     public View getView(final int position, View convertView, ViewGroup parent) {
+        int [] scores={20,40,60,80,100,120};
+
         if (convertView == null) {
             final LayoutInflater layoutInflater = LayoutInflater.from(mContext);
             convertView = layoutInflater.inflate(R.layout.grid_element, null);
@@ -159,6 +161,7 @@ public class ImageAdapter extends BaseAdapter {
                 SharedPreferences sharedPrefPoints= mContext.getSharedPreferences("Points", 0);
                 Long number = sharedPrefPoints.getLong("rewards", 0);
 
+
                 if(progress){
                     if(sound) {
                         mp.start();
@@ -169,6 +172,8 @@ public class ImageAdapter extends BaseAdapter {
                     Intent intent = new Intent(mContext.getApplicationContext(), PuzzleActivity.class);
                     intent.putExtra("assetname", unlocked_images[position]);
                     intent.putExtra("levelname",levels[position]);
+                    intent.putExtra("rewards",String.valueOf(scores[position]));
+
                     mContext.startActivity(intent);
                 }
                 else {

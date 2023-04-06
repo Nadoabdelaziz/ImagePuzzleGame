@@ -61,25 +61,25 @@ public class ThirdFragment extends Fragment {
             this.mView = view;
 
 
-        Settings = (ImageView) view.findViewById(R.id.settingsbtn3);
+//        Settings = (ImageView) view.findViewById(R.id.settingsbtn3);
 
-        Settings.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                SharedPreferences sh = view.getContext().getSharedPreferences("SOUND", Context.MODE_PRIVATE);
-                SharedPreferences.Editor myEdit = sh.edit();
-                final MediaPlayer mp = MediaPlayer.create(view.getContext(), R.raw.coinsound);
-                Boolean sound = sh.getBoolean("Sounds",true);
-
-                if(sound) {
-                    mp.start();
-                }
-
-                Intent intent =new Intent(getContext(),SettingsActivity.class);
-                startActivity(intent);
-            }
-        });
+//        Settings.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//
+//                SharedPreferences sh = view.getContext().getSharedPreferences("SOUND", Context.MODE_PRIVATE);
+//                SharedPreferences.Editor myEdit = sh.edit();
+//                final MediaPlayer mp = MediaPlayer.create(view.getContext(), R.raw.coinsound);
+//                Boolean sound = sh.getBoolean("Sounds",true);
+//
+//                if(sound) {
+//                    mp.start();
+//                }
+//
+//                Intent intent =new Intent(getContext(),SettingsActivity.class);
+//                startActivity(intent);
+//            }
+//        });
 
 
         MyListAdapter adapter=new MyListAdapter(getActivity(), maintitle,imgid);

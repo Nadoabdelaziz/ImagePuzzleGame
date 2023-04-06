@@ -53,6 +53,7 @@ public class losegameactivity extends AppCompatActivity {
 
 
 
+
         final Dialog dialog2 = new Dialog(losegameactivity.this);
         dialog2.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog2.setCancelable(false);
@@ -117,9 +118,13 @@ public class losegameactivity extends AppCompatActivity {
                 }
                 String assetname = intent.getStringExtra("assetName");
                 String level = intent.getStringExtra("levelname");
+                String rewardpts = intent.getStringExtra("rewardpts");
+
                 Intent intent2 = new Intent(getApplicationContext(), PuzzleActivity.class);
                 intent2.putExtra("levelname", level);
                 intent2.putExtra("assetname", assetname);
+                intent2.putExtra("rewards", rewardpts);
+
                 startActivity(intent2);
             }
         });
@@ -136,9 +141,13 @@ public class losegameactivity extends AppCompatActivity {
                 }
                 String assetname = intent.getStringExtra("assetName");
                 String level = intent.getStringExtra("levelname");
+                String rewardpts = intent.getStringExtra("rewardpts");
+
                 Intent intent2 = new Intent(getApplicationContext(), PuzzleActivity.class);
                 intent2.putExtra("levelname", level);
                 intent2.putExtra("assetname", assetname);
+                intent2.putExtra("rewards", rewardpts);
+
                 startActivity(intent2);
             }
         });
@@ -179,6 +188,12 @@ public class losegameactivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(losegameactivity.this,TheFragmnetsActivity.class);
+        startActivity(intent);
     }
 
     private void loadRewardedAd(Dialog D1){

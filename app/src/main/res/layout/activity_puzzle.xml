@@ -9,9 +9,9 @@
 
     <ImageView
         android:id="@+id/imageView5"
-        android:layout_width="385dp"
-        android:layout_height="461dp"
-        android:layout_marginTop="30dp"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginTop="0dp"
 
         android:alpha="1.0"
         app:layout_constraintDimensionRatio="H,4:5"
@@ -22,9 +22,12 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="348dp"
-        android:layout_height="455dp"
-        android:layout_marginTop="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="7dp"
+        android:layout_marginRight="7dp"
+
         android:alpha="0.5"
         android:scaleType="centerCrop"
         app:layout_constraintDimensionRatio="H,4:5"
@@ -38,7 +41,7 @@
     <ImageView
         android:id="@+id/img_pzl_contanier"
         android:layout_width="match_parent"
-        android:layout_height="175dp"
+        android:layout_height="0dp"
         android:background="@color/White"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
