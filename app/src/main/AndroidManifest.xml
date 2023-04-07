@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="dragosholban.com.androidpuzzlegame">
+    package="nadadev.com.jigsawpuzzleimgGame">
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET" />
@@ -29,19 +29,19 @@
         <!-- &lt;!&ndash; </intent-filter> &ndash;&gt; -->
         <!-- </activity> -->
         <activity
-            android:name="dragosholban.com.androidpuzzlegame.AdMobActivity"
+            android:name=".AdMobActivity"
             android:exported="false" />
         <activity
-            android:name="dragosholban.com.androidpuzzlegame.HelpActivity"
+            android:name=".HelpActivity"
             android:exported="false" />
         <activity
-            android:name="dragosholban.com.androidpuzzlegame.AboutUsActivity"
+            android:name=".AboutUsActivity"
             android:exported="false" />
         <activity
             android:name=".losegameactivity"
             android:exported="false" />
         <activity
-            android:name="dragosholban.com.androidpuzzlegame.GameMenuActivity"
+            android:name=".GameMenuActivity"
             android:exported="false" />
         <activity
             android:name=".StartGameActivity"
@@ -64,7 +64,7 @@
             <!-- </intent-filter> -->
         </activity>
         <activity android:name=".LevelSelectionActivity" />
-        <activity android:name="dragosholban.com.androidpuzzlegame.CategoriesActivity" /> <!-- <activity -->
+        <activity android:name=".CategoriesActivity" /> <!-- <activity -->
         <!-- android:name=".MainActivity" -->
         <!-- android:screenOrientation="portrait" /> -->
         <activity
