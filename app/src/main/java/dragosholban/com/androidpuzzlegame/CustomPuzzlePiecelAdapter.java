@@ -2,13 +2,11 @@ package dragosholban.com.androidpuzzlegame;
 
 import android.content.Context;
 import android.view.ViewGroup;
-import android.widget.RelativeLayout;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
-import java.util.Random;
 
 public class CustomPuzzlePiecelAdapter extends  RecyclerView.Adapter<CustomPuzzlePiecelViewHolder>{
 

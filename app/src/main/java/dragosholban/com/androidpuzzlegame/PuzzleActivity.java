@@ -36,11 +36,10 @@ import java.util.Collections;
 import java.util.Random;
 
 import static java.lang.Math.abs;
-import static java.lang.Math.log;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.AppCompatImageView;
 
+import dragosholban.com.androidpuzzlegame.R;
 
 
 public class PuzzleActivity extends AppCompatActivity {
@@ -141,7 +140,9 @@ public class PuzzleActivity extends AppCompatActivity {
                     public void onClick(DialogInterface dialog, int which) {
                         countDownTimer.cancel();
                         dialog.dismiss();
-                        finish();
+                        Intent intent = new Intent(PuzzleActivity.this,TheFragmnetsActivity.class);
+                        startActivity(intent);
+//                        finish();
                     }
                 });
         alertDialog.setButton(AlertDialog.BUTTON_NEGATIVE, "No",
@@ -433,13 +434,34 @@ public class PuzzleActivity extends AppCompatActivity {
                 if(sound) {
                     mp.start();
                 }
-                intent = new Intent(getApplicationContext(), losegameactivity.class);
-                intent.putExtra("assetName", assetName);
-                intent.putExtra("levelname",level);
-                intent.putExtra("rewardpts",rewards);
-                long thescore = FinalScore();
-                intent.putExtra("score",String.valueOf(thescore));
-                startActivity(intent);
+                if(mCurrentPhotoPath!=null){
+                    intent = new Intent(getApplicationContext(), losegameactivity.class);
+                    intent.putExtra("mCurrentPhotoPath", mCurrentPhotoPath);
+                    intent.putExtra("levelname",level);
+                    intent.putExtra("rewardpts",rewards);
+                    long thescore = FinalScore();
+                    intent.putExtra("score",String.valueOf(thescore));
+                    startActivity(intent);
+                }
+                else if(mCurrentPhotoUri!=null){
+                    intent = new Intent(getApplicationContext(), losegameactivity.class);
+                    intent.putExtra("mCurrentPhotoUri", mCurrentPhotoUri);
+                    intent.putExtra("levelname",level);
+                    intent.putExtra("rewardpts",rewards);
+                    long thescore = FinalScore();
+                    intent.putExtra("score",String.valueOf(thescore));
+                    startActivity(intent);
+                }
+                else{
+                    intent = new Intent(getApplicationContext(), losegameactivity.class);
+                    intent.putExtra("assetName", assetName);
+                    intent.putExtra("levelname",level);
+                    intent.putExtra("rewardpts",rewards);
+                    long thescore = FinalScore();
+                    intent.putExtra("score",String.valueOf(thescore));
+                    startActivity(intent);
+                }
+
             }
             else{
                 SharedPreferences sh = this.getSharedPreferences("SOUND", Context.MODE_PRIVATE);
@@ -449,14 +471,40 @@ public class PuzzleActivity extends AppCompatActivity {
                 if(sound) {
                     mp.start();
                 }
-                intent = new Intent(getApplicationContext(), LevelDoneActivity.class);
-                intent.putExtra("assetName", assetName);
-                intent.putExtra("levelname",level);
-                Log.d("TAG", "checkGameOver: "+rewards);
-                intent.putExtra("rewardpts",rewards);
-                long thescore = FinalScore();
-                intent.putExtra("score",String.valueOf(thescore));
-                startActivity(intent);
+                if(mCurrentPhotoPath!=null) {
+                    intent = new Intent(getApplicationContext(), LevelDoneActivity.class);
+                    intent.putExtra("mCurrentPhotoPath", mCurrentPhotoPath);
+                    intent.putExtra("levelname",level);
+                    Log.d("TAG", "checkGameOver: "+rewards);
+                    intent.putExtra("rewardpts",rewards);
+                    long thescore = FinalScore();
+                    intent.putExtra("score",String.valueOf(thescore));
+                    startActivity(intent);
+                    Toast.makeText(context, "Photo exists", Toast.LENGTH_SHORT).show();
+                }
+                else if(mCurrentPhotoUri!=null){
+                    intent = new Intent(getApplicationContext(), LevelDoneActivity.class);
+                    intent.putExtra("mCurrentPhotoUri", mCurrentPhotoUri);
+                    intent.putExtra("levelname",level);
+                    Log.d("TAG", "checkGameOver: "+rewards);
+                    intent.putExtra("rewardpts",rewards);
+                    long thescore = FinalScore();
+                    intent.putExtra("score",String.valueOf(thescore));
+                    startActivity(intent);
+                    Toast.makeText(context, "Photo exists", Toast.LENGTH_SHORT).show();
+
+                }
+                else{
+                    intent = new Intent(getApplicationContext(), LevelDoneActivity.class);
+                    intent.putExtra("assetName", assetName);
+                    intent.putExtra("levelname",level);
+                    Log.d("TAG", "checkGameOver: "+rewards);
+                    intent.putExtra("rewardpts",rewards);
+                    long thescore = FinalScore();
+                    intent.putExtra("score",String.valueOf(thescore));
+                    startActivity(intent);
+                }
+
             }
         }
     }

@@ -10,15 +10,12 @@ import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.view.animation.LinearInterpolator;
 import android.widget.RelativeLayout;
-import android.widget.Toast;
 
 import static java.lang.Math.pow;
 import static java.lang.Math.sqrt;
 import static java.lang.StrictMath.abs;
 
-import java.sql.Time;
-import java.util.Timer;
-import java.util.TimerTask;
+import dragosholban.com.androidpuzzlegame.R;
 
 public class TouchListener implements View.OnTouchListener {
     private float xDelta;

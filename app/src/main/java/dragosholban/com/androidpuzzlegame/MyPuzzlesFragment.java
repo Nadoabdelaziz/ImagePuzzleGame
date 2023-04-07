@@ -18,6 +18,8 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
+import dragosholban.com.androidpuzzlegame.R;
+
 public class MyPuzzlesFragment extends Fragment {
     protected View mView;
     Context context;

@@ -8,6 +8,8 @@ import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import dragosholban.com.androidpuzzlegame.R;
+
 public class GameMenuActivity extends AppCompatActivity {
 
     @Override

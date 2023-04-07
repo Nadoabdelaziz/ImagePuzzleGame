@@ -26,6 +26,8 @@ import com.google.android.gms.ads.rewarded.RewardedAd;
 import com.google.android.gms.ads.rewarded.RewardedAdCallback;
 import com.google.android.gms.ads.rewarded.RewardedAdLoadCallback;
 
+import dragosholban.com.androidpuzzlegame.R;
+
 public class losegameactivity extends AppCompatActivity {
 
     private RewardedAd mRewardedAd;
@@ -60,7 +62,7 @@ public class losegameactivity extends AppCompatActivity {
         dialog2.setContentView(R.layout.activity_lose_dialog_alert);
 
         Button btn = dialog2.findViewById(R.id.exitbtn2);
-        Button contBTN = dialog2.findViewById(R.id.continues);
+//        Button contBTN = dialog2.findViewById(R.id.continues);
         Button Restart = dialog2.findViewById(R.id.restart);
 
         Button back = dialog2.findViewById(R.id.backmenu);
@@ -72,25 +74,34 @@ public class losegameactivity extends AppCompatActivity {
 
         dialog2.show();
 
+
         Intent intent = getIntent();
+
+        String assetname = intent.getStringExtra("assetName");
+        String level = intent.getStringExtra("levelname");
+        String rewardpts = intent.getStringExtra("rewardpts");
+
+        String mCurrentPhotoPath = intent.getStringExtra("mCurrentPhotoPath");
+        String mCurrentPhotoUri = intent.getStringExtra("mCurrentPhotoUri");
+
 //        String finalscore = intent.getStringExtra("score");
 //
 
 
-        contBTN.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View view) {
-                SharedPreferences sh = view.getContext().getSharedPreferences("SOUND", Context.MODE_PRIVATE);
-                SharedPreferences.Editor myEdit = sh.edit();
-                final MediaPlayer mp = MediaPlayer.create(view.getContext(), R.raw.coinsound);
-                Boolean sound = sh.getBoolean("Sounds",true);
-                if(sound) {
-                    mp.start();
-                }
-                loadRewardedAd(dialog2);
-            }
-        });
+//        contBTN.setOnClickListener(new View.OnClickListener() {
+//
+//            @Override
+//            public void onClick(View view) {
+//                SharedPreferences sh = view.getContext().getSharedPreferences("SOUND", Context.MODE_PRIVATE);
+//                SharedPreferences.Editor myEdit = sh.edit();
+//                final MediaPlayer mp = MediaPlayer.create(view.getContext(), R.raw.coinsound);
+//                Boolean sound = sh.getBoolean("Sounds",true);
+//                if(sound) {
+//                    mp.start();
+//                }
+//                loadRewardedAd(dialog2);
+//            }
+//        });
 
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -106,6 +117,43 @@ public class losegameactivity extends AppCompatActivity {
             }
         });
 
+        /*
+                restartBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                SharedPreferences sh = view.getContext().getSharedPreferences("SOUND", Context.MODE_PRIVATE);
+                SharedPreferences.Editor myEdit = sh.edit();
+                final MediaPlayer mp = MediaPlayer.create(view.getContext(), R.raw.coinsound);
+                Boolean sound = sh.getBoolean("Sounds",true);
+                if(sound) {
+                    mp.start();
+                }
+                Intent intent2 = new Intent(getApplicationContext(), PuzzleActivity.class);
+
+                if(mCurrentPhotoPath!=null){
+                    intent2.putExtra("levelname", level);
+                    intent2.putExtra("mCurrentPhotoPath", mCurrentPhotoPath);
+                    intent2.putExtra("rewards",rewardpts);
+                    startActivity(intent2);
+                }
+                else if(mCurrentPhotoUri !=null){
+                    intent2.putExtra("levelname", level);
+                    intent2.putExtra("mCurrentPhotoUri", mCurrentPhotoUri);
+                    intent2.putExtra("rewards",rewardpts);
+                    startActivity(intent2);
+                }
+                else {
+                    intent2.putExtra("levelname", level);
+                    intent2.putExtra("assetname", assetName);
+                    intent2.putExtra("rewards",rewardpts);
+                    startActivity(intent2);
+                }
+
+            }
+        });
+
+        */
+
         Restart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -116,16 +164,31 @@ public class losegameactivity extends AppCompatActivity {
                 if(sound) {
                     mp.start();
                 }
-                String assetname = intent.getStringExtra("assetName");
-                String level = intent.getStringExtra("levelname");
-                String rewardpts = intent.getStringExtra("rewardpts");
-
                 Intent intent2 = new Intent(getApplicationContext(), PuzzleActivity.class);
-                intent2.putExtra("levelname", level);
-                intent2.putExtra("assetname", assetname);
-                intent2.putExtra("rewards", rewardpts);
+//                intent2.putExtra("levelname", level);
+//                intent2.putExtra("assetname", assetname);
+//                intent2.putExtra("rewards", rewardpts);
+//
+//                startActivity(intent2);
 
-                startActivity(intent2);
+                if(mCurrentPhotoPath!=null){
+                    intent2.putExtra("levelname", level);
+                    intent2.putExtra("mCurrentPhotoPath", mCurrentPhotoPath);
+                    intent2.putExtra("rewards",rewardpts);
+                    startActivity(intent2);
+                }
+                else if(mCurrentPhotoUri !=null){
+                    intent2.putExtra("levelname", level);
+                    intent2.putExtra("mCurrentPhotoUri", mCurrentPhotoUri);
+                    intent2.putExtra("rewards",rewardpts);
+                    startActivity(intent2);
+                }
+                else {
+                    intent2.putExtra("levelname", level);
+                    intent2.putExtra("assetname", assetname);
+                    intent2.putExtra("rewards",rewardpts);
+                    startActivity(intent2);
+                }
             }
         });
 
@@ -139,16 +202,30 @@ public class losegameactivity extends AppCompatActivity {
                 if(sound) {
                     mp.start();
                 }
-                String assetname = intent.getStringExtra("assetName");
-                String level = intent.getStringExtra("levelname");
-                String rewardpts = intent.getStringExtra("rewardpts");
-
                 Intent intent2 = new Intent(getApplicationContext(), PuzzleActivity.class);
-                intent2.putExtra("levelname", level);
-                intent2.putExtra("assetname", assetname);
-                intent2.putExtra("rewards", rewardpts);
-
-                startActivity(intent2);
+//                intent2.putExtra("levelname", level);
+//                intent2.putExtra("assetname", assetname);
+//                intent2.putExtra("rewards", rewardpts);
+//
+//                startActivity(intent2);
+                if(mCurrentPhotoPath!=null){
+                    intent2.putExtra("levelname", level);
+                    intent2.putExtra("mCurrentPhotoPath", mCurrentPhotoPath);
+                    intent2.putExtra("rewards",rewardpts);
+                    startActivity(intent2);
+                }
+                else if(mCurrentPhotoUri !=null){
+                    intent2.putExtra("levelname", level);
+                    intent2.putExtra("mCurrentPhotoUri", mCurrentPhotoUri);
+                    intent2.putExtra("rewards",rewardpts);
+                    startActivity(intent2);
+                }
+                else {
+                    intent2.putExtra("levelname", level);
+                    intent2.putExtra("assetname", assetname);
+                    intent2.putExtra("rewards",rewardpts);
+                    startActivity(intent2);
+                }
             }
         });
 

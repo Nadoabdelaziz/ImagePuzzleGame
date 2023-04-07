@@ -2,19 +2,14 @@ package dragosholban.com.androidpuzzlegame;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 //import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.Button;
-import android.widget.GridView;
-import android.widget.ImageView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import dragosholban.com.androidpuzzlegame.R;
 
 public class LevelSelectionActivity extends AppCompatActivity {
 
@@ -121,7 +116,7 @@ public class LevelSelectionActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
 //        Toast.makeText(this, "Cannot rETURN bAKC", Toast.LENGTH_SHORT).show();
-        Intent intent = new Intent(LevelSelectionActivity.this,TheFragmnetsActivity.class);
+        Intent intent = new Intent(LevelSelectionActivity.this, TheFragmnetsActivity.class);
         startActivity(intent);
     }
 }

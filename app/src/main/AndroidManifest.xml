@@ -29,19 +29,19 @@
         <!-- &lt;!&ndash; </intent-filter> &ndash;&gt; -->
         <!-- </activity> -->
         <activity
-            android:name=".AdMobActivity"
+            android:name="dragosholban.com.androidpuzzlegame.AdMobActivity"
             android:exported="false" />
         <activity
-            android:name=".HelpActivity"
+            android:name="dragosholban.com.androidpuzzlegame.HelpActivity"
             android:exported="false" />
         <activity
-            android:name=".AboutUsActivity"
+            android:name="dragosholban.com.androidpuzzlegame.AboutUsActivity"
             android:exported="false" />
         <activity
             android:name=".losegameactivity"
             android:exported="false" />
         <activity
-            android:name=".GameMenuActivity"
+            android:name="dragosholban.com.androidpuzzlegame.GameMenuActivity"
             android:exported="false" />
         <activity
             android:name=".StartGameActivity"
@@ -64,7 +64,7 @@
             <!-- </intent-filter> -->
         </activity>
         <activity android:name=".LevelSelectionActivity" />
-        <activity android:name=".CategoriesActivity" /> <!-- <activity -->
+        <activity android:name="dragosholban.com.androidpuzzlegame.CategoriesActivity" /> <!-- <activity -->
         <!-- android:name=".MainActivity" -->
         <!-- android:screenOrientation="portrait" /> -->
         <activity

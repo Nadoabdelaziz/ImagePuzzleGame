@@ -66,17 +66,17 @@
         android:src="@drawable/timesup" />
 
 
-    <Button
-        android:id="@+id/continues"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/imageLose"
-        android:layout_marginTop="43dp"
-        android:background="#9C27B0"
-        android:gravity="center"
-        android:text="Continue ( Watch AD )"
-        android:textColor="@color/white"
-        android:textSize="20sp" />
+<!--    <Button-->
+<!--        android:id="@+id/continues"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_below="@+id/imageLose"-->
+<!--        android:layout_marginTop="43dp"-->
+<!--        android:background="#9C27B0"-->
+<!--        android:gravity="center"-->
+<!--        android:text="Continue ( Watch AD )"-->
+<!--        android:textColor="@color/white"-->
+<!--        android:textSize="20sp" />-->
     <!--        app:drawableTint="#FFFFFF"-->
     <!--        app:drawableRightCompat="@drawable/ic_photo_camera_black_24dp" />-->
 
@@ -85,7 +85,7 @@
         android:id="@+id/restart"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/continues"
+        android:layout_below="@+id/imageLose"
         android:layout_marginTop="43dp"
         android:background="#9C27B0"
         android:gravity="center"

@@ -6,6 +6,8 @@ import android.widget.ImageView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import dragosholban.com.androidpuzzlegame.R;
+
 public class CustomPuzzlePiecelViewHolder extends RecyclerView.ViewHolder{
 
     public ImageView img;

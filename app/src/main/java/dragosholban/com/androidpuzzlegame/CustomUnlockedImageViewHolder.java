@@ -7,6 +7,8 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import dragosholban.com.androidpuzzlegame.R;
+
 class CustomUnlockedImageViewHolder extends RecyclerView.ViewHolder{
 
     public ImageView imgView;

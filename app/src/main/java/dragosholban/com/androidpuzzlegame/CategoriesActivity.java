@@ -3,7 +3,6 @@ package dragosholban.com.androidpuzzlegame;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.res.AssetManager;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.util.Log;
@@ -12,15 +11,12 @@ import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
 
-import java.io.IOException;
-import java.util.HashSet;
 import java.util.Set;
+
+import dragosholban.com.androidpuzzlegame.R;
 
 public class CategoriesActivity extends AppCompatActivity {
 
@@ -49,7 +45,7 @@ public class CategoriesActivity extends AppCompatActivity {
                     mp.start();
                 }
 
-                Intent intent =new Intent(CategoriesActivity.this,SettingsActivity.class);
+                Intent intent =new Intent(CategoriesActivity.this, SettingsActivity.class);
                 startActivity(intent);
             }
         });
@@ -68,7 +64,7 @@ public class CategoriesActivity extends AppCompatActivity {
                 if(sound) {
                     mp.start();
                 }
-                Intent intent = new Intent(CategoriesActivity.this,ThirdFragment.class);
+                Intent intent = new Intent(CategoriesActivity.this, ThirdFragment.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 finish();
             }

@@ -8,9 +8,10 @@ import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import dragosholban.com.androidpuzzlegame.R;
 
 public class PrivacyPolicyActivity extends AppCompatActivity {
 

@@ -1,26 +1,18 @@
 package dragosholban.com.androidpuzzlegame;
 
-import android.Manifest;
 import android.app.Activity;
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.pm.PackageManager;
 import android.content.res.AssetManager;
 import android.media.MediaPlayer;
-import android.net.Uri;
 import android.os.Bundle;
 //import android.support.v4.app.Fragment;
-import android.os.Environment;
-import android.provider.MediaStore;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.content.Context;
 import android.widget.AdapterView;
-import android.widget.Button;
 import android.widget.GridView;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -29,9 +21,6 @@ import android.widget.Toast;
 
 
 import androidx.annotation.NonNull;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
-import androidx.core.content.FileProvider;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -45,12 +34,11 @@ import com.google.android.gms.ads.rewarded.RewardedAd;
 import com.google.android.gms.ads.rewarded.RewardedAdCallback;
 import com.google.android.gms.ads.rewarded.RewardedAdLoadCallback;
 
-import java.io.File;
 import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
+
+import dragosholban.com.androidpuzzlegame.R;
 
 
 public class FirstFragment extends Fragment {
@@ -96,7 +84,7 @@ public class FirstFragment extends Fragment {
                     mp.start();
                 }
 
-                Intent intent =new Intent(getContext(),SettingsActivity.class);
+                Intent intent =new Intent(getContext(), SettingsActivity.class);
                 startActivity(intent);
             }
         });

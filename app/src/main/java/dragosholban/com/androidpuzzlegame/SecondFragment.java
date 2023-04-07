@@ -25,6 +25,8 @@ import java.util.Calendar;
 import java.util.HashSet;
 import java.util.Set;
 
+import dragosholban.com.androidpuzzlegame.R;
+
 /**
  * Created by Adib on 13-Apr-17.
  */

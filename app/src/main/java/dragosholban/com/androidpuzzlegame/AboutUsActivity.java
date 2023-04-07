@@ -11,6 +11,8 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import dragosholban.com.androidpuzzlegame.R;
+
 public class AboutUsActivity extends AppCompatActivity {
 
     TextView tv;

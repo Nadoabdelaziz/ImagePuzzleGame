@@ -8,6 +8,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import dragosholban.com.androidpuzzlegame.R;
+
 public class MyListAdapter extends ArrayAdapter<String> {
 
     private final Activity context;

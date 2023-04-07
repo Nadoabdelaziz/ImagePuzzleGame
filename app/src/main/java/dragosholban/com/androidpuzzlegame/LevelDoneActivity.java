@@ -1,22 +1,17 @@
 package dragosholban.com.androidpuzzlegame;
 
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 //import android.support.v7.app.AppCompatActivity;
 import android.content.SharedPreferences;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -30,7 +25,7 @@ import com.google.android.gms.ads.rewarded.RewardedAd;
 import com.google.android.gms.ads.rewarded.RewardedAdCallback;
 import com.google.android.gms.ads.rewarded.RewardedAdLoadCallback;
 
-import java.util.Set;
+import dragosholban.com.androidpuzzlegame.R;
 
 public class LevelDoneActivity extends AppCompatActivity {
     private RewardedAd mRewardedAd;
@@ -45,6 +40,10 @@ public class LevelDoneActivity extends AppCompatActivity {
         String assetName = intent.getStringExtra("assetName");
         String level = intent.getStringExtra("levelname");
         String rewardpts = intent.getStringExtra("rewardpts");
+
+
+        String mCurrentPhotoPath = intent.getStringExtra("mCurrentPhotoPath");
+        String mCurrentPhotoUri = intent.getStringExtra("mCurrentPhotoUri");
 
 
         final Dialog dialog = new Dialog(LevelDoneActivity.this);
@@ -150,10 +149,26 @@ public class LevelDoneActivity extends AppCompatActivity {
                     mp.start();
                 }
                 Intent intent2 = new Intent(getApplicationContext(), PuzzleActivity.class);
-                intent2.putExtra("levelname", level);
-                intent2.putExtra("assetname", assetName);
-                intent2.putExtra("rewards",rewardpts);
-                startActivity(intent2);
+
+                if(mCurrentPhotoPath!=null){
+                    intent2.putExtra("levelname", level);
+                    intent2.putExtra("mCurrentPhotoPath", mCurrentPhotoPath);
+                    intent2.putExtra("rewards",rewardpts);
+                    startActivity(intent2);
+                }
+                else if(mCurrentPhotoUri !=null){
+                    intent2.putExtra("levelname", level);
+                    intent2.putExtra("mCurrentPhotoUri", mCurrentPhotoUri);
+                    intent2.putExtra("rewards",rewardpts);
+                    startActivity(intent2);
+                }
+                else {
+                    intent2.putExtra("levelname", level);
+                    intent2.putExtra("assetname", assetName);
+                    intent2.putExtra("rewards",rewardpts);
+                    startActivity(intent2);
+                }
+
             }
         });
 
@@ -180,10 +195,29 @@ public class LevelDoneActivity extends AppCompatActivity {
 
 //                Toast.makeText(LevelDoneActivity.this, newlevel, Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(getApplicationContext(), PuzzleActivity.class);
-                intent.putExtra("assetname", assetName);
-                intent.putExtra("levelname",newlevel);
-                intent.putExtra("rewards",newRewards);
-                startActivity(intent);
+
+                if(mCurrentPhotoPath!=null){
+                    intent.putExtra("levelname", newlevel);
+                    intent.putExtra("mCurrentPhotoPath", mCurrentPhotoPath);
+                    intent.putExtra("rewards", newRewards);
+                    startActivity(intent);
+                    Toast.makeText(LevelDoneActivity.this, "path", Toast.LENGTH_SHORT).show();
+                }
+                else if(mCurrentPhotoUri !=null){
+                    intent.putExtra("levelname", newlevel);
+                    intent.putExtra("mCurrentPhotoUri", mCurrentPhotoUri);
+                    intent.putExtra("rewards", newRewards);
+                    startActivity(intent);
+                    Toast.makeText(LevelDoneActivity.this, "uri", Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    intent.putExtra("assetname", assetName);
+                    intent.putExtra("levelname", newlevel);
+                    intent.putExtra("rewards", newRewards);
+                    startActivity(intent);
+                    Toast.makeText(LevelDoneActivity.this, "3ady", Toast.LENGTH_SHORT).show();
+
+                }
             }
         });
 

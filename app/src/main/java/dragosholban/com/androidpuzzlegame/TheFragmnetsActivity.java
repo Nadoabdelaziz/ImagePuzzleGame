@@ -40,6 +40,8 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import dragosholban.com.androidpuzzlegame.R;
+
 public class TheFragmnetsActivity extends AppCompatActivity {
 
     //zizo
@@ -193,67 +195,128 @@ public class TheFragmnetsActivity extends AppCompatActivity {
             mpalert.start();
         }
 
+        Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        if (intent.resolveActivity(MyActivity.getPackageManager()) != null) {
+            File photoFile = null;
+            try {
+                photoFile = createImageFile();
+                        AlertDialog alertDialog = new AlertDialog.Builder(context).create();
+                        if(number >= 40) {
 
-        AlertDialog alertDialog = new AlertDialog.Builder(context).create();
+                            alertDialog.setTitle("Are you sure you want to unlock this puzzle with  40  ? \n");
 
-        if(number >= 40) {
+                            File finalPhotoFile = photoFile;
+                            alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "Yes",
+                                    new DialogInterface.OnClickListener() {
+                                        public void onClick(DialogInterface dialog, int which) {
 
-            alertDialog.setTitle("Are you sure you want to unlock this puzzle with  40  ? \n");
-
-            alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "Yes",
-                    new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int which) {
-
-                            SharedPreferences sharedPrefPoints = MyActivity.getSharedPreferences("Points", 0);
-                            Long number = sharedPrefPoints.getLong("rewards", 0);
-                            SharedPreferences.Editor editor1 = sharedPrefPoints.edit();
-                            editor1.putLong("rewards", number - 40);
-                            editor1.commit();
-                            dialog.dismiss();
+                                            SharedPreferences sharedPrefPoints = MyActivity.getSharedPreferences("Points", 0);
+                                            Long number = sharedPrefPoints.getLong("rewards", 0);
+                                            SharedPreferences.Editor editor1 = sharedPrefPoints.edit();
+                                            editor1.putLong("rewards", number - 40);
+                                            editor1.commit();
+                                            dialog.dismiss();
 
 
-                            Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                            if (intent.resolveActivity(MyActivity.getPackageManager()) != null) {
-                                File photoFile = null;
-                                try {
-                                    photoFile = createImageFile();
-                                } catch (IOException e) {
-                                    Toast.makeText(context, e.getMessage(), Toast.LENGTH_LONG);
+                                            if (finalPhotoFile != null) {
+                                                Uri photoUri = FileProvider.getUriForFile(context, MyActivity.getPackageName() + ".fileprovider", finalPhotoFile);
+                                                intent.putExtra(MediaStore.EXTRA_OUTPUT, photoUri);
+                                                startActivityForResult(intent, REQUEST_IMAGE_CAPTURE);
+                                            }
+
+                                        }
+                                    });
+                            alertDialog.setButton(AlertDialog.BUTTON_NEGATIVE, "No",
+                                    new DialogInterface.OnClickListener() {
+                                        public void onClick(DialogInterface dialog, int which) {
+                //                            Toast.makeText(context, "No is pressed", Toast.LENGTH_SHORT).show();
+                                            dialog.dismiss();
+                                        }
+                                    });
+                        }
+                        else{
+                            alertDialog.setTitle("You Don't Have Enough Points !");
+                            alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "Ok",
+                                    new DialogInterface.OnClickListener() {
+                                        public void onClick(DialogInterface dialog, int which) {
+                                            dialog.dismiss();
+                                        }
+                                    });
+                            alertDialog.setButton(AlertDialog.BUTTON_NEGATIVE, "Watch Ad", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
+                                    loadRewardedAd(alertDialog);
                                 }
+                            });
+                        }
+                        alertDialog.show();
 
-                                if (photoFile != null) {
-                                    Uri photoUri = FileProvider.getUriForFile(context, MyActivity.getPackageName() + ".fileprovider", photoFile);
-                                    intent.putExtra(MediaStore.EXTRA_OUTPUT, photoUri);
-                                    startActivityForResult(intent, REQUEST_IMAGE_CAPTURE);
-                                }
-                            }
+            } catch (IOException e) {
+                Toast.makeText(context, e.getMessage(), Toast.LENGTH_LONG);
+            }
 
-                        }
-                    });
-            alertDialog.setButton(AlertDialog.BUTTON_NEGATIVE, "No",
-                    new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int which) {
-//                            Toast.makeText(context, "No is pressed", Toast.LENGTH_SHORT).show();
-                            dialog.dismiss();
-                        }
-                    });
         }
-        else{
-            alertDialog.setTitle("You Don't Have Enough Points !");
-            alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "Ok",
-                    new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int which) {
-                            dialog.dismiss();
-                        }
-                    });
-            alertDialog.setButton(AlertDialog.BUTTON_NEGATIVE, "Watch Ad", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialogInterface, int i) {
-                    loadRewardedAd(alertDialog);
-                }
-            });
-        }
-        alertDialog.show();
+
+//        AlertDialog alertDialog = new AlertDialog.Builder(context).create();
+//
+//        if(number >= 40) {
+//
+//            alertDialog.setTitle("Are you sure you want to unlock this puzzle with  40  ? \n");
+//
+//            alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "Yes",
+//                    new DialogInterface.OnClickListener() {
+//                        public void onClick(DialogInterface dialog, int which) {
+//
+//                            SharedPreferences sharedPrefPoints = MyActivity.getSharedPreferences("Points", 0);
+//                            Long number = sharedPrefPoints.getLong("rewards", 0);
+//                            SharedPreferences.Editor editor1 = sharedPrefPoints.edit();
+//                            editor1.putLong("rewards", number - 40);
+//                            editor1.commit();
+//                            dialog.dismiss();
+//
+//
+//                            Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+//                            if (intent.resolveActivity(MyActivity.getPackageManager()) != null) {
+//                                File photoFile = null;
+//                                try {
+//                                    photoFile = createImageFile();
+//                                } catch (IOException e) {
+//                                    Toast.makeText(context, e.getMessage(), Toast.LENGTH_LONG);
+//                                }
+//
+//                                if (photoFile != null) {
+//                                    Uri photoUri = FileProvider.getUriForFile(context, MyActivity.getPackageName() + ".fileprovider", photoFile);
+//                                    intent.putExtra(MediaStore.EXTRA_OUTPUT, photoUri);
+//                                    startActivityForResult(intent, REQUEST_IMAGE_CAPTURE);
+//                                }
+//                            }
+//
+//                        }
+//                    });
+//            alertDialog.setButton(AlertDialog.BUTTON_NEGATIVE, "No",
+//                    new DialogInterface.OnClickListener() {
+//                        public void onClick(DialogInterface dialog, int which) {
+////                            Toast.makeText(context, "No is pressed", Toast.LENGTH_SHORT).show();
+//                            dialog.dismiss();
+//                        }
+//                    });
+//        }
+//        else{
+//            alertDialog.setTitle("You Don't Have Enough Points !");
+//            alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "Ok",
+//                    new DialogInterface.OnClickListener() {
+//                        public void onClick(DialogInterface dialog, int which) {
+//                            dialog.dismiss();
+//                        }
+//                    });
+//            alertDialog.setButton(AlertDialog.BUTTON_NEGATIVE, "Watch Ad", new DialogInterface.OnClickListener() {
+//                @Override
+//                public void onClick(DialogInterface dialogInterface, int i) {
+//                    loadRewardedAd(alertDialog);
+//                }
+//            });
+//        }
+//        alertDialog.show();
 
     }
 

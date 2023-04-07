@@ -10,6 +10,8 @@ import android.widget.ImageView;
 
 import androidx.fragment.app.Fragment;
 
+import dragosholban.com.androidpuzzlegame.R;
+
 public class MyCollectionsFragment extends Fragment {
     protected View mView;
     Context context;

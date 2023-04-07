@@ -13,6 +13,8 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import dragosholban.com.androidpuzzlegame.R;
+
 public class SettingsActivity extends AppCompatActivity {
 
     ImageView btn;
@@ -85,7 +87,7 @@ public class SettingsActivity extends AppCompatActivity {
                     mpalert.start();
                 }
 
-                Intent intent = new Intent(SettingsActivity.this,HelpActivity.class);
+                Intent intent = new Intent(SettingsActivity.this, HelpActivity.class);
                 startActivity(intent);
             }
         });
@@ -102,7 +104,7 @@ public class SettingsActivity extends AppCompatActivity {
                 if(sound) {
                     mpalert.start();
                 }
-                Intent intent = new Intent(SettingsActivity.this,AboutUsActivity.class);
+                Intent intent = new Intent(SettingsActivity.this, AboutUsActivity.class);
                 startActivity(intent);
             }
         });

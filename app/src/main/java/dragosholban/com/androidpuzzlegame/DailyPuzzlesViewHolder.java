@@ -11,6 +11,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
+import dragosholban.com.androidpuzzlegame.R;
+
 public class DailyPuzzlesViewHolder extends RecyclerView.ViewHolder{
 
     public ImageView imgView;

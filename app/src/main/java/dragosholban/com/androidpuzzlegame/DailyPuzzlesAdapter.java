@@ -12,7 +12,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -21,6 +20,8 @@ import com.squareup.picasso.Picasso;
 
 import java.io.IOException;
 import java.io.InputStream;
+
+import dragosholban.com.androidpuzzlegame.R;
 
 public class DailyPuzzlesAdapter extends  RecyclerView.Adapter<DailyPuzzlesViewHolder>{
     private Context context;
