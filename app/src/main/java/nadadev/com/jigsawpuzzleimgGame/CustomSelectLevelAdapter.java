@@ -28,8 +28,8 @@ public class CustomSelectLevelAdapter  extends  RecyclerView.Adapter<CustomSelec
 
     private int levels = 6;
     private int [] scores={20,40,60,80,100,120};
-    private int [] pieces={36,64,100,144,225,400};
-
+//    private int [] pieces={36,64,100,144,225,400};
+    private int [] pieces={16,25,36,49,64,81};
 
 
 

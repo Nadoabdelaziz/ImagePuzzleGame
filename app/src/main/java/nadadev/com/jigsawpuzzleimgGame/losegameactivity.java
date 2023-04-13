@@ -38,8 +38,10 @@ public class losegameactivity extends AppCompatActivity {
         setContentView(R.layout.activity_losegameactivity);
 
 
+//        mRewardedAd = new RewardedAd(this,
+//                "ca-app-pub-2145987647160470/2803949040");
         mRewardedAd = new RewardedAd(this,
-                "ca-app-pub-2145987647160470/2803949040");
+                "ca-app-pub-2145987647160470/2210632650");
         RewardedAdLoadCallback adLoadCallback = new RewardedAdLoadCallback() {
             @Override
             public void onRewardedAdLoaded() {

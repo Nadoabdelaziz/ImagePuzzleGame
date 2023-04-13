@@ -76,8 +76,10 @@ public class TheFragmnetsActivity extends AppCompatActivity {
 
 
         //Toast.makeText(this, "Some fields not entered", Toast.LENGTH_SHORT).show();
+//        mRewardedAd = new RewardedAd(context,
+//                "ca-app-pub-2145987647160470/2803949040");
         mRewardedAd = new RewardedAd(context,
-                "ca-app-pub-2145987647160470/2803949040");
+                "ca-app-pub-2145987647160470/2210632650");
 
         RewardedAdLoadCallback adLoadCallback = new RewardedAdLoadCallback() {
             @Override
@@ -418,7 +420,7 @@ public class TheFragmnetsActivity extends AppCompatActivity {
                                     alertDialog.setButton(AlertDialog.BUTTON_NEGATIVE, "No",
                                             new DialogInterface.OnClickListener() {
                                                 public void onClick(DialogInterface dialog, int which) {
-                                                    Toast.makeText(context, "No is pressed", Toast.LENGTH_SHORT).show();
+//                                                    Toast.makeText(context, "No is pressed", Toast.LENGTH_SHORT).show();
                                                     dialog.dismiss();
                                                 }
                                             });

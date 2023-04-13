@@ -113,8 +113,11 @@ public class LevelDoneActivity extends AppCompatActivity {
 
 
 
+//        mRewardedAd = new RewardedAd(this,
+//                "ca-app-pub-2145987647160470/2803949040");
         mRewardedAd = new RewardedAd(this,
-                "ca-app-pub-2145987647160470/2803949040");
+                "ca-app-pub-2145987647160470/2210632650");
+
         RewardedAdLoadCallback adLoadCallback = new RewardedAdLoadCallback() {
             @Override
             public void onRewardedAdLoaded() {
@@ -201,21 +204,21 @@ public class LevelDoneActivity extends AppCompatActivity {
                     intent.putExtra("mCurrentPhotoPath", mCurrentPhotoPath);
                     intent.putExtra("rewards", newRewards);
                     startActivity(intent);
-                    Toast.makeText(LevelDoneActivity.this, "path", Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(LevelDoneActivity.this, "path", Toast.LENGTH_SHORT).show();
                 }
                 else if(mCurrentPhotoUri !=null){
                     intent.putExtra("levelname", newlevel);
                     intent.putExtra("mCurrentPhotoUri", mCurrentPhotoUri);
                     intent.putExtra("rewards", newRewards);
                     startActivity(intent);
-                    Toast.makeText(LevelDoneActivity.this, "uri", Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(LevelDoneActivity.this, "uri", Toast.LENGTH_SHORT).show();
                 }
                 else {
                     intent.putExtra("assetname", assetName);
                     intent.putExtra("levelname", newlevel);
                     intent.putExtra("rewards", newRewards);
                     startActivity(intent);
-                    Toast.makeText(LevelDoneActivity.this, "3ady", Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(LevelDoneActivity.this, "3ady", Toast.LENGTH_SHORT).show();
 
                 }
             }

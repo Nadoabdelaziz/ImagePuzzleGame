@@ -89,8 +89,11 @@ public class FirstFragment extends Fragment {
             }
         });
 
+//        mRewardedAd = new RewardedAd(getContext(),
+//                "ca-app-pub-2145987647160470/2803949040");
+
         mRewardedAd = new RewardedAd(getContext(),
-                "ca-app-pub-2145987647160470/2803949040");
+                "ca-app-pub-2145987647160470/2210632650");
 
         RewardedAdLoadCallback adLoadCallback = new RewardedAdLoadCallback() {
             @Override

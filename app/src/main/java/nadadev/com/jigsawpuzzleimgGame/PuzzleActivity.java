@@ -49,7 +49,7 @@ public class PuzzleActivity extends AppCompatActivity {
     private Context context = this;
     public boolean timeUp=false;
     public long score;
-    public int [] dimension = {3,4,5,6,7,8};
+    public int [] dimension = {4,5,6,7,8,9};
     int xy,total_pieces;
     TextView clk;
     CountDownTimer countDownTimer;
@@ -480,7 +480,7 @@ public class PuzzleActivity extends AppCompatActivity {
                     long thescore = FinalScore();
                     intent.putExtra("score",String.valueOf(thescore));
                     startActivity(intent);
-                    Toast.makeText(context, "Photo exists", Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(context, "Photo exists", Toast.LENGTH_SHORT).show();
                 }
                 else if(mCurrentPhotoUri!=null){
                     intent = new Intent(getApplicationContext(), LevelDoneActivity.class);
@@ -491,7 +491,7 @@ public class PuzzleActivity extends AppCompatActivity {
                     long thescore = FinalScore();
                     intent.putExtra("score",String.valueOf(thescore));
                     startActivity(intent);
-                    Toast.makeText(context, "Photo exists", Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(context, "Photo exists", Toast.LENGTH_SHORT).show();
 
                 }
                 else{

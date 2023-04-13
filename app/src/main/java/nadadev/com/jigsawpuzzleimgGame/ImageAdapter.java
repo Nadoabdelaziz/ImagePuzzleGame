@@ -187,7 +187,7 @@ public class ImageAdapter extends BaseAdapter {
                             alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "Yes",
                                     new DialogInterface.OnClickListener() {
                                         public void onClick(DialogInterface dialog, int which) {
-                                            Toast.makeText(mContext, Long.toString(number), Toast.LENGTH_SHORT).show();
+//                                            Toast.makeText(mContext, Long.toString(number), Toast.LENGTH_SHORT).show();
                                             SharedPreferences.Editor editor1 = sharedPrefPoints.edit();
                                             editor1.putLong("rewards", number - 40);
                                             editor1.commit();
@@ -212,7 +212,7 @@ public class ImageAdapter extends BaseAdapter {
                             alertDialog.setButton(AlertDialog.BUTTON_NEGATIVE, "No",
                                     new DialogInterface.OnClickListener() {
                                         public void onClick(DialogInterface dialog, int which) {
-                                            Toast.makeText(mContext, "No is pressed", Toast.LENGTH_SHORT).show();
+//                                            Toast.makeText(mContext, "No is pressed", Toast.LENGTH_SHORT).show();
                                             dialog.dismiss();
                                         }
                                     });
