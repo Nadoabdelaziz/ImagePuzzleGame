@@ -203,9 +203,9 @@ public class TheFragmnetsActivity extends AppCompatActivity {
             try {
                 photoFile = createImageFile();
                         AlertDialog alertDialog = new AlertDialog.Builder(context).create();
-                        if(number >= 40) {
+                        if(number >= 1000) {
 
-                            alertDialog.setTitle("Are you sure you want to unlock this puzzle with  40  ? \n");
+                            alertDialog.setTitle("Are you sure you want to unlock this puzzle with  1000  ? \n");
 
                             File finalPhotoFile = photoFile;
                             alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "Yes",
@@ -215,7 +215,7 @@ public class TheFragmnetsActivity extends AppCompatActivity {
                                             SharedPreferences sharedPrefPoints = MyActivity.getSharedPreferences("Points", 0);
                                             Long number = sharedPrefPoints.getLong("rewards", 0);
                                             SharedPreferences.Editor editor1 = sharedPrefPoints.edit();
-                                            editor1.putLong("rewards", number - 40);
+                                            editor1.putLong("rewards", number - 1000);
                                             editor1.commit();
                                             dialog.dismiss();
 
@@ -237,7 +237,7 @@ public class TheFragmnetsActivity extends AppCompatActivity {
                                     });
                         }
                         else{
-                            alertDialog.setTitle("You Don't Have Enough Points !");
+                            alertDialog.setTitle("You Don't Have Enough Points (1000 points needed) !");
                             alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "Ok",
                                     new DialogInterface.OnClickListener() {
                                         public void onClick(DialogInterface dialog, int which) {
@@ -401,14 +401,14 @@ public class TheFragmnetsActivity extends AppCompatActivity {
                             if (ContextCompat.checkSelfPermission(context, android.Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
                                 ActivityCompat.requestPermissions(MyActivity, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, REQUEST_PERMISSION_READ_EXTERNAL_STORAGE);
                             } else {
-                                if(number >= 40) {
-                                    alertDialog.setTitle("Are you sure you want to unlock this puzzle with  40  ? \n");
+                                if(number >= 1000) {
+                                    alertDialog.setTitle("Are you sure you want to unlock this puzzle with  1000  ? \n");
                                     alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "Yes",
                                             new DialogInterface.OnClickListener() {
                                                 public void onClick(DialogInterface dialog, int which) {
 
                                                     SharedPreferences.Editor editor1 = sharedPrefPoints.edit();
-                                                    editor1.putLong("rewards", number - 40);
+                                                    editor1.putLong("rewards", number - 1000);
                                                     editor1.commit();
                                                     dialog.dismiss();
 
@@ -427,7 +427,7 @@ public class TheFragmnetsActivity extends AppCompatActivity {
                                 }
                                 else {
 //                                    startActivity(getIntent());
-                                    alertDialog.setTitle("You Don't Have Enough Points !");
+                                    alertDialog.setTitle("You Don't Have Enough Points (1000 points needed) !");
                                     alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "Ok",
                                             new DialogInterface.OnClickListener() {
                                                 public void onClick(DialogInterface dialog, int which) {

@@ -181,15 +181,15 @@ public class ImageAdapter extends BaseAdapter {
                             mpalert.start();
                         }
                         AlertDialog alertDialog = new AlertDialog.Builder(mContext).create();
-                        if (number >= 40) {
-                            alertDialog.setTitle("Are you sure you want to unlock this puzzle with  40  ? \n");
+                        if (number >= 1000) {
+                            alertDialog.setTitle("Are you sure you want to unlock this puzzle with  1000  ? \n");
 
                             alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "Yes",
                                     new DialogInterface.OnClickListener() {
                                         public void onClick(DialogInterface dialog, int which) {
 //                                            Toast.makeText(mContext, Long.toString(number), Toast.LENGTH_SHORT).show();
                                             SharedPreferences.Editor editor1 = sharedPrefPoints.edit();
-                                            editor1.putLong("rewards", number - 40);
+                                            editor1.putLong("rewards", number - 1000);
                                             editor1.commit();
                                             SharedPreferences sharedPrefPuzzle = mContext.getSharedPreferences("Unlocked", Context.MODE_PRIVATE);
                                             Set<String> new_st = sharedPrefPuzzle.getStringSet("unlocked_images", null);
@@ -217,7 +217,7 @@ public class ImageAdapter extends BaseAdapter {
                                         }
                                     });
                         } else {
-                            alertDialog.setTitle("You Don't Have Enough Points !");
+                            alertDialog.setTitle("You Don't Have Enough Points (1000 points needed) !");
                             alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "Ok",
                                     new DialogInterface.OnClickListener() {
                                         public void onClick(DialogInterface dialog, int which) {
